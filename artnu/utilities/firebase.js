@@ -24,19 +24,23 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 
-export async function readDatabase(){
-    const querySnapshot = await getDocs(collection(db, "names"));
+export async function readPosts(){
+    const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.data()["First"]);
+      console.log(doc.data());
     });
 }
 
-export async function addData(first, last, born) {
+export async function addData(price, likes, author, img, medium, caption, date) {
     try {
-        const docRef = await addDoc(collection(db, "names"), {
-          first: first,
-          last: last,
-          born: born
+        const docRef = await addDoc(collection(db, "posts"), {
+            price: price,
+            likes: likes,
+            author, author,
+            img: img,
+            medium: medium,
+            caption: caption,
+            date: date
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
