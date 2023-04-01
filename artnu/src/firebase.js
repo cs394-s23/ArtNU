@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore"; 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,13 +27,28 @@ const db = getFirestore(app);
 
 
 export async function readPosts(){
+    var posts = []
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
+      posts.push(doc.data())
     });
+    return posts
 }
 
-export async function addData(price, likes, author, img, medium, caption, date) {
+
+export async function readCommissions(){
+    var commissions = []
+    const querySnapshot = await getDocs(collection(db, "commissions"));
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+      commissions.push(doc.data())
+    });
+    return commissions
+}
+
+
+export async function addPost(price, likes, author, img, medium, caption, tags, date) {
     try {
         const docRef = await addDoc(collection(db, "posts"), {
             price: price,
@@ -40,7 +57,19 @@ export async function addData(price, likes, author, img, medium, caption, date) 
             img: img,
             medium: medium,
             caption: caption,
+            tags: tags,
             date: date
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+}
+
+export async function addCommission() {
+    try {
+        const docRef = await addDoc(collection(db, "commissions"), {
+            
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {

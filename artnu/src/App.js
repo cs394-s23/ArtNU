@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+// import { readPosts } from '../utilities/firebase';
+import { readPosts } from "./firebase.js"
+
 
 function App() {
+  readPosts()
   return (
     <div className="App">
       <header className="App-header">
