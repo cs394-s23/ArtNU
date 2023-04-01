@@ -30,8 +30,9 @@ export async function readPosts(){
     var posts = []
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+    
       posts.push(doc.data())
+      console.log(doc.data())
     });
     return posts
 }
@@ -41,7 +42,7 @@ export async function readCommissions(){
     var commissions = []
     const querySnapshot = await getDocs(collection(db, "commissions"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      //console.log(doc.data());
       commissions.push(doc.data())
     });
     return commissions

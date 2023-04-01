@@ -1,7 +1,14 @@
-export default function Explore() {
+import {Posts} from './posts.js';
+
+export default function Explore()
+
+{
   return (
+    
     <div>
-      <h1>Explore</h1>
+      <h1>Home</h1>
+       {/* search bar + filters*/}
+        <Posts/>
     </div>
   );
 }
