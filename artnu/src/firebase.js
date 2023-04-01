@@ -32,7 +32,7 @@ export async function readPosts(){
     querySnapshot.forEach((doc) => {
     
       posts.push(doc.data())
-      console.log(doc.data())
+      //console.log(doc.data())
     });
     return posts
 }
