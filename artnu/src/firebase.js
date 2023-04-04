@@ -31,13 +31,15 @@ export async function readPosts(){
     var posts = []
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
-    
-      posts.push(doc.data())
+      const post = doc.data();
+      post.ref = doc.ref;
+      posts.push(post)
       //console.log(doc.data())
     });
     return posts
 }
 
+export const posts_data = readPosts();
 /*
 export async function readCommissions(){
     var commissions = []

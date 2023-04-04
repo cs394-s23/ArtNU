@@ -1,30 +1,29 @@
-import { readPosts } from "../firebase.js";
+import { posts_data } from "../firebase.js";
 import {useState} from "react";
 import {Post} from "./post.js"
 
-function Post2Html() {
+// function Post2Html() {
     
-};
+// };
 
 export function Posts(){ 
     const [posts, setPosts] = useState([])
-    const dp = readPosts()
+    const dp = posts_data
         .then(data => {
-
             setPosts(data)
-
         })
-
- 
     return (
         
-        <div>
+        <div className = "post-grid">
             {posts.map((post) => (
-                <Post
-                img={post.img}
-                author={post.author}
-                likes={post.likes}
-                price={post.price}/>
+                <>
+                    <Post
+                    key = {post.ref}
+                    img={post.img}
+                    author={post.author}
+                    likes={post.likes}
+                    price={post.price}/>
+                </>
             ))}
            
         </div>

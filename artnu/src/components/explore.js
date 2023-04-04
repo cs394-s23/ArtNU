@@ -8,7 +8,21 @@ export default function Explore()
     <div>
       <h1>Home</h1>
        {/* search bar + filters*/}
-        <Posts/>
+      <Posts/>
+      <div className="nav">
+        <button>
+          Home
+        </button>
+        <button>
+          Explore
+        </button>
+        <button>
+          Com
+        </button>
+        <button>
+          Profile
+        </button>
+      </div>
     </div>
   );
 }
