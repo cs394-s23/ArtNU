@@ -54,7 +54,7 @@ export async function addPost(price, likes, author, img, medium, caption, tags, 
         const docRef = await addDoc(collection(db, "posts"), {
             price: price,
             likes: likes,
-            author, author,
+            author: author,
             img: img,
             medium: medium,
             caption: caption,
