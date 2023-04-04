@@ -11,20 +11,52 @@
 }
 .post {
   width: 500px;
-  height: 450px;
+  height: fit-content;
   background-color: grey;
   border-radius: 15px;
   padding: 10px;
   /* margin-left: auto;
   margin-right: auto; */
 }
+.post-img-box {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 
+}
 .post-image{
   width: 400px;
   height: 400px;
+  position: relative;
+  margin: auto;
   /* object-fit: contain; */
 }
-
+.post-price {
+  float: right;
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  border: 1px solid #3498db;
+  background-color: transparent;
+  opacity: 0.5;
+  text-align: center;
+  border-radius: 5px;
+}
+.post-info {
+  display: flex;
+  justify-content: space-between;
+}
+.post-info .likes {
+  display: flex;
+}
+.post-caption {
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+}
 .nav {
   background-color: grey;
   position: fixed;

@@ -1,9 +1,22 @@
 // CSS file
 
 export function Post(props) {
-    return <div className="post"> 
-            <img className='post-image' src={props.img}/>
-            <p> {props.author} </p>
-            <p> {props.price} </p>
+    return (
+        <div className="post"> 
+            <div className="post-img-box">
+                <img className='post-image' src={props.img}/>
+                <p className = "post-price"> ${props.price} </p>
             </div>
+            <span className = "post-info">
+                <p> {props.author} </p>
+                <div className="likes">
+                    <p> # of likes: {props.likes} </p>
+                    <button> like </button>
+                </div>
+            </span>
+            <span className = "post-caption">
+                {props.caption}
+            </span>
+        </div>
+    )
 }
