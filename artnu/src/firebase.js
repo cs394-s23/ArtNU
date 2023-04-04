@@ -9,14 +9,15 @@ import { collection, getDocs, addDoc } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyADIh59KOywI4OG4ndi_ysf7BfPvRu8hFU",
-  authDomain: "cs-394-artnu.firebaseapp.com",
-  projectId: "cs-394-artnu",
-  storageBucket: "cs-394-artnu.appspot.com",
-  messagingSenderId: "789202477848",
-  appId: "1:789202477848:web:98074645c37583aec1b46d",
-  measurementId: "G-RC8EYYD98P"
+  apiKey: "AIzaSyBA7OB8g1kKD2ipI-to-r0FcgTZL3HC4Fs",
+  authDomain: "nuart-part-2.firebaseapp.com",
+  projectId: "nuart-part-2",
+  storageBucket: "nuart-part-2.appspot.com",
+  messagingSenderId: "772881649664",
+  appId: "1:772881649664:web:0642ff92bfd0664f2708e5",
+  measurementId: "G-2LVT1VMP6V"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -37,7 +38,7 @@ export async function readPosts(){
     return posts
 }
 
-
+/*
 export async function readCommissions(){
     var commissions = []
     const querySnapshot = await getDocs(collection(db, "commissions"));
@@ -77,3 +78,4 @@ export async function addCommission() {
         console.error("Error adding document: ", e);
       }
 }
+*/
