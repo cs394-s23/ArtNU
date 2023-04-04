@@ -8,7 +8,9 @@ export function Post(props) {
         </div>
         <div className = "post-image-box">
             <img className="post-image" src={props.img} width="300" height="300"/>
-            <p className = "post-price"> ${props.price} </p>
+            <div className = "post-price-box">
+                <p className = "post-price"> ${props.price} </p>
+            </div>
         </div>
             <div className = "sub-image">
                 <span className = "info">
