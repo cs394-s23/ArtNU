@@ -4,47 +4,7 @@
   display: flex;
   justify-content: center;
 }
-.post-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 10px;
-}
-
-.post {
-  border: solid 1px #dbdbdb;
-  margin-bottom: 30px;
-  background-color: #fff;
-  width: 500px;
-}
-
-.post .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 5px;
-}
-
-.post .header h3 {
-  border: solid 1px black;
-}
-
-.post .info, .post .info div, .post .info p, .post .info strong {
-  border: solid 1px black;
-}
-
-.post .info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 5px;
-}
-.post img {
-  height: auto; 
-  width: 100%; 
-}
-
+/* filter things */
 .filters{
   display: flex;
   flex-direction: "row";
@@ -59,14 +19,89 @@
   width: 100px;
 }
 
-.post-info {
+.post-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.post {
+  border: solid 1px #dbdbdb;
+  margin-bottom: 30px;
+  background-color: rgba(67, 6, 107, 0.377);
+  width: 500px;
+  height: fit-content;
+  border-radius: 15px;
+}
+
+.post .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 5px;
+}
+
+.post-image-box {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-image{
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: auto;
+}
+
+.post-price {
+  float: right;
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  border: 1px solid grey;
+  background-color: lightgrey;
+  opacity: 0.7;
+  text-align: center;
+  border-radius: 5px;
+}
+.post .info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.post .info .author {
+  font-weight: 700;
+}
+
+.post .info .likes {
+  font-weight: 200;
+  display: flex;
+}
+
+.post .info .likes button {
+  width: fit-content;
+  height:fit-content;
+  margin: auto;
+}
+
+.caption {
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+  font-weight: 200;
+  padding: 5px;
+
 }
 .nav {
   background-color: grey;
   position: fixed;
   bottom: 0;
-  width:  100%;
+  width: 500px;
 }
