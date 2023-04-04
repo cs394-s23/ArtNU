@@ -1,14 +1,25 @@
 import { posts_data } from "../firebase.js";
-import {useState} from "react";
-import {Post} from "./post.js"
+import {useState, useEffect} from "react";
+import {Post} from "./post.js" ;
+import {Filters} from "./filters.js";
+
 
 // function Post2Html() {
     
 // };
 
 
+
 export function Posts(){
+
     const [filter, setFilter] = useState("All Art");
+    const handleFilter = (e) => {
+        const filter = e.target.value;
+        console.log(filter)
+        setFilter(filter);
+    }
+
+        
     
     const [posts, setPosts] = useState([])
     const dp = posts_data
@@ -16,9 +27,11 @@ export function Posts(){
         setPosts(data)
     })
     return (
-        
+        <>
+        <Filters handleFilter={handleFilter}/>
         <div className = "post-grid">
-            {posts.map((post) => (
+
+            {posts.filter(post => post.medium == filter ).map((post) => (
                 <>
                     <Post
                     key = {post.ref}
@@ -30,6 +43,7 @@ export function Posts(){
             ))}
            
         </div>
+        </>
 
 
     )

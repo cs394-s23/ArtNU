@@ -8,7 +8,7 @@ export default function Explore() {
     <div>
       <h1>Home</h1>
        {/* search bar + filters*/}
-       <Filters/>
+       
       <Posts/>
       <Navbar/>
     </div>
