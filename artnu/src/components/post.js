@@ -4,7 +4,7 @@ export function Post(props) {
     return (
     <div className="post"> 
         <div className="header">
-            <h3>{props.author}</h3>
+            <h3>{props.title}</h3>
         </div>
         <div className = "post-image-box">
             <img className="post-image" src={props.img} width="300" height="300"/>

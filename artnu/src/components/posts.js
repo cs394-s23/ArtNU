@@ -58,7 +58,8 @@ export function Posts(){
                     author={post.author}
                     likes={post.likes}
                     price={post.price}
-                    caption={post.caption}/>
+                    caption={post.caption}
+                    title = {post.title}/>
                 </>
             ))}
            
