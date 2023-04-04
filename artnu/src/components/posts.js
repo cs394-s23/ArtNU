@@ -12,26 +12,45 @@ import {Filters} from "./filters.js";
 
 export function Posts(){
 
+    const [initialData, setInitialData] = useState([])
     const [filter, setFilter] = useState("All Art");
-    const handleFilter = (e) => {
-        const filter = e.target.value;
-        console.log(filter)
-        setFilter(filter);
-    }
-
-        
-    
     const [posts, setPosts] = useState([])
+
+
+    useEffect(() =>{ // initialize THIS ONLY ONCE
     const dp = posts_data
     .then(data => {
+        console.log(data, "initial data")
+        setInitialData(data)
         setPosts(data)
-    })
+    })}, []
+    )
+    
+    function handleFilter(filterType) {
+        console.log(filterType, "NEW FILTER TYPE")
+        setFilter(filterType)
+    }
+    
+    
+    useEffect(()=>{
+        console.log(filter)
+        if (filter === "All Art") {
+            setPosts(initialData)
+            return
+        }
+        let filteredPosts = initialData.filter(post => post.medium == filter)
+        console.log(filteredPosts)
+        filteredPosts.forEach(element => {
+            console.log(element)
+        });
+        setPosts(filteredPosts)
+    }, [filter])
+
     return (
         <>
-        <Filters handleFilter={handleFilter}/>
+        <Filters changeFilter={handleFilter}/>
         <div className = "post-grid">
-
-            {posts.filter(post => post.medium == filter ).map((post) => (
+            {posts.map((post) => (
                 <>
                     <Post
                     key = {post.ref}
