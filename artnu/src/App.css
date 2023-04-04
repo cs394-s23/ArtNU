@@ -116,6 +116,7 @@
 }
 
 .nav {
+  display: flex;
   background-color: white;
   position: fixed;
   bottom: 0;

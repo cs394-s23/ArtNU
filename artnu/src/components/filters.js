@@ -7,6 +7,7 @@ export function Filters(props) {
     setFilter(newFilter);
     props.changeFilter(newFilter);
     document.getElementsByClassName(newFilter)[0].style.background = "gray";
+    console.log(newFilter);
     // To change the old one back, can we access the old filter here
     // and to the same style application
   }
