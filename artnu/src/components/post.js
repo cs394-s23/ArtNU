@@ -2,17 +2,20 @@
 
 export function Post(props) {
     return <div className="post"> 
-            <div className = "post-header">
-                should we have a title here or smth
+            <div className="header">
+                <h3>{props.author}</h3>
+                <h3> ${props.price} </h3>
             </div>
-            <img className='post-image' src={props.img}/>
-            <div className = "post-icons">
-                icons go here
+            <img src={props.img} width="300" height="300"/>
+            <div className="info">
+                <strong className="likes">{props.likes} likes</strong>
+                <div className="caption">
+                    <p>
+                        <strong>{props.author} </strong>
+                        {props.caption}
+                    </p>
+                </div>
             </div>
-            <div className = "post-info">
-                <p> {props.author} </p>
-                <p> ${props.price} </p>
-                <p> likes: {props.likes} </p>
-            </div>
+            
             </div>
 }
