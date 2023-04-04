@@ -1,28 +1,16 @@
 import {Posts} from './posts.js';
+import {Navbar} from './navbar.js'
+import {Filters} from './filters.js'
 
-export default function Explore()
-
-{
+export default function Explore() {
   return (
     
     <div>
       <h1>Home</h1>
        {/* search bar + filters*/}
+       <Filters/>
       <Posts/>
-      <div className="nav">
-        <button>
-          Home
-        </button>
-        <button>
-          Explore
-        </button>
-        <button>
-          Com
-        </button>
-        <button>
-          Profile
-        </button>
-      </div>
+      <Navbar/>
     </div>
   );
 }

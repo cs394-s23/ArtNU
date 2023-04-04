@@ -6,12 +6,15 @@ import {Post} from "./post.js"
     
 // };
 
-export function Posts(){ 
+
+export function Posts(){
+    const [filter, setFilter] = useState("All Art");
+    
     const [posts, setPosts] = useState([])
     const dp = posts_data
-        .then(data => {
-            setPosts(data)
-        })
+    .then(data => {
+        setPosts(data)
+    })
     return (
         
         <div className = "post-grid">
