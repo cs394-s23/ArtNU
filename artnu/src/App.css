@@ -10,9 +10,9 @@
   margin: 10px;
 }
 .post {
-  width: 500px;
+  width: 400px;
   height: fit-content;
-  background-color: grey;
+  background-color: rgba(67, 6, 107, 0.377);
   border-radius: 15px;
   padding: 10px;
   /* margin-left: auto;
@@ -39,23 +39,36 @@
   position: absolute;
   right: 5px;
   bottom: 0px;
-  border: 1px solid #3498db;
-  background-color: transparent;
-  opacity: 0.5;
+  border: 1px solid grey;
+  background-color: lightgrey;
+  opacity: 0.7;
   text-align: center;
   border-radius: 5px;
 }
 .post-info {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  
+}
+.post-info .author {
+  font-weight: 700;
 }
 .post-info .likes {
+  font-weight: 200;
   display: flex;
+}
+.likes button {
+  width: fit-content;
+  height:fit-content;
+  margin: auto;
 }
 .post-caption {
   display: flex;
   align-items: flex-start;
   text-align: start;
+  font-weight: 200;
+
 }
 .nav {
   background-color: grey;

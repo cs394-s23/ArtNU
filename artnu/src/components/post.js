@@ -8,7 +8,7 @@ export function Post(props) {
                 <p className = "post-price"> ${props.price} </p>
             </div>
             <span className = "post-info">
-                <p> {props.author} </p>
+                <p className = "author"> {props.author} </p>
                 <div className="likes">
                     <p> # of likes: {props.likes} </p>
                     <button> like </button>
