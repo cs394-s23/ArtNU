@@ -1,3 +1,5 @@
+import { PostCommission } from "./postCommission";
+
 export function Navbar() {
     return (
         <div className="nav">
@@ -7,7 +9,7 @@ export function Navbar() {
             <button>
                 Explore
             </button>
-            <button>
+            <button className="commission" onClick={() => document.getElementsByClassName("newCommission")[0].innerHTML = <PostCommission/>}>
                 Com
             </button>
             <button>

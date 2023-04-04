@@ -3,6 +3,8 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 /* filter things */
 .filters{
@@ -130,4 +132,36 @@
   padding: 15px;
   border: none;
   border-radius: 10px;
+  width:  100%;
+}
+
+.popup {
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px black;
+  position: fixed;
+  background-color: rgba(200,200,200,1.0);
+  justify-self: center;
+  align-self: center;
+  top: 0px;
+}
+
+.popup header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black
+}
+
+.popup .close-popup {
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.popup header h3 {
+  justify-self: flex-end;
+  border: 1px solid black;
 }
