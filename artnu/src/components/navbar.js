@@ -1,15 +1,28 @@
 import { PostCommission } from "./postCommission";
+import { useState, useEffect } from "react";
+
+
 
 export function Navbar() {
+
+    const [popUpVisible, setPopUpVisible] = useState(false);
+
+    const togglePopUp = () => {
+      setPopUpVisible(!popUpVisible);
+    }
+  
     return (
         <div className="nav">
+                <div>
+      <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
+    </div>
             <button>
                 Home
             </button>
             <button>
                 Explore
             </button>
-            <button className="commission" onClick={() => document.getElementsByClassName("newCommission")[0].innerHTML = <PostCommission/>}>
+            <button onClick={togglePopUp} >
                 Com
             </button>
             <button>
