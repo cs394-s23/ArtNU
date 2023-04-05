@@ -20,14 +20,16 @@
   font-weight: bold;
   border: none;
   border-radius: 15px;
+  background-color: white;
   box-shadow: 0px 2px 2px grey;
   font-size: 15px;
 }
 
 .post-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  /* align-items: center; */
   gap: 10px;
   margin: 10px;
 }
@@ -36,7 +38,7 @@
   border: solid 1px #dbdbdb;
   margin-bottom: 30px;
   background-color: rgba(67, 6, 107, 0.377);
-  width: 500px;
+  width: 400px;
   height: fit-content;
   border-radius: 15px;
 }
@@ -54,13 +56,17 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  width: auto;
+  height: 400px;
+
 }
 
 .post-image{
   width: 100%;
-  height: auto;
+  height: 100%;
   position: relative;
   margin: auto;
+  object-fit: cover;
 }
 
 .post-price-box{
@@ -131,7 +137,8 @@
   background-color: white;
   position: fixed;
   bottom: 0;
-  width: 500px;
+  width: 100%;
+  justify-content: center;
   height: 50px;
   padding: 15px;
   border: 1px solid black;
@@ -145,7 +152,7 @@
   padding: 15px;
   border: none;
   border-radius: 10px;
-  width:  100%;
+  width:  fit-content;
 }
 
 .nav .newCommission .popup {

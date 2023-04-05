@@ -30,6 +30,7 @@ export function Navbar() {
                     Profile
                 </button>
             </div>
+
       </div>
     )
 }

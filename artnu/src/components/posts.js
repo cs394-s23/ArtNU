@@ -20,14 +20,12 @@ export function Posts(){
     useEffect(() =>{ // initialize THIS ONLY ONCE
     const dp = posts_data
     .then(data => {
-        console.log(data, "initial data")
         setInitialData(data)
         setPosts(data)
     })}, []
     )
     
     function handleFilter(filterType) {
-        console.log(filterType, "NEW FILTER TYPE")
         setFilter(filterType)
     }
     
@@ -39,10 +37,24 @@ export function Posts(){
             return
         }
         let filteredPosts = initialData.filter(post => post.medium == filter)
+        if (filter == "Commission") {
+            filteredPosts = []
+            initialData.forEach(element => {
+                if(element["tags"]) {
+                    element["tags"].forEach(tag => {
+                        if (tag == "Commission") {
+                            filteredPosts.push(element)
+                        }
+                    });
+                    // if ("Commission" in element["tags"]) {
+                    //     console.log("ADDING")
+                    //     filteredPosts.push(element)
+                    // }
+                    console.log(element["tags"])
+                }
+            });
+        }
         console.log(filteredPosts)
-        filteredPosts.forEach(element => {
-            console.log(element)
-        });
         setPosts(filteredPosts)
     }, [filter])
 
