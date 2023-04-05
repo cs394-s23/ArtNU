@@ -7,8 +7,7 @@ export function Filters(props) {
     oldFilter = filter
     setFilter(newFilter);
     props.changeFilter(newFilter);
-    // document.getElementsByClassName(oldFilter)[0].style.
-    // document.getElementsByClassName(newFilter)[0].style.background = "grey";
+    console.log(filter)
     // To change the old one back, can we access the old filter here
     // and to the same style application
   }
@@ -16,12 +15,28 @@ export function Filters(props) {
   return (
     <div className="filters">
       <button 
+            style={{
+                border: filter == "All Art" ? '2px solid black' : 'none',
+                padding: '10px',
+              }}
       className="All Art" value = {"on"} onClick={() => handleClick("All Art")}>All</button>
       <button
+                  style={{
+                    border: filter == "Ceramic" ? '2px solid black' : 'none',
+                    padding: '10px',
+                  }}
        className="Ceramic" value = {"off"}onClick={() => handleClick("Ceramic")}>Ceramic</button>
       <button 
+                  style={{
+                border: filter == "Painting" ? '2px solid black' : 'none',
+                padding: '10px',
+              }}
       className="Painting" value = {"off"} onClick={() => handleClick("Painting")}>Painting</button>
       <button 
+                  style={{
+                    border: filter == "Commission" ? '2px solid black' : 'none',
+                    padding: '10px',
+                  }}
       className="Commission" value = {"off"} onClick={() => handleClick("Commission")}>Commission</button>
     </div>
   );

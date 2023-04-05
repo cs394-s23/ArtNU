@@ -16,7 +16,6 @@ export function Navbar() {
             <div className="newCommission">
                 <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
             </div>
-            <div className="actual-nav">
                 <button>
                     Home
                 </button>
@@ -30,7 +29,5 @@ export function Navbar() {
                     Profile
                 </button>
             </div>
-
-      </div>
     )
 }

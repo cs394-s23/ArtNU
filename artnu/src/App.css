@@ -8,9 +8,9 @@
   justify-content: center;
 }
 /* filter things */
-.actual-nav .filters{
+.filters{
   /*border: solid 1px black;*/
-  width: 550px;
+  width: 800px;
 }
 
 .Painting{
@@ -156,18 +156,8 @@ background-clip: text;
   padding-bottom: 15px;
 }
 
-.nav {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.nav .actual-nav {
+.nav  {
   display: flex;
   background-color: white;
   position: fixed;
@@ -179,7 +169,7 @@ background-clip: text;
   border: 1px solid black;
 }
 
-.actual-nav button {
+.nav button {
   font-weight: bold;
   font-size: 15px;
   margin-left: 25px;
