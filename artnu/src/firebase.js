@@ -3,6 +3,8 @@ import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs, addDoc } from "firebase/firestore"; 
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,18 +24,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const storage = getStorage();
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-
+export const db = getFirestore(app);
 
 export async function readPosts(){
     var posts = []
     const querySnapshot = await getDocs(collection(db, "posts"));
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach(async (doc) => {
       const post = doc.data();
       post.ref = doc.ref;
-      posts.push(post)
+      posts.push(post);
       //console.log(doc.data())
     });
     return posts
