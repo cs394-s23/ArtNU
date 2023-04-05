@@ -23,7 +23,7 @@ export function Navbar() {
                     Explore
                 </button>
                 <button onClick={togglePopUp} >
-                    Com
+                    Post
                 </button>
                 <button>
                     Profile
