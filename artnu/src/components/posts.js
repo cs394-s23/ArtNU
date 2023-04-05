@@ -59,9 +59,10 @@ export function Posts(){
     }, [filter])
 
     return (
-        <>
+        
+        <div className="feed">
         <Filters changeFilter={handleFilter}/>
-        <div className = "post-grid">
+        <div className = "postsfeed">
             {posts.map((post) => (
                 <>
                     <Post
@@ -76,7 +77,8 @@ export function Posts(){
             ))}
            
         </div>
-        </>
+        </div>
+        
 
 
     )
