@@ -1,7 +1,9 @@
 import { useState } from "react";
+import {FileUploader} from "./fileUploader.js";
 
 export function PostCommission(props) {
   const { popUpVisible, togglePopUp } = props;
+  const id = Date.now();
 
   return (
     <div>
@@ -13,7 +15,7 @@ export function PostCommission(props) {
             <h3>New Post</h3>
           </header>
           <div className="add-image">
-            <button>Add Image</button>
+            <FileUploader id={id}/>
           </div>
           <div className="description">
             <strong>DESCRIPTION</strong>
