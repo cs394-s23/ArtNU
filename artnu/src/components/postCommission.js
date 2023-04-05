@@ -25,14 +25,7 @@ export function PostCommission(props) {
             <strong>INFO</strong>
             <div className="medium">
               <p>Medium</p>
-              <div className="dropdown">
-                <button className="dropbtn">medium</button>
-                <div className="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
-              </div>
+              <input type="text" placeholder="none"></input>
             </div>
             <div className="price">
               <p>Price</p>
@@ -41,6 +34,7 @@ export function PostCommission(props) {
               </div>
             </div>
           </div>
+          <button>Submit</button>
         </div>
       )}
     </div>
