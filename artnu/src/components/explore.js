@@ -6,7 +6,7 @@ export default function Explore() {
   return (
     
     <>
-      <h1>Explore</h1>
+      <h1 className='explore'>Explore</h1>
        {/* search bar + filters*/}
        
       <Posts/>

@@ -1,3 +1,4 @@
+
 .App {
   /* entire app styles */
   text-align: center;
@@ -10,6 +11,40 @@
 .actual-nav .filters{
   /*border: solid 1px black;*/
   width: 550px;
+}
+
+.Painting{
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+  background-image: url('../src/img/paint.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.Ceramic{
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+  background-image: url('../src/img/ceramics.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.Commission{
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+  background-image: url('../src/img/commission.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-emphasis-color: white;
+}
+
+.explore{
+  background: linear-gradient(to right, #c26bbc, #f78e92);
+-webkit-text-fill-color: transparent;
+background-clip: text;
 }
 
 .filters button {
