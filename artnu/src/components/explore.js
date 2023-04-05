@@ -6,6 +6,7 @@ import user from './icons/user.png'
 import paw from './icons/paw.png'
 
 
+
 export default function Explore() {
   const [popUpVisible, setPopUpVisible] = useState(false);
   const openpopup = (e) => {
