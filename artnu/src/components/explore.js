@@ -2,6 +2,7 @@ import {Posts} from './posts.js';
 import {Navbar} from './navbar.js'
 import {Filters} from './filters.js'
 
+
 export default function Explore() {
   return (
     
