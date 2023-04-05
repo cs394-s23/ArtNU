@@ -18,6 +18,7 @@ export function Filters(props) {
       <button className="All Art" value = {"on"} onClick={() => handleClick("All Art")}>All</button>
       <button className="Ceramic" value = {"off"}onClick={() => handleClick("Ceramic")}>Ceramic</button>
       <button className="Painting" value = {"off"} onClick={() => handleClick("Painting")}>Painting</button>
+      <button className="Commission" value = {"off"} onClick={() => handleClick("Commission")}>Commission</button>
     </div>
   );
 }
