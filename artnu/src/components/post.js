@@ -1,30 +1,41 @@
 // CSS file
+import { PostCommission } from "./postCommission";
+import { useState } from "react";
 
 export function Post(props) {
+    const [popUpVisible, setPopUpVisible] = useState(false);
+
+  const togglePopUp = () => {
+    setPopUpVisible(!popUpVisible);
+  }
+
     return (
     <div className="post"> 
-        <div className="header">
-            <h3>{props.title}</h3>
-        </div>
         <div className = "post-image-box">
-            <img className="post-image" src={props.img} width="300" height="300"/>
-            <div className = "post-price-box">
-                <p className = "post-price"> ${props.price} </p>
+            <img src={props.img}/>
+    
+            <span className = "post-price"> ${props.price} </span>
+            <div className = "btns">
+            <button class="buy" onClick={togglePopUp}> Buy </button>
+
+            <button class="commission"> Commission  </button>
             </div>
+
+   
         </div>
             <div className = "sub-image">
-                <span className = "info">
-                    <p className = "author"> {props.author} </p>
-                    <div className="likes">
-                        <p> # of likes: {props.likes} </p>
-                        <button> like </button>
-                    </div>
-                </span>
-                <span className = "caption">
+                <div className = "info">
+                    <h3 className = "author">{props.author}</h3>
+                    <h3 className ="title">{props.title}</h3>
+                    
+                </div>
+                <p className = "caption">
                         {props.caption}
-                </span> 
+                </p> 
             </div>
-            
+            <div className="newCommission">
+                <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
+            </div>
             
     </div>
     )

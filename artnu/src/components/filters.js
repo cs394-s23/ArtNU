@@ -32,12 +32,12 @@ export function Filters(props) {
                 padding: '10px',
               }}
       className="Painting" value = {"off"} onClick={() => handleClick("Painting")}>Painting</button>
-      <button 
+      {/* <button 
                   style={{
                     border: filter == "Commission" ? '2px solid black' : 'none',
                     padding: '10px',
                   }}
-      className="Commission" value = {"off"} onClick={() => handleClick("Commission")}>Commission</button>
+      className="Commission" value = {"off"} onClick={() => handleClick("Commission")}>Commission</button> */}
     </div>
   );
 }

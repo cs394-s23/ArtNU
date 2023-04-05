@@ -52,8 +52,6 @@ export async function readCommissions(){
     });
     return commissions
 }
-
-
 export async function addPost(price, likes, author, img, medium, caption, tags, date) {
     try {
         const docRef = await addDoc(collection(db, "posts"), {
@@ -71,7 +69,6 @@ export async function addPost(price, likes, author, img, medium, caption, tags, 
         console.error("Error adding document: ", e);
       }
 }
-
 export async function addCommission() {
     try {
         const docRef = await addDoc(collection(db, "commissions"), {

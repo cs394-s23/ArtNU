@@ -21,7 +21,8 @@ export function PostCommission(props) {
     medium: "",
     caption: "",
     tags: [],
-    date: null
+    date: null,
+    title: ""
   });
 
   async function getPhoto(id) {
@@ -45,7 +46,8 @@ export function PostCommission(props) {
             medium: newPost.medium,
             caption: newPost.caption,
             tags: newPost.tags,
-            date: Date.now()
+            date: Date.now(),
+            title: newPost.title
           });
           console.log("Document written with ID: ", docRef.id);
         }
@@ -72,7 +74,14 @@ export function PostCommission(props) {
             <input type="file" onChange={handleFileChange} />
           </div>
           <div className="description">
-            <strong>CAPTION</strong>
+            <strong>Details</strong>
+            <input
+              type="text"
+              name="title"
+              value={newPost.title}
+              onChange={handleInputChange}
+              placeholder="Name Your Piece!"
+            />
             <input
               type="text"
               name="caption"
@@ -80,6 +89,7 @@ export function PostCommission(props) {
               onChange={handleInputChange}
               placeholder="Tell us about the item!"
             />
+            
             {/* <p>Tell us about the item you are commissioning. Start with a headline, then add details.</p> */}
           </div>
           <div className="info">
@@ -126,10 +136,11 @@ export function PostCommission(props) {
                 />
               </div>
             </div>
-            <button onClick={handlePost}>Post</button>
+            <button onClick={handlePost} className="post">Post</button>
           </div>
         // </div>
       )}
     </div>
   );
 }
+
