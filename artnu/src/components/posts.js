@@ -20,14 +20,12 @@ export function Posts(){
     useEffect(() =>{ // initialize THIS ONLY ONCE
     const dp = posts_data
     .then(data => {
-        console.log(data, "initial data")
         setInitialData(data)
         setPosts(data)
     })}, []
     )
     
     function handleFilter(filterType) {
-        console.log(filterType, "NEW FILTER TYPE")
         setFilter(filterType)
     }
     

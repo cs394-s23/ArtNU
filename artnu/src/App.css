@@ -20,14 +20,16 @@
   font-weight: bold;
   border: none;
   border-radius: 15px;
+  background-color: white;
   box-shadow: 0px 2px 2px grey;
   font-size: 15px;
 }
 
 .post-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  /* align-items: center; */
   gap: 10px;
   margin: 10px;
 }
@@ -61,6 +63,7 @@
   height: auto;
   position: relative;
   margin: auto;
+  /* object-fit: cover; */
 }
 
 .post-price-box{
