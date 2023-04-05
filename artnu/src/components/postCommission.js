@@ -19,14 +19,14 @@ export function PostCommission(props) {
           </div>
           <div className="description">
             <strong>DESCRIPTION</strong>
-            <p>Tell us about the item you are commissioning. Start with a headline, then add details.</p>
+            <input type="text" placeholder="Tell us about your item. Start with a headline, then add details."></input>
           </div>
           <div className="info">
             <strong>INFO</strong>
             <div className="medium">
               <p>Medium</p>
-              <div className="medium-dropdown">
-                <button className="dropbtn">Dropdown</button>
+              <div className="dropdown">
+                <button className="dropbtn">medium</button>
                 <div className="dropdown-content">
                   <a href="#">Link 1</a>
                   <a href="#">Link 2</a>

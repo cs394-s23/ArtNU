@@ -2,14 +2,14 @@
   /* entire app styles */
   text-align: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
 }
 /* filter things */
-.filters{
-  width: auto;
+.actual-nav .filters{
+  /*border: solid 1px black;*/
+  width: 550px;
 }
 
 .filters button {
@@ -122,6 +122,17 @@
 }
 
 .nav {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav .actual-nav {
   display: flex;
   background-color: white;
   position: fixed;
@@ -130,9 +141,10 @@
   justify-content: center;
   height: 50px;
   padding: 15px;
+  border: 1px solid black;
 }
 
-.nav button {
+.actual-nav button {
   font-weight: bold;
   font-size: 15px;
   margin-left: 25px;
@@ -143,33 +155,132 @@
   width:  fit-content;
 }
 
-.popup {
-  width: 50vw;
-  height: 50vh;
+.nav .newCommission .popup {
+  width: 700px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: solid 1px black;
   position: fixed;
   background-color: rgba(200,200,200,1.0);
-  justify-self: center;
-  align-self: center;
-  top: 0px;
+  border-radius: 20px;
+  top: 200px;
 }
 
 .popup header{
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid black
+  justify-content: center;
+  border: 1px solid black;
 }
 
 .popup .close-popup {
   align-self: center;
-  justify-self: flex-start;
+  position: absolute;
+  left: 10px;
+  width: 100px;
+  margin: 5px;
 }
 
 .popup header h3 {
-  justify-self: flex-end;
+  justify-self: center;
   border: 1px solid black;
 }
+
+.popup .add-image {
+  border: 1px solid black;
+  width: 100%;
+  margin: 5px;
+}
+
+.popup .add-image button {
+  width: 100px;
+}
+
+.popup .description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid black;
+  width: 100%;
+  margin: 5px;
+}
+
+.popup .description input {
+  width: 95%;
+  margin: 5px;
+}
+
+.popup strong {
+  margin: 5px;
+}
+
+.popup .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid black;
+  width: 100%;
+  margin: 5px;
+}
+
+.popup .info .medium, .popup .info .price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+} 
+
+.popup .info .medium p, .popup .info .price p{
+  margin: 5px;
+} 
+.popup .info .price input {
+  width: 100px;
+  border: 1px solid black;
+  margin-right: 5px;
+
+}
+
+/* Dropdown Button */
+.popup .dropbtn {
+  border: none;
+  width: 100px;
+  height: 50px;
+  padding: 0px;
+  margin: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

@@ -13,21 +13,24 @@ export function Navbar() {
   
     return (
         <div className="nav">
-                <div>
-      <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
-    </div>
-            <button>
-                Home
-            </button>
-            <button>
-                Explore
-            </button>
-            <button onClick={togglePopUp} >
-                Commission
-            </button>
-            <button>
-                Profile
-            </button>
+            <div className="newCommission">
+                <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
+            </div>
+            <div className="actual-nav">
+                <button>
+                    Home
+                </button>
+                <button>
+                    Explore
+                </button>
+                <button onClick={togglePopUp} >
+                    Com
+                </button>
+                <button>
+                    Profile
+                </button>
+            </div>
+
       </div>
     )
 }
