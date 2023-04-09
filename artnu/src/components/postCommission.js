@@ -50,6 +50,8 @@ export function PostCommission(props) {
             title: newPost.title
           });
           console.log("Document written with ID: ", docRef.id);
+          togglePopUp();
+
         }
         } catch (e) {
           console.error("Error adding document: ", e);
