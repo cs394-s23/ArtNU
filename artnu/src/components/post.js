@@ -8,7 +8,6 @@ export function Post(props) {
   const togglePopUp = () => {
     setPopUpVisible(!popUpVisible);
   }
-
     return (
     <div className="post"> 
         <div className = "post-image-box">

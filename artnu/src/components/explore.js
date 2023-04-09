@@ -11,6 +11,7 @@ export default function Explore() {
   const [popUpVisible, setPopUpVisible] = useState(false);
   const openpopup = (e) => {
     setPopUpVisible(true);
+  console.log("hiiiii")
 
   }
   

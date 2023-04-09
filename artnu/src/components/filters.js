@@ -7,7 +7,6 @@ export function Filters(props) {
     oldFilter = filter
     setFilter(newFilter);
     props.changeFilter(newFilter);
-    console.log(filter)
     // To change the old one back, can we access the old filter here
     // and to the same style application
   }
