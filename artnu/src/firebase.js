@@ -2,7 +2,7 @@
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, addDoc } from "firebase/firestore"; 
+import { collection, getDocs, getDoc, DocumentReference, addDoc } from "firebase/firestore"; 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,8 +33,15 @@ export async function readPosts(){
     var posts = []
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach(async (doc) => {
-      const post = doc.data();
-      post.ref = doc.ref;
+    let post = doc.data();
+      if (post.user) {
+        const userSnap = await getDoc(post.user)
+          .then(user => {
+            post.user = user.data()
+          }
+        )
+      }
+      console.log(post)
       posts.push(post);
       //console.log(doc.data())
     });
