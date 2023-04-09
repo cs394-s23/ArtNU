@@ -15,7 +15,7 @@ export function Post(props) {
     
             <span className = "post-price"> ${props.price} </span>
             <div className = "btns">
-            <button class="buy" onClick={togglePopUp}> Buy </button>
+            <button class="buy"> Buy </button>
 
             <button class="commission"> Commission  </button>
             </div>
