@@ -5,7 +5,7 @@ export function PurchaseBox(props) {
         <div>
             {!props.popUpVisible && (
                 <div className="popup">
-                    <h3>Phone Number: {user.phone} </h3>
+                    <h3>{user.author} </h3>
                     <h3>Phone Number: {user.phone} </h3>
                     <h3>Email: {user.email} </h3>
                 </div>
