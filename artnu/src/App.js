@@ -3,7 +3,7 @@ import './App.css';
 // import { readPosts } from '../utilities/firebase';
 import { readPosts } from "./firebase.js"
 import Explore from "./components/explore.js"
-import {PostCommission} from "./components/postCommission.js"
+import {AddPost} from "./components/AddPost.js"
 
 
 
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Explore/>
-      <div className="newCommission"><PostCommission/></div>
+      <div className="newCommission"><AddPost/></div>
     </div>
   );
 }
