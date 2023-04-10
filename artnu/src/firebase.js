@@ -34,17 +34,17 @@ export async function readPosts(){
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach(async (doc) => {
     let post = doc.data();
-      if (post.user) {
-        const userSnap = await getDoc(post.user)
-          .then(user => {
-            post.user = user.data()
-          }
-        )
+    post.ref = doc.ref;
+    await getDoc(post.user)
+      .then(user => {
+        post.user = user.data()
       }
-      console.log(post)
+    )
+      // console.log(post)
       posts.push(post);
       //console.log(doc.data())
     });
+    console.log(posts);
     return posts
 }
 

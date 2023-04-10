@@ -3,13 +3,6 @@ import {useState, useEffect} from "react";
 import {Post} from "./post.js" ;
 import {Filters} from "./filters.js";
 
-
-// function Post2Html() {
-    
-// };
-
-
-
 export function Posts(){
 
     const [initialData, setInitialData] = useState([])
@@ -73,7 +66,7 @@ export function Posts(){
                     price={post.price}
                     caption={post.caption}
                     title = {post.title}
-                    user = {post.user}/>
+                    user = {{... post.user}} />
                 </>
             ))}
            
