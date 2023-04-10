@@ -1,7 +1,7 @@
 // CSS file
 import { AddPost } from "./AddPost";
 import { useState } from "react";
-import { PurchaseBox } from "./PurchaseBox"
+import { PurchaseBox } from "./purchaseBox"
 
 export function Post(props) {
     const [popUpVisible, setPopUpVisible] = useState(false);
@@ -9,12 +9,12 @@ export function Post(props) {
   const togglePopUp = () => {
     setPopUpVisible(!popUpVisible);
     console.log("TOGGLE VISIBILITY")
+    console.log(popUpVisible)
   }
     return (
     <div className="post"> 
-        <div className = "purchase-box">
             <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {props.user}/>
-        </div>
+
         
         <div className = "post-image-box">
             <img src={props.img}/>
