@@ -1,4 +1,4 @@
-import { PostCommission } from "./postCommission";
+import { AddPost } from "./AddPost";
 import { useState, useEffect } from "react";
 
 import home from './icons/Home.png'
@@ -34,7 +34,7 @@ export function Navbar(props) {
             <img src={plus}></img>
            </a>
            <div className="newCommission">
-                <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
+                <AddPost popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
             </div>
            </nav>
              

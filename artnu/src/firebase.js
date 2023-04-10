@@ -59,7 +59,7 @@ export async function readCommissions(){
     });
     return commissions
 }
-export async function addPost(price, likes, author, img, medium, caption, tags, date) {
+export async function AddPost(price, likes, author, img, medium, caption, tags, date) {
     try {
         const docRef = await addDoc(collection(db, "posts"), {
             price: price,

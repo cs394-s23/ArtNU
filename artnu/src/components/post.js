@@ -1,21 +1,27 @@
 // CSS file
-import { PostCommission } from "./postCommission";
+import { AddPost } from "./AddPost";
 import { useState } from "react";
+import { PurchaseBox } from "./PurchaseBox"
 
 export function Post(props) {
     const [popUpVisible, setPopUpVisible] = useState(false);
 
   const togglePopUp = () => {
     setPopUpVisible(!popUpVisible);
+    console.log("TOGGLE VISIBILITY")
   }
     return (
     <div className="post"> 
+        <div className = "purchase-box">
+            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {props.user}/>
+        </div>
+        
         <div className = "post-image-box">
             <img src={props.img}/>
     
             <span className = "post-price"> ${props.price} </span>
             <div className = "btns">
-            <button class="buy"> Buy </button>
+            <button class="buy" onClick={togglePopUp}> Buy </button>
 
             <button class="commission"> Commission  </button>
             </div>
@@ -32,9 +38,7 @@ export function Post(props) {
                         {props.caption}
                 </p> 
             </div>
-            <div className="newCommission">
-                <PostCommission popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
-            </div>
+
             
     </div>
     )

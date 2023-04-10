@@ -4,7 +4,7 @@ import {db} from "../firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
-export function PostCommission(props) {
+export function AddPost(props) {
   const [file, setFile] = useState(null);
   
   const handleFileChange = (e) => {

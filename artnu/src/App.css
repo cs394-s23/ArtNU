@@ -127,14 +127,14 @@ align-self: center;
 .filters button {
   margin: 25px;
   margin-top: 0;
-  width: 75px;
-  height: 20px;
+  width: 130px;
+  height: 40px;
   font-weight: bold;
   border: none;
   border-radius: 15px;
   background-color: white;
   box-shadow: 0px 2px 2px grey;
-  font-size: 10px;
+  font-size: 15px;
 }
 .feed{
   display: flex;
