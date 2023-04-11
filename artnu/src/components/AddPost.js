@@ -69,10 +69,11 @@ export function AddPost(props) {
       {popUpVisible && (
         <div className="popup-bg">
           <div className="popup">
-            <header>
-              <button className="close-popup" onClick={togglePopUp}></button>
-              <h3>New Post</h3>
-            </header>
+            <button className="close-btn" onClick={togglePopUp}>
+                  <i class="fa-solid fa-xmark"></i>
+              </button>
+            <h1>Add New Post</h1>
+            
             <div className="add-image">
               <input type="file" onChange={handleFileChange} />
             </div>

@@ -24,10 +24,11 @@ export function PurchaseBox(props) {
               </div>
             ) : (
               <>
-                <h1>Buy {user.author}'s Art</h1>
+               
                 <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
+                <h1>Buy {user.author}'s Art</h1>
                 <div className="popup-title">
                   <h2>{props.post.title}</h2>
                   <span>1x</span>
