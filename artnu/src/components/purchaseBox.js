@@ -1,15 +1,25 @@
 export function PurchaseBox(props) {
     const user = props.user;
-    console.log("CHILD", props.popUpVisible)
+    const { popUpVisible, togglePopUp } = props;
+  
     return (
-        <div>
-            {props.popUpVisible && (
-                <div className="popup">
-                    <h3>{user.author} </h3>
-                    <h3>Phone Number: {user.phone} </h3>
-                    <h3>Email: {user.email} </h3>
-                </div>
-            )}
-        </div>
-    )
-}
+      <div className={popUpVisible ? "popup-visible" : "popup-hidden"}>
+        <button className="close-btn" onClick={togglePopUp}>
+          Close
+        </button>
+        <h2>Contact Information</h2>
+        <ul>
+          <li>
+            <strong>Name:</strong> {user.name}
+          </li>
+          <li>
+            <strong>Phone:</strong> {user.phone}
+          </li>
+          <li>
+            <strong>Email:</strong> {user.email}
+          </li>
+        </ul>
+      </div>
+    );
+  }
+  
