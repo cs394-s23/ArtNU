@@ -26,13 +26,13 @@ export function Post(props) {
         <div className="post"> 
             <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user} post= {props}/>
 
-        <div className = "post-image-box">
-            <img src={props.img}/>
-            <span className = "post-price"> ${props.price} </span>
-            <div className = "btns">
-            <button class="buy" onClick={togglePopUp}> Buy </button>
-            <button class="commission"> Commission  </button>
-        </div>
+            <div className = "post-image-box">
+                <img src={props.img}/>
+                <span className = "post-price"> ${props.price} </span>
+                <div className = "btns">
+                <button class="buy" onClick={togglePopUp}> Buy </button>
+                <button class="commission"> Commission  </button>
+            </div>
    
             </div>
                 <div className = "sub-image">
@@ -44,6 +44,7 @@ export function Post(props) {
                         {props.caption}
                 </p> 
             </div>
+            <hr />
         </div>
     )
 }
