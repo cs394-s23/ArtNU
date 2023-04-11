@@ -24,7 +24,7 @@ export function Post(props) {
 
     return (
         <div className="post"> 
-            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user}/>
+            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user} post= {props}/>
 
         <div className = "post-image-box">
             <img src={props.img}/>
