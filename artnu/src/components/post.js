@@ -5,7 +5,7 @@ import { PurchaseBox } from "./purchaseBox"
 import { useEffect } from "react";
 
 export function Post(props) {
-    const [popUpVisible, setPopUpVisible] = useState(true);
+    const [popUpVisible, setPopUpVisible] = useState(false);
     const [user, setUser] = useState({});
     
     // async function fetchData() {
