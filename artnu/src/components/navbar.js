@@ -6,13 +6,9 @@ import message from './icons/Message.png';
 import plus from './icons/plus.png';
 import { togglePopUp } from "./explore";
 
-
-
-
 export function Navbar(props) {
 
     return (
-  
         
         <nav>
            
