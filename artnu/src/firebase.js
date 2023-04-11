@@ -35,11 +35,11 @@ export async function readPosts(){
     querySnapshot.forEach(async (doc) => {
     let post = doc.data();
     post.ref = doc.ref;
-    await getDoc(post.user)
-      .then(user => {
-        post.user = user.data()
-      }
-    )
+    // await getDoc(post.user)
+    //   .then(user => {
+    //     post.user = user.data()
+    //   }
+    // )
       // console.log(post)
       posts.push(post);
       //console.log(doc.data())

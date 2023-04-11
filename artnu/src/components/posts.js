@@ -2,6 +2,7 @@ import { posts_data } from "../firebase.js";
 import {useState, useEffect} from "react";
 import {Post} from "./post.js" ;
 import {Filters} from "./filters.js";
+import {getDoc} from "firebase/firestore";
 
 export function Posts(){
 
@@ -20,6 +21,12 @@ export function Posts(){
     
     function handleFilter(filterType) {
         setFilter(filterType)
+    }
+
+    async function getUser(userRef) {
+        const ref = await getDoc(userRef);
+        console.log(ref.data());
+        return ref.data();
     }
     
     
@@ -59,14 +66,15 @@ export function Posts(){
             {posts.map((post) => (
                 <>
                     <Post
-                    key = {post.ref}
-                    img={post.img}
-                    author={post.author}
-                    likes={post.likes}
-                    price={post.price}
-                    caption={post.caption}
-                    title = {post.title}
-                    user = {{... post.user}} />
+                        key = {post.ref}
+                        img={post.img}
+                        author={post.author}
+                        likes={post.likes}
+                        price={post.price}
+                        caption={post.caption}
+                        title = {post.title}
+                        getUser = {getUser} 
+                        userRef = {post.user} />
                 </>
             ))}
            
