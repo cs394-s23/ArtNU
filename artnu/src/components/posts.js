@@ -46,10 +46,6 @@ export function Posts(){
                             filteredPosts.push(element)
                         }
                     });
-                    // if ("Commission" in element["tags"]) {
-                    //     console.log("ADDING")
-                    //     filteredPosts.push(element)
-                    // }
                     console.log(element["tags"])
                 }
             });
@@ -74,7 +70,8 @@ export function Posts(){
                         caption={post.caption}
                         title = {post.title}
                         getUser = {getUser} 
-                        userRef = {post.user} />
+                        userRef = {post.user} 
+                    />
                 </>
             ))}
            
