@@ -10,7 +10,7 @@ export function PurchaseBox(props) {
         <h2>Contact Information</h2>
         <ul>
           <li>
-            <strong>Name:</strong> {user.name}
+            <strong>Name:</strong> {user.author}
           </li>
           <li>
             <strong>Phone:</strong> {user.phone}

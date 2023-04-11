@@ -17,7 +17,7 @@ export function Post(props) {
         async function fetchData() {
           const data = await props.getUser(props.userRef);
           setUser(data);
-        }
+        } 
         fetchData();
       }, []);
 
