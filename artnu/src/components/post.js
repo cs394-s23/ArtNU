@@ -2,9 +2,25 @@
 import { AddPost } from "./AddPost";
 import { useState } from "react";
 import { PurchaseBox } from "./purchaseBox"
+import { useEffect } from "react";
 
 export function Post(props) {
-    const [popUpVisible, setPopUpVisible] = useState(false);
+    const [popUpVisible, setPopUpVisible] = useState(true);
+    const [user, setUser] = useState({});
+    
+    // async function fetchData() {
+    //     const data = await props.getUser(props.userRef);
+    //     setUser(data);
+    //   }
+
+    useEffect(() => {
+        async function fetchData() {
+          const data = await props.getUser(props.userRef);
+          setUser(data);
+        }
+        fetchData();
+      }, []);
+
 
   const togglePopUp = () => {
     setPopUpVisible(!popUpVisible);
@@ -13,7 +29,7 @@ export function Post(props) {
   }
     return (
     <div className="post"> 
-            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {props.user}/>
+            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user}/>
 
         
         <div className = "post-image-box">
@@ -30,7 +46,7 @@ export function Post(props) {
         </div>
             <div className = "sub-image">
                 <div className = "info">
-                    <h3 className = "author">{props.author}</h3>
+                    <h3 className = "author">{user.author}</h3>
                     <h3 className ="title">{props.title}</h3>
                     
                 </div>
