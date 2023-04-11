@@ -70,7 +70,7 @@ export function AddPost(props) {
         <div className="popup-bg">
           <div className="popup">
             <header>
-              <button className="close-popup" onClick={togglePopUp}>Close</button>
+              <button className="close-popup" onClick={togglePopUp}></button>
               <h3>New Post</h3>
             </header>
             <div className="add-image">
@@ -128,7 +128,7 @@ export function AddPost(props) {
                 </div>
               </div>
               <div className="author">
-                <p>Author</p>
+                <p>Artist</p>
                 <div class="price-input-holder">
                   <input 
                     type="text" 

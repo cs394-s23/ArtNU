@@ -3,7 +3,7 @@ export function PurchaseBox(props) {
     console.log("CHILD", props.popUpVisible)
     return (
         <div>
-            {!props.popUpVisible && (
+            {props.popUpVisible && (
                 <div className="popup">
                     <h3>{user.author} </h3>
                     <h3>Phone Number: {user.phone} </h3>
