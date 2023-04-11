@@ -4,19 +4,12 @@ import { useState, useEffect } from "react";
 import home from './icons/Home.png'
 import message from './icons/Message.png';
 import plus from './icons/plus.png';
-
+import { togglePopUp } from "./explore";
 
 
 
 
 export function Navbar(props) {
-
-  const [popUpVisible, setPopUpVisible] = useState(false);
-
-  const togglePopUp = () => {
-    setPopUpVisible(!popUpVisible);
-  }
-
 
     return (
   
@@ -33,9 +26,6 @@ export function Navbar(props) {
               <a onClick={togglePopUp}>       
             <img src={plus}></img>
            </a>
-           <div className="newCommission">
-                <AddPost popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
-            </div>
            </nav>
              
               

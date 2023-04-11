@@ -17,7 +17,6 @@ main{
   gap: 10px;
   width : 40vw;
 
-
 }
 header{
   display: flex;
@@ -269,20 +268,25 @@ align-self: center;
 }
 
 
-
+.newCommission .popup-bg {
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .newCommission .popup {
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position : absolute;
   width : 30vw;
   border-radius: 5px;
-
-  top : 50%;
-  right : 0;
   color : white;
   background-color: #4E2A84;
   padding : 10px;

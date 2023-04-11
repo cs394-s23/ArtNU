@@ -4,20 +4,17 @@ import {Filters} from './filters.js'
 import {useState} from 'react';
 import user from './icons/user.png'
 import paw from './icons/paw.png'
+import { AddPost } from "./AddPost";
 
-
+export let togglePopUp;
 
 export default function Explore() {
   const [popUpVisible, setPopUpVisible] = useState(false);
-  const openpopup = (e) => {
-    setPopUpVisible(true);
-  console.log("hiiiii")
 
+  togglePopUp = () => {
+    setPopUpVisible(!popUpVisible);
   }
   
-    
-
-
   return (
 
     <>
@@ -29,17 +26,20 @@ export default function Explore() {
         <span className="explore">Explore</span>
           <a>
             <img src={user} class="user"></img>
-           </a>
+          </a>
       </header>
 
-       <main>
-       <Posts/>
+      <main>   
+      <Posts/>
      
         
-       </main>
-     <aside>
-        <Navbar open={openpopup}/>
-     </aside>
+      </main>
+      <aside>
+        <Navbar/>
+      </aside>
+      <div className="newCommission">
+        <AddPost popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
+      </div>    
       
     </>
   );
