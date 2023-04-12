@@ -160,6 +160,7 @@ align-self: center;
   width : 90%;
   height : 90%;
   position: relative;
+  padding-top: 10px;
 }
 
 
@@ -280,7 +281,7 @@ padding-bottom: 0%;
   
 }
 
-
+/*overlay screen popup*/
  .popup-bg {
   top: 0px;
   left: 0px;
@@ -384,20 +385,19 @@ span.pagelink a{
   white-space: nowrap;
 }
 
-
-
 .close-btn {
-  align-self: left;
-  position:absolute; 
-
+  position: absolute; 
+  margin-top: 10px;
+  margin-right: 15px;
   top:0; 
-  right : 0;
-  margin : 10px;
+  right: 0;
   width: 30px;
   height: 30px;
-  font-size: 20px; /* added */
-  font-weight: bold; /* added */
+  font-size: 30px; /* added */
+  font-weight: bolder; /* added */
   cursor: pointer; /* added */
+  border: none; /* added */
+  background-color: transparent; /* added */
 }
 
 
@@ -427,13 +427,13 @@ span.pagelink a{
 }
 
 .popup .add-image {
-
   width: 100%;
-  margin: 5px;
+  margin-left: 10px;
+  margin-bottom: 15px;
 }
 
-.popup .add-image button {
-  width: 100px;
+.popup .add-image input {
+  font-size: large;
 }
 
 .popup .description {
@@ -447,11 +447,23 @@ span.pagelink a{
 
 .popup .description input {
   width: 95%;
+  height: 30px;
   margin: 5px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup .description textarea {
+  width: 95%;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px;
+  resize: none;
 }
 
 .popup strong {
   margin: 5px;
+  font-size: large;
 }
 
 .popup .info {
@@ -463,6 +475,12 @@ span.pagelink a{
   margin: 5px;
 }
 
+.medium-dropdown input {
+  font-size: large;
+  right: 0;
+  margin-right: 10px;
+}
+
 .popup .info .medium, .popup .info .price {
   display: flex;
   flex-direction: row;
@@ -472,14 +490,24 @@ span.pagelink a{
   width: 100%;
 } 
 
-.popup .info .medium p, .popup .info .price p{
+.popup .info .medium p{
   margin: 5px;
+  font-size: large;
+  font-weight: bold;
 } 
-.popup .info .price input {
+
+.price p, .author p {
+  font-size: large;
+  font-weight: bold;
+}
+
+.author {
+  margin-bottom: 15px;
+}
+
+.price input, .author input{
   width: 100px;
-
-  margin-right: 5px;
-
+  font-size: large;
 }
 
 hr {
@@ -520,19 +548,21 @@ hr {
   text-decoration: none;
   display: block;
 }
-button.post {
-
-  height: 30px ;
-  width: 50px;
-  margin: 5px;
+.post_button{
+  position: absolute;
+  height: 40px ;
+  width: 70px;
+  margin: 10px;
   text-align: center;
   background-color: orange;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   white-space: nowrap;
+  right: 0;
+  bottom: 0;
 }
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
