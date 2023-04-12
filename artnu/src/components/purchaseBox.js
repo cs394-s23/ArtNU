@@ -22,10 +22,10 @@ export function PurchaseBox(props) {
               <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <p>Order sent. Check your <span className="pagelink"><a href="/"> inbox</a></span> for updates.</p>
+                <p>Order sent. Check your <span className="pagelink"><a href="/ArtNU"> inbox</a></span> for updates.</p>
               </div>
             ) : (
-              <>
+              <div className="addPost">
                 <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -45,7 +45,7 @@ export function PurchaseBox(props) {
                     <i class="fa-solid fa-paper-plane"></i>
                   </button>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

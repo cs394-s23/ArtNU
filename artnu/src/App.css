@@ -211,6 +211,9 @@ padding-bottom: 0%;
   display: none;
 }
 
+.addPost .post-image-box{
+  padding-bottom: 0%;
+}
 
 .home .post .sub-image{
   display: flex;

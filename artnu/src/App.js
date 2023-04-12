@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { readPosts } from "./firebase.js"
-import Home from "./components/home.js"
+// import Home from "./components/home.js"
+import Home from './components/Home';
 import {AddPost} from "./components/AddPost.js"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PurchaseBox } from './components/purchaseBox';

@@ -5,7 +5,8 @@ import home from './icons/Home.png'
 import message from './icons/Message.png';
 import explore from './icons/Explore.png';
 import plus from './icons/plus.png';
-import { togglePopUp } from "./home";
+// import { togglePopUp } from "./home";
+import { togglePopUp } from "./Home";
 
 export function Navbar(props) {
 
