@@ -6,6 +6,7 @@ import message from './icons/Message.png';
 import explore from './icons/Explore.png';
 import plus from './icons/plus.png';
 import { togglePopUp } from "./explore";
+import {chatvisible} from "./explore";
 
 export function Navbar(props) {
 
@@ -18,7 +19,7 @@ export function Navbar(props) {
           <a>
             <img src = {explore}></img>
           </a>
-          <a>
+          <a onClick= {chatvisible}>
             <img src={message}></img>
           </a>
             

@@ -574,3 +574,64 @@ hr {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 
+/*chatbox stuff*/
+
+.chatbox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width : 40vw;
+  height: 65vh;
+  margin-right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding : 0;
+
+
+}
+
+.chatbox-header-right{
+width:100%;
+
+border-bottom: 1px solid black;
+margin : 0;
+height : 10%
+}
+.chatbox-header-left{
+  width: 100%;
+  height : 10%;
+  display : flex;
+  flex-direction : row;
+  align-items : center;
+  justify-content : space-between;
+  border-bottom: 1px solid black;
+}
+.chatbox-side{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width:40%;
+  height: 100%;
+  border-right : 0.25px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+.chatbox-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width:60%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
