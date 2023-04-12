@@ -19,7 +19,7 @@ export function Navbar(props) {
           <a>
             <img src = {explore}></img>
           </a>
-          <a>
+          <a href="ArtNU/chatbox">
             <img src={message}></img>
           </a>
             

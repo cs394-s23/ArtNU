@@ -28,6 +28,44 @@ const storage = getStorage();
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
+const myID= "0mg9bB2gmzmOqwvqanBr";
+
+export async function getMessages(id){
+  var posts = []
+  const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
+  querySnapshot.forEach(async (doc) => {
+  let post = doc.data();
+  post.ref = doc.ref;
+    posts.push(post);
+  });
+  console.log(posts);
+  // console.log(posts);
+  return posts
+}
+
+
+      
+
+
+
+
+
+
+
+
+
+
+// Retrieve all the documents in the chatrooms collection
+// chatroomsRef.get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     // Do something with each chatroom document here
+//     console.log(doc.id, ' => ', doc.data());
+//   });
+// }).catch((error) => {
+//   console.log('Error getting chatrooms:', error);
+// });
+
+// }
 
 export async function readPosts(){
     var posts = []
@@ -37,7 +75,7 @@ export async function readPosts(){
     post.ref = doc.ref;
       posts.push(post);
     });
-    console.log(posts);
+    // console.log(posts);
     return posts
 }
 
