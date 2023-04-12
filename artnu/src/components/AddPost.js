@@ -86,9 +86,11 @@ export function AddPost(props) {
                 onChange={handleInputChange}
                 placeholder="Name Your Piece!"
               />
-              <input
+              <textarea
                 type="text"
                 name="caption"
+                rows = "5"
+                cols = "50"
                 value={newPost.caption}
                 onChange={handleInputChange}
                 placeholder="Tell us about the item!"
@@ -108,18 +110,18 @@ export function AddPost(props) {
                       onChange={handleInputChange}
                       placeholder="Ceramic or Painting"
                     />
-                  </div>
                 </div>
               </div>
-              <div className="price">
-                <p>Price</p>
-                <div class="price-input-holder">
-                  <input 
-                    type="text" 
-                    name="price"
-                    value={newPost.price}
-                    placeholder="$"
-                    onChange={handleInputChange}
+            </div>
+            <div className="price">
+              <p>Price</p>
+              <div class="price-input-holder">
+                <input 
+                  type="text" 
+                  name="price"
+                  value={newPost.price}
+                  placeholder="$"
+                  onChange={handleInputChange}
                   />
                 </div>
               </div>
@@ -135,7 +137,7 @@ export function AddPost(props) {
                   />
                 </div>
               </div>
-              <button onClick={handlePost} className="post">Post</button>
+              <button onClick={handlePost} className="post_button">Post</button>
           </div>
         </div>
       )}
