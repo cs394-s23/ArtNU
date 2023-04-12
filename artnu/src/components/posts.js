@@ -57,7 +57,9 @@ export function Posts(){
     return (
         
         <div className="feed">
-        <Filters changeFilter={handleFilter}/>
+        <div className="filters">
+            <Filters changeFilter={handleFilter}/>
+        </div>
         <div className = "postsfeed">
             {posts.map((post) => (
                 <>

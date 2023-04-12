@@ -101,11 +101,6 @@ export function AddPost(props) {
               <div className="medium">
                 <p>Medium</p>
                 <div className="medium-dropdown">
-                  {/* <button className="dropbtn">Dropdown</button>
-                  <div className="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a> */}
                     <input 
                       type="text"
                       name="medium"
