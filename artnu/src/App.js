@@ -10,6 +10,7 @@ import { Navbar } from './components/navbar';
 import NoPage from './components/NoPage';
 import Commissions from './components/Commissions';
 import Explore from "./components/explore.js";
+import { ChatBox } from './components/Chatbox';
 
 function App() {
   readPosts()
@@ -23,6 +24,7 @@ function App() {
           <Route path="ArtNU/commissions" element={<Commissions/>}/>
           <Route path="ArtNU/*" element={<NoPage/>}/>
           <Route path="ArtNU/explore" element={<Explore/>}/>
+          <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
         </Routes>
       </BrowserRouter>
     </div>
