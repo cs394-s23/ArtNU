@@ -194,18 +194,20 @@ align-self: center;
   color: white;
 }
 
-.popup-visible {
+.post .popup-visible {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
   border: 1px solid black;
   z-index: 9999;
+  width: 25vh;
+  height: 75vh;
 }
-.popup-visible img {
-padding-bottom: 0%;
+.post .popup-visible .addPost {
+  width: 100%;
+  height: fit-content;
 }
 .popup-hidden {
   display: none;
@@ -213,6 +215,8 @@ padding-bottom: 0%;
 
 .addPost .post-image-box{
   padding-bottom: 0%;
+  height: 220px;
+
 }
 
 .home .post .sub-image{
