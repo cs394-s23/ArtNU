@@ -5,14 +5,16 @@ import {useState} from 'react';
 import user from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost";
-import { getMessages } from '../firebase.js';
+import { getMessages, addMessage } from '../firebase.js';
 const myID= "0mg9bB2gmzmOqwvqanBr";
+const levID = "jrqjR6pZU3qUnEZkzjYm";
 
 
 export function ChatBox (props) {
     // const {chatvisible, setchatvisible } = props;
     // console.log(chatvisible)
     getMessages(myID);
+    addMessage(myID, "Ur great", levID)
     return ( <div >
           { (
             <div className="chatbox">

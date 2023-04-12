@@ -13,13 +13,13 @@ export function Navbar(props) {
     return (
         
         <nav>
-          <a>
+          <a  href="home">
             <img src={home}></img>
           </a>
-          <a>
+          <a href="explore">
             <img src = {explore}></img>
           </a>
-          <a href="ArtNU/chatbox">
+          <a href="chatbox">
             <img src={message}></img>
           </a>
             

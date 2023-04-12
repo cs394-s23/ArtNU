@@ -2,8 +2,11 @@
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, getDoc, DocumentReference, addDoc } from "firebase/firestore"; 
+import firebase from "firebase/app";
+import "firebase/firestore";
+import { collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion } from "firebase/firestore"; 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -43,29 +46,75 @@ export async function getMessages(id){
   return posts
 }
 
-
+export async function addMessage(id, message, receiverID) {
+  try {
+    const docRef = doc(db, "users/"+id+"/chatrooms"+"/"+receiverID);
+    await updateDoc(docRef, {
+      convo: arrayUnion({ sender: id, 
+        content: message })
+    });
+    console.log("Message added successfully!");
+  } catch (error) {
+    console.error("Error adding message: ", error);
+  }
+}
       
+// export async function addMessage(id, message, receiverID) {
+//   // const levID = "jrqjR6pZU3qUnEZkzjYm";
+    
+//   // const docRef = await addDoc(collection(db, "users/"+id+"/chatrooms")[receiverID]["convo"], 
+//   // {content: message, 
+//   // sender: id});
+//   // Get a reference to the chatroom document
+// // const chatroomRef = Firestore().collection("users/"+id+"/chatrooms").doc(receiverID);
+//  const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
+
+//  const newMessage = {
+//   sender: id,
+//   content: message
+// };
+
+//  querySnapshot.forEach(async (doc) => {
+//   if (doc == receiverID) {
+//     doc.convos.push(newMessage)
+//   }
+//  }
+//  )
 
 
+// // Add the new message to the chatroom's messages array
 
-
-
-
-
-
-
-
-// Retrieve all the documents in the chatrooms collection
-// chatroomsRef.get().then((querySnapshot) => {
-//   querySnapshot.forEach((doc) => {
-//     // Do something with each chatroom document here
-//     console.log(doc.id, ' => ', doc.data());
-//   });
-// }).catch((error) => {
-//   console.log('Error getting chatrooms:', error);
+// chatroomRef.update({
+//   convos: firebase.firestore.FieldValue.arrayUnion(newMessage)
+// })
+// .then(() => {
+//   console.log("New message added to chatroom.");
+// })
+// .catch((error) => {
+//   console.error("Error adding new message to chatroom: ", error);
 // });
-
+  
 // }
+
+
+
+
+
+
+
+
+
+// // Retrieve all the documents in the chatrooms collection
+// // chatroomsRef.get().then((querySnapshot) => {
+// //   querySnapshot.forEach((doc) => {
+// //     // Do something with each chatroom document here
+// //     console.log(doc.id, ' => ', doc.data());
+// //   });
+// // }).catch((error) => {
+// //   console.log('Error getting chatrooms:', error);
+// // });
+
+// // }
 
 export async function readPosts(){
     var posts = []
