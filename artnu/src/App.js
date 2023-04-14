@@ -24,7 +24,7 @@ function App() {
             <Route path="ArtNU/commissions" element={<Commissions/>}/>
             <Route path="ArtNU/*" element={<div><Navbar/><NoPage/></div>}/>
             <Route path="ArtNU/explore" element={<Explore/>}/>
-            <Route path="ArtNU/chatbox" element={<div><Navbar/><ChatBox/></div>}/>
+            <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
             <Route path="ArtNU/home" element={<Home/>}/>
         </Routes>
       </BrowserRouter>

@@ -34,29 +34,78 @@ export const db = getFirestore(app);
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
 export async function getMessages(id){
-  var posts = []
+  var convos = []
   const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
   querySnapshot.forEach(async (doc) => {
-  let post = doc.data();
-  post.ref = doc.ref;
-    posts.push(post);
+  let convo = doc.data();
+  convo.ref = doc.ref;
+  convo.id = doc.id;
+
+    convos.push(convo);
   });
-  console.log(posts);
+
   // console.log(posts);
-  return posts
+  return convos
+}
+export async function getUserById(id){
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+  
+
 }
 
+export async function getMessagesBetween(id, receiverID){
+  var convos = []
+  const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
+  querySnapshot.forEach(async (doc) => {
+  let convo = doc.data();
+  if (doc.id == receiverID) {
+     return convo.convo;
+  }
+
+  
+
+  
+  });
+
+  // console.log(posts);
+  return convos
+}
+
+
+
+
+
+
+
 export async function addMessage(id, message, receiverID) {
-  try {
+  try { 
+
     const docRef = doc(db, "users/"+id+"/chatrooms"+"/"+receiverID);
     await updateDoc(docRef, {
       convo: arrayUnion({ sender: id, 
         content: message })
     });
+    /* mirror the message in the receiver's chatroom */
+    const docRef2 = doc(db, "users/"+receiverID+"/chatrooms"+"/"+id);
+    await updateDoc(docRef2, {
+      convo: arrayUnion({ sender: id,
+        content: message })
+    });
+
+    
+
     console.log("Message added successfully!");
   } catch (error) {
     console.error("Error adding message: ", error);
   }
+
+
+
+
+
+
 }
       
 // export async function addMessage(id, message, receiverID) {

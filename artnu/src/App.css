@@ -633,27 +633,31 @@ hr {
 }
 
 
-
+/*chatpage stuff*/
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  
+}
 /*chatbox stuff*/
 
 .chatbox {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  width : 40vw;
-  height: 65vh;
-  margin-right: 10px;
+  width : 95%;
+  margin : 2.5%;
+  height : 100%;
   background-color: white;
   border: 1px solid black;
-  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding : 0;
-
-
 }
 
 .chatbox-header-right{
@@ -672,6 +676,10 @@ height : 10%
   justify-content : space-between;
   border-bottom: 1px solid black;
 }
+.chatbox-header-left a{
+  padding : 10px;
+  
+}
 .chatbox-side{
   display: flex;
   flex-direction: column;
@@ -682,7 +690,6 @@ height : 10%
   border-right : 0.25px solid black;
   overflow-y: scroll;
   overflow-x: hidden;
-
 }
 .chatbox-main{
   display: flex;
@@ -694,4 +701,6 @@ height : 10%
   overflow-y: scroll;
   overflow-x: hidden;
 
-}
+} 
+
+
