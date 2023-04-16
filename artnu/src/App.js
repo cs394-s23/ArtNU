@@ -3,7 +3,7 @@ import './App.css';
 import { readPosts } from "./firebase.js"
 import Home from "./components/Home.js"
 import {AddPost} from "./components/AddPost.js"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { PurchaseBox } from './components/purchaseBox';
 import { Navbar } from './components/navbar';
 import NoPage from './components/NoPage';
