@@ -5,21 +5,20 @@ import home from './icons/Home.png'
 import message from './icons/Message.png';
 import explore from './icons/Explore.png';
 import plus from './icons/plus.png';
-// import { togglePopUp } from "./home";
-import { togglePopUp } from "./Home";
+import { togglePopUp } from "./Home.js";
 
 export function Navbar(props) {
 
     return (
         
         <nav>
-          <a  href="home">
+          <a  href="../ArtNU/home">
             <img src={home}></img>
           </a>
-          <a href="explore">
+          <a href="../ArtNU/explore">
             <img src = {explore}></img>
           </a>
-          <a href="chatbox">
+          <a href="../ArtNU/chatbox">
             <img src={message}></img>
           </a>
             

@@ -29,12 +29,14 @@ export function PurchaseBox(props) {
                 <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <h1>Buy {user.author}'s Art</h1>
+                <h1>Buy {props.post.author}'s Art</h1>
                 <div className="popup-title">
                   <h2>{props.post.title}</h2>
                   <span>1x</span>
                 </div>
-                <img className = "post-image-box" src={props.post.img}></img>
+                <div className = "post-image-box">
+                  <img src={props.post.img}></img>
+                </div>
                 <div className="popup-price">
                   <h2>{props.post.author}</h2>
                   <span> $ {props.post.price}</span>

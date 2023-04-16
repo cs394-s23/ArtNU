@@ -37,7 +37,7 @@ export function Post(props) {
             </div>
                 <div className = "sub-image">
                     <div className = "info">
-                    <h3 className = "author">{user.author}</h3>
+                    <h3 className = "author">{props.author}</h3>
                     <h3 className ="title">{props.title}</h3>
                 </div>
                 <p className = "caption">
