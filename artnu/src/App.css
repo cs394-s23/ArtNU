@@ -731,6 +731,7 @@ height : 10%
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
   width:60%;
   height: 100%;
   overflow-y: scroll;

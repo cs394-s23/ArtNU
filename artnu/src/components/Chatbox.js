@@ -27,10 +27,6 @@ export function ChatBox (props) {
         setSelected(id);
         //find the convo with the id
         let convo = convos.find(convo => convo.id === id)
-  
-
-        
-
     }
  
     
@@ -40,7 +36,7 @@ export function ChatBox (props) {
             setconvos(convos);
         }
         getConvos();
-    }, []);
+    }, [Convos]);
 
 
     useEffect(() => {
@@ -57,7 +53,13 @@ export function ChatBox (props) {
     }, [Convos]);
 
 
- 
+  function handleSend (e) {
+        e.preventDefault();
+        let content = e.target.elements[0].value;
+        addMessage(myID,  content, levID);
+        e.target.elements[0].value = "";
+      
+    }
 
     
 
@@ -133,30 +135,30 @@ export function ChatBox (props) {
                    
                     
                         <div className="chatbox-header-right" >
-                {/*  convo user name */}
+                            {/*  convo user name */}
                         </div>
 
 
-                <div className="chatbox-inner">
+                        <div className="chatbox-inner">
 
 
-                {/*  convo messages */}
-                {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {
-                    
-                    return (
-                        <div className="chatbox-message">
-                            <p>{message.content}</p>
-                        </div>
-                    )
-                }) : null}
+                                {/*  convo messages */}
+                                {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {
+                                    
+                                    return (
+                                        <div className="chatbox-message">
+                                            <p>{message.content}</p>
+                                        </div>
+                                    )
+                                }) : null}
+                            </div>
+                        <form className="chatbox-form" onSubmit={handleSend}>
+                        <input type="text" placeholder="Type a message" className="chatbox-input" />
+                        <button className="chatbox-button" type="submit">Send</button>
+                        </form>
 
-                    
-                
-                
-             
-                </div>
                
-    </div>
+            </div>
        
           
         </div>
