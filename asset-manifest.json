@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ArtNU/static/css/main.1b676773.css",
-    "main.js": "/ArtNU/static/js/main.5e7888c2.js",
+    "main.js": "/ArtNU/static/js/main.6b7bd237.js",
     "static/js/787.09b2b720.chunk.js": "/ArtNU/static/js/787.09b2b720.chunk.js",
     "static/media/paint.jpg": "/ArtNU/static/media/paint.8da451f9073b36b5575a.jpg",
     "static/media/SlateMedium.TTF": "/ArtNU/static/media/SlateMedium.51cbfa125235962f7b4f.TTF",
@@ -14,11 +14,11 @@
     "static/media/logo.svg": "/ArtNU/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/ArtNU/index.html",
     "main.1b676773.css.map": "/ArtNU/static/css/main.1b676773.css.map",
-    "main.5e7888c2.js.map": "/ArtNU/static/js/main.5e7888c2.js.map",
+    "main.6b7bd237.js.map": "/ArtNU/static/js/main.6b7bd237.js.map",
     "787.09b2b720.chunk.js.map": "/ArtNU/static/js/787.09b2b720.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b676773.css",
-    "static/js/main.5e7888c2.js"
+    "static/js/main.6b7bd237.js"
   ]
 }
