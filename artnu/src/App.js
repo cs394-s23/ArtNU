@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       {/* <Explore></Explore> */}
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* This is the parent route - render its child routes */}
             <Route path='ArtNU/' element={<div className="App"><Home/><div className="newCommission"><AddPost/></div></div>}/>
@@ -26,7 +26,7 @@ function App() {
             <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
             <Route path="ArtNU/home" element={<Home/>}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
