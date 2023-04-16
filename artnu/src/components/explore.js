@@ -27,8 +27,9 @@ export default function Explore() {
               <img src={user} class="user"></img>
             </a>
         </header>
-  
-        <main className="explore">   
+
+
+        <main className="explore">
         <section className="nu-favorites">
             <h1>NU Favorites</h1>
             <Posts/>

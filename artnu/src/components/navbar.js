@@ -25,6 +25,9 @@ export function Navbar(props) {
           <a onClick={togglePopUp}>       
             <img src={plus}></img>
           </a>
+          <a href="../ArtNU/search">
+            <p> Search </p>
+          </a>
           </nav>
              
               

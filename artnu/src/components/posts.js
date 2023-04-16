@@ -34,6 +34,7 @@ export function Posts(){
         console.log(filter)
         if (filter === "All Art") {
             setPosts(initialData)
+            console.log(initialData)
             return
         }
         let filteredPosts = initialData.filter(post => post.medium == filter)
