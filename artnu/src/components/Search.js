@@ -1,26 +1,10 @@
 import user from './icons/user.png'
 import paw from './icons/paw.png'
 import {Navbar} from './navbar.js'
-import SearchBar from './SearchBar';
-import {useState, useEffect} from "react";
-import { posts_data } from "../firebase.js";
+import SearchBar from "./SearchBar";
 
 
 export default function Search() {
-
-    const [initialData, setInitialData] = useState([])
-    const [posts, setPosts] = useState([])
-
-    useEffect(() =>{ // initialize THIS ONLY ONCE
-        const dp = posts_data
-        .then(data => {
-            setInitialData(data)
-            setPosts(data)
-        })}, []
-    )
-    useEffect(()=>{
-        setPosts(initialData)
-    }, [])
     
     return (
         <>
