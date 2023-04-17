@@ -11,6 +11,10 @@ export function Post(props) {
     useEffect(() => {
         async function fetchData() {
           const data = await props.getUser(props.userRef);
+
+               
+           
+
           setUser(data);
         } 
         fetchData();
@@ -24,7 +28,7 @@ export function Post(props) {
 
     return (
         <div className="post"> 
-            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user} post= {props}/>
+            <PurchaseBox popUpVisible={popUpVisible} togglePopUp={togglePopUp} user = {user} post = {props}/>
 
             <div className = "post-image-box">
                 <img src={props.img}/>

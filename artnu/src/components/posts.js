@@ -25,8 +25,10 @@ export function Posts(){
 
     async function getUser(userRef) {
         const ref = await getDoc(userRef);
-        console.log(ref.data());
-        return ref.data();
+        let user = ref.data();
+        user.id = ref.id;
+        // console.log(ref.data());
+        return user;
     }
     
     
@@ -50,7 +52,7 @@ export function Posts(){
                 }
             });
         }
-        console.log(filteredPosts)
+        // console.log(filteredPosts)
         setPosts(filteredPosts)
     }, [filter])
 
@@ -73,10 +75,10 @@ export function Posts(){
                         title = {post.title}
                         getUser = {getUser} 
                         userRef = {post.user} 
+                        postId= {post.id}
                     />
                 </>
             ))}
-           
         </div>
         </div>
         

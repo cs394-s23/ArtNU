@@ -50,6 +50,7 @@ export async function getMessages(id){
 export async function getUserById(id){
   const docRef = doc(db, "users", id);
   const docSnap = await getDoc(docRef);
+  
   return docSnap.data();
   
 
@@ -79,19 +80,19 @@ export async function getMessagesBetween(id, receiverID){
 
 
 
-export async function addMessage(id, message, receiverID) {
+export async function addMessage(id, message, receiverID,postdata) {
   try { 
 
     const docRef = doc(db, "users/"+id+"/chatrooms"+"/"+receiverID);
     await updateDoc(docRef, {
       convo: arrayUnion({ sender: id, 
-        content: message })
+        content: message , postdata: postdata})
     });
     /* mirror the message in the receiver's chatroom */
     const docRef2 = doc(db, "users/"+receiverID+"/chatrooms"+"/"+id);
     await updateDoc(docRef2, {
       convo: arrayUnion({ sender: id,
-        content: message })
+        content: message, postdata: postdata })
     });
 
     
@@ -171,6 +172,7 @@ export async function readPosts(){
     querySnapshot.forEach(async (doc) => {
     let post = doc.data();
     post.ref = doc.ref;
+    post.id = doc.id;
       posts.push(post);
     });
     // console.log(posts);
