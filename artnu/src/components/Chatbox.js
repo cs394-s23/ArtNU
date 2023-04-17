@@ -6,7 +6,7 @@ import user from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost";
 import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
-
+import {ChatOrder} from './chatOrder.js'
 
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
@@ -59,111 +59,64 @@ export function ChatBox (props) {
         let content = e.target.elements[0].value;
         addMessage(myID,  content, levID,[]);
         e.target.elements[0].value = "";
-      
     }
 
-  
+    return (
 
-    
-
-           
- 
-
-      
-
-
-           
-    
-       
- 
-        
-    
-    
-    
-
-
-    
-    return ( 
- 
-    
-    
     <div classname="chatpage">
              <header>
             <div className="logo">
                 <img src={paw}></img>
                 <span>NU Art</span>
             </div>
-          
+
             <Navbar/>
                 <a>
-                <img src={user} class="user"></img>
+                <img src={user} className="user"></img>
                 </a>
             </header>
         
             <div className="chatbox">
-   
-                
-                    
-
            
                 <div className="chatbox-side">
-                <div className="chatbox-header-left">
-                  <a>General</a>
-                    <a>Orders</a>
-                    <a>Commissions</a>
+                    <div className="chatbox-header-left">
+                    <a>General</a>
+                        <a>Orders</a>
+                        <a>Commissions</a>
+                    </div>
+                    <div className="chatbox-list">
+                        {/*  convo list */}
+                        {users.map(user => {
+                            return (
+                                <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
+                                    <h2>
+                                        {user.author}
+                                    </h2>
+                                </div>
+                        )
+                        })}        
+                    </div>
                 </div>
-                <div className="chatbox-list">
-                {/*  convo list */}
-                {users.map(user => {
-                    return (
-                        <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
-                            <h2>
-                                {user.author}
-                            </h2>
-                        </div>
-                    )
-                })}
-                         
-              
-            
-                </div>
-
-
-
-
-
-                </div>
-
                 <div className="chatbox-main">
-                   
-                    
-                        <div className="chatbox-header-right" >
-                            {/*  convo user name */}
-                        </div>
-
-
-                        <div className="chatbox-inner">
-
-
-                                {/*  convo messages */}
-                                {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {
-                                    
-                                    return (
-                                        <div className="chatbox-message">
-                                            <p>{message.content}</p>
-                                        </div>
-                                    )
-                                }) : null}
-                            </div>
-                        <form className="chatbox-form" onSubmit={handleSend}>
+                    <div className="chatbox-header-right" >
+                        {/*  convo user name */}
+                    </div>
+                    <div className="chatbox-inner">
+                        {/*  convo messages */}
+                        {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
+                            return (
+                                <div className="chatbox-message">
+                                    <ChatOrder img={message.postdata[0]}/>
+                                     <p>{message.content}</p>
+                                </div>
+                            )
+                        }) : null}
+                    </div>
+                    <form className="chatbox-form" onSubmit={handleSend}>
                         <input type="text" placeholder="Type a message" className="chatbox-input" />
                         <button className="chatbox-button" type="submit">Send</button>
-                        </form>
-
-               
+                    </form>
             </div>
-       
-          
         </div>
         </div>
     )

@@ -729,7 +729,26 @@ height : 10%
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-
 } 
 
+.chatbox-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-flow: column nowrap;
+  overflow-y: scroll;
+}
+.chatbox-message {
+  display: flex;
+  flex-direction: column;
+}
+.chatOrder {
+  height: 300px;
+  width: 300px;
+}
 
+.chatOrder img {
+  height: 100%;
+  width: 100%;
+  /* display: none; */
+}
