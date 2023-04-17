@@ -10,9 +10,15 @@ import NoPage from './components/NoPage';
 import Commissions from './components/Commissions';
 import Explore from "./components/explore.js";
 import { ChatBox } from './components/Chatbox';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import { auth, provider } from './firebase.js';
+import { signInWithRedirect } from 'firebase/auth';
+import { UserProvider } from './context/AuthContext';
 
 function App() {
   readPosts()
+  // signInWithRedirect(auth, provider);
   return (
     <div className="App">
       {/* <Explore></Explore> */}
@@ -24,7 +30,9 @@ function App() {
             <Route path="ArtNU/*" element={<div><Navbar/><NoPage/></div>}/>
             <Route path="ArtNU/explore" element={<Explore/>}/>
             <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
-            <Route path="ArtNU/home" element={<Home/>}/>
+            <Route path="ArtNU/home" element={<UserProvider><Home/></UserProvider>}/>
+            {/* <Route path="ArtNU/signin" element={<SignIn/>}/>
+            <Route path="ArtNU/signup" element={<SignUp/>}/> */}
             <Route
                 path="*"
                 element={<Navigate to="ArtNU/home" replace />}

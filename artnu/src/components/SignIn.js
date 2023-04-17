@@ -1,66 +1,47 @@
-import { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { AuthContext } from './AuthContext';
-import { useContext } from 'react';
-
-const auth = getAuth();
+import React from "react";
+import { Button } from "@mui/material";
+import { useUser } from "../context/AuthContext";
 
 function SignIn() {
-    const { authUser, userSignedIn, setAuthUser, setUserSignedIn } = useContext(AuthContext);
-
-    console.log(userSignedIn)
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-  
-    const handleSignIn = (event) => {
-        event.preventDefault();
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // setUserSignedIn(true)
-            setError(null);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setError(errorMessage);
-          });
-    };
-
+  const { user, signIn, signOut } = useUser();
+  console.log(user)
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 8, p: 3 }}>
-      <form onSubmit={handleSignIn}>
-        <TextField
-          label="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-          margin="normal"
-          required
-        />
-        <TextField
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-          margin="normal"
-          required
-        />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <Button variant="contained" color="primary" type="submit" fullWidth>
-          Sign In
-        </Button>
-      </form>
-    </Box>
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      {user ? (
+        <>
+          <h2>You are logged in as {user.displayName}</h2>
+          <Button variant="contained" sx={{ mt: 2 }} onClick={signOut}>
+            Sign Out
+          </Button>
+        </>
+      ) : (
+        <>
+          <h2>Sign In</h2>
+          <Button
+            variant="contained"
+            sx={{
+              mt: 2,
+              bgcolor: "#fff",
+              color: "#757575",
+              "&:hover": {
+                bgcolor: "#f4f4f4",
+              },
+            }}
+            onClick={signIn}
+          >
+            Sign In with Google
+          </Button>
+        </>
+      )}
+    </div>
   );
 }
 

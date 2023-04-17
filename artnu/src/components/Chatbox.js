@@ -31,7 +31,7 @@ export function ChatBox (props) {
  
     
     useEffect(() => {
-        
+        console.log("test")
         async function getConvos() {
             let convos = await getMessages(myID);
             let users = [];
@@ -44,7 +44,7 @@ export function ChatBox (props) {
             setusers(users);
         }
         getConvos();
-    }, [Convos]);
+    }, []);
 
     
 
