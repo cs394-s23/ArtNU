@@ -1,4 +1,4 @@
-import {Posts} from './posts.js';
+/*import {Posts} from './posts.js';
 import {useState, useEffect} from "react";
 import { posts_data } from "../firebase.js";
 import React, {Component} from "react";
@@ -41,6 +41,6 @@ export default function SearchBar() {
         </>
     );
 };
-
+*/
 
 

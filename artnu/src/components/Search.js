@@ -1,4 +1,4 @@
-import user from './icons/user.png'
+/*import user from './icons/user.png'
 import paw from './icons/paw.png'
 import {Navbar} from './navbar.js'
 import SearchBar from "./SearchBar";
@@ -28,3 +28,4 @@ export default function Search() {
         </>
     );
 }
+*/
