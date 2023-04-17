@@ -24,6 +24,11 @@ function SignIn() {
         </>
       ) : (
         <>
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#8e44ad' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', borderRadius: '10px', backgroundColor: 'white' }}>
+    <h2 style={{ color: '#8e44ad' }}>Welcome to NU Art!</h2>
+
           <h2>Sign In</h2>
           <Button
             variant="contained"
@@ -39,6 +44,8 @@ function SignIn() {
           >
             Sign In with Google
           </Button>
+          </div>
+          </div>
         </>
       )}
     </div>

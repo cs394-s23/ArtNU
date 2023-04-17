@@ -66,7 +66,7 @@ export function ChatBox (props) {
             </div>
 
             <Navbar/>
-                <a>
+                <a href='../ArtNU/profile'>
                 <img src={user} className="user"></img>
                 </a>
             </header>

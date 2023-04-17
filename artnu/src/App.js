@@ -15,6 +15,7 @@ import SignIn from './components/SignIn';
 import { auth, provider } from './firebase.js';
 import { signInWithRedirect } from 'firebase/auth';
 import { UserProvider } from './context/AuthContext';
+import { Profile } from './components/Profile';
 
 function App() {
   readPosts()
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       {/* <Explore></Explore> */}
       <BrowserRouter>
+      <UserProvider>
         <Routes>
           {/* This is the parent route - render its child routes */}
             <Route path='ArtNU/' element={<div className="App"><Home/><div className="newCommission"><AddPost/></div></div>}/>
@@ -30,6 +32,7 @@ function App() {
             <Route path="ArtNU/*" element={<div><Navbar/><NoPage/></div>}/>
             <Route path="ArtNU/explore" element={<Explore/>}/>
             <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
+            <Route path="ArtNU/profile" element={<Profile/>}/>
             <Route path="ArtNU/home" element={<UserProvider><Home/></UserProvider>}/>
             {/* <Route path="ArtNU/signin" element={<SignIn/>}/>
             <Route path="ArtNU/signup" element={<SignUp/>}/> */}
@@ -38,6 +41,7 @@ function App() {
                 element={<Navigate to="ArtNU/home" replace />}
             />
         </Routes>
+        </UserProvider>
       </BrowserRouter>
     </div>
   );

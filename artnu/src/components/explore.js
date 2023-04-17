@@ -23,7 +23,7 @@ export default function Explore() {
             <span>NU Art</span>
           </div>
           <span className="page-title">Explore</span>
-            <a>
+            <a href='../ArtNU/profile'>
               <img src={user} class="user"></img>
             </a>
         </header>
