@@ -215,10 +215,8 @@ align-self: center;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  border: 1px solid black;
   z-index: 9999;
   width: 25vh;
-  height: 75vh;
 }
 .post .popup-visible .addPost {
   width: 100%;
@@ -323,7 +321,6 @@ align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width : 25vw;
 
   border-radius: 15px;
@@ -343,7 +340,6 @@ span.pagelink a{
   color: #333;
 }
 .popup-visible h1 {
-  margin-top: 5%;
   justify-self: center;
   font-size: 1.5rem;
   font-weight: 300;
@@ -377,7 +373,6 @@ span.pagelink a{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 20px 0;
   font-size: 1rem;
   font-weight: bold;
   white-space: nowrap;
