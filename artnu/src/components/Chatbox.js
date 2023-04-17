@@ -31,29 +31,22 @@ export function ChatBox (props) {
  
     
     useEffect(() => {
+        
         async function getConvos() {
             let convos = await getMessages(myID);
+            let users = [];
             setconvos(convos);
+            for (let convo of convos) {
+                let user = await getUserById(convo.id);
+                user.id= convo.id;
+                users.push(user);
+            }
+            setusers(users);
         }
         getConvos();
     }, [Convos]);
 
     
-
-
-    useEffect(() => {
-    async function getusers (convos) {
-        let users = [];
-        for (let convo of convos) {
-            let user = await getUserById(convo.id);
-            user.id= convo.id;
-            users.push(user);
-        }
-        setusers(users);
-    }
-    getusers(Convos);
-    
-    }, [Convos]);
 
 
   function handleSend (e) {
