@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion } from "firebase/firestore"; 
+import { collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 
@@ -84,16 +84,29 @@ export async function addMessage(id, message, receiverID,postdata) {
   try { 
 
     const docRef = doc(db, "users/"+id+"/chatrooms"+"/"+receiverID);
-    await updateDoc(docRef, {
-      convo: arrayUnion({ sender: id, 
-        content: message , postdata: postdata})
-    });
+    // await updateDoc(docRef, {
+    //   convo: arrayUnion({ sender: id, 
+    //     content: message , postdata: postdata})
+    // });
+    await setDoc(
+      docRef, {
+        convo: arrayUnion({ sender: id,
+          content: message, postdata: postdata })
+      }, { merge: true }
+
+    )
     /* mirror the message in the receiver's chatroom */
     const docRef2 = doc(db, "users/"+receiverID+"/chatrooms"+"/"+id);
-    await updateDoc(docRef2, {
-      convo: arrayUnion({ sender: id,
-        content: message, postdata: postdata })
-    });
+    // await updateDoc(docRef2, {
+    //   convo: arrayUnion({ sender: id,
+    //     content: message, postdata: postdata })
+    // });
+    await setDoc(
+      docRef2, {
+        convo: arrayUnion({ sender: id,
+          content: message, postdata: postdata })
+      }, { merge: true })
+
 
     
 

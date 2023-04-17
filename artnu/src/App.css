@@ -737,6 +737,7 @@ height : 10%
   justify-content: center;
   flex-flow: column nowrap;
   overflow-y: scroll;
+  width : 100%;
 }
 .chatbox-message {
   display: flex;
@@ -752,3 +753,32 @@ height : 10%
   width: 100%;
   /* display: none; */
 }
+
+.chatbox-message {
+  max-width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border : 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+
+}
+
+.chatbox-message.sent {
+  align-self: flex-end;
+  background-color: #f1abbf;
+}
+
+.chatbox-message.received {
+  align-self: flex-start;
+  background-color:#e6d7ff;
+}
+
+.chatbox-message.sent p {
+  margin: 0;
+}
+
+.chatbox-message.received p {
+  margin: 0;
+}
+

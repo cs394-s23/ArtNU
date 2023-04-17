@@ -13,7 +13,6 @@ const myID= "0mg9bB2gmzmOqwvqanBr";
 const levID = "jrqjR6pZU3qUnEZkzjYm";
 
 
-
 export function ChatBox (props) {
     // const {chatvisible, setchatvisible } = props;
     // console.log(chatvisible)
@@ -39,6 +38,8 @@ export function ChatBox (props) {
         getConvos();
     }, [Convos]);
 
+    
+
 
     useEffect(() => {
     async function getusers (convos) {
@@ -51,6 +52,7 @@ export function ChatBox (props) {
         setusers(users);
     }
     getusers(Convos);
+    
     }, [Convos]);
 
 
@@ -105,8 +107,7 @@ export function ChatBox (props) {
                         {/*  convo messages */}
                         {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
                             return (
-                                <div className="chatbox-message">
-                                    <ChatOrder img={message.postdata[0]}/>
+                                <div key={message.id} className={`chatbox-message ${message.sender === myID ? 'sent' : 'received'}`}>
                                      <p>{message.content}</p>
                                 </div>
                             )
