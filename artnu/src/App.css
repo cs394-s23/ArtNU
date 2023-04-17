@@ -36,14 +36,14 @@
 header{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
   width : 100vw;
   height : 10vh;
   margin : 20px;
 
 }
+
 header .logo{
   display: flex;
   flex-direction: row;
@@ -589,17 +589,15 @@ span.pagelink a{
 
 
 .explore {
-  display: flex;
   flex-direction: column;
-  border: 1px solid black;
   justify-content: center;
   align-items: center;
+  margin: 25px;
 }
 
 .explore .postsfeed {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
   width: 100vw;
   height: fit-content;
   overflow: scroll;
