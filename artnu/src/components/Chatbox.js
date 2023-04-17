@@ -9,6 +9,7 @@ import { getMessages, addMessage, getMessagesBetween, getUserById} from '../fire
 
 
 const myID= "0mg9bB2gmzmOqwvqanBr";
+
 const levID = "jrqjR6pZU3qUnEZkzjYm";
 
 
@@ -56,10 +57,12 @@ export function ChatBox (props) {
   function handleSend (e) {
         e.preventDefault();
         let content = e.target.elements[0].value;
-        addMessage(myID,  content, levID);
+        addMessage(myID,  content, levID,[]);
         e.target.elements[0].value = "";
       
     }
+
+  
 
     
 

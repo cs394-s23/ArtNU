@@ -1,16 +1,30 @@
 import { useState } from "react";
+import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
 
+const myID= "0mg9bB2gmzmOqwvqanBr";
 // test commit
 
 export function PurchaseBox(props) {
-  const user = props.user;
+  const post = props.post;
   const { popUpVisible, togglePopUp } = props;
   const [orderSubmitted, setOrderSubmitted] = useState(false); // Add a state variable to keep track of order submission
 
-  function handleOrderSubmit() {
-    // Code to submit the order
-    setOrderSubmitted(true); // Set the orderSubmitted state variable to true after the order has been successfully submitted
-  }
+ 
+  function handleOrderSubmit (e) {
+    e.preventDefault();
+    let content = e.target.elements[0].value;
+    console.log(content)
+    const postdata= [post.img, post.title, post.author, post.price]
+    //user id
+    const userid = props.user.id;
+    
+    console.log (userid)
+    addMessage(myID,  content, userid, postdata);
+    e.target.elements[0].value = "";
+    setOrderSubmitted(true);
+  
+}
+
 
   return (
     <div>
@@ -22,7 +36,7 @@ export function PurchaseBox(props) {
               <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <p>Order sent. Check your <span className="pagelink"><a href="ArtNU/chatbox"> inbox</a></span> for updates.</p>
+                <p>Order sent. Check your <span className="pagelink"><a href="../ArtNU/chatbox"> inbox</a></span> for updates.</p>
               </div>
             ) : (
               <div className="addPost">
@@ -41,12 +55,13 @@ export function PurchaseBox(props) {
                   <h2>{props.post.author}</h2>
                   <span> $ {props.post.price}</span>
                 </div>
-                <div className="popup-input">
-                  <input type="text" placeholder="leave a message for your artist"></input>
-                  <button onClick={handleOrderSubmit}>
-                    <i class="fa-solid fa-paper-plane"></i>
-                  </button>
-                </div>
+                <form className="popup-input" onSubmit={handleOrderSubmit}>
+                        <input type="text" placeholder="Type a message" className="chatbox-input" />
+                        <button type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                       </button>
+                  </form>
+                
               </div>
             )}
           </div>
