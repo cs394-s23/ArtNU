@@ -3,7 +3,7 @@ import './App.css';
 import { readPosts } from "./firebase.js"
 import Home from "./components/Home.js"
 import {AddPost} from "./components/AddPost.js"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PurchaseBox } from './components/purchaseBox';
 import { Navbar } from './components/navbar';
 import NoPage from './components/NoPage';
@@ -25,6 +25,10 @@ function App() {
             <Route path="ArtNU/explore" element={<Explore/>}/>
             <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
             <Route path="ArtNU/home" element={<Home/>}/>
+            <Route
+                path="*"
+                element={<Navigate to="ArtNU/home" replace />}
+            />
         </Routes>
       </BrowserRouter>
     </div>
