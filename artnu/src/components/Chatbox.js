@@ -7,6 +7,14 @@ import paw from './icons/paw.png'
 import { AddPost } from "./AddPost";
 import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
 import {ChatOrder} from './chatOrder.js'
+import { unstable_ClassNameGenerator } from '@mui/material';
+import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import firebase from "firebase/app";
+import "firebase/firestore";
+import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
+import {db} from '../firebase.js'
 
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
@@ -24,17 +32,82 @@ export function ChatBox (props) {
 
 
     
-    const [Convos, setconvos] = useState([]);
+    const [Convos, setConvos] = useState([]);
     const [selected, setSelected] = useState([]);
-    const [users, setusers] = useState([]);
+    const [Users, setUsers] = useState([]);
+    const [unsubscribe, setUnsubscribe] = useState(null);
+
     function selectConvo (id, convos) {
         setSelected(id);
         //find the convo with the id
         let convo = convos.find(convo => convo.id === id)
     }
+        
+    
+    useEffect(() => {
+        const q = query(collection(db, "users", id1, "chatrooms"));
+    
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+          const newConvos = [];
+          snapshot.docChanges().forEach((change) => {
+            if (change.type === "added") {
+              const convo = change.doc.data();
+              convo.id = change.doc.id;
+              newConvos.push(convo);
+            }
+          });
+          setConvos(Convos => [...Convos, ...newConvos])
+        });
+    
+        return () => unsubscribe();
+      }, []);
+    
  
-addMessage(id1, "new", id2, []);
-getMessages(id1);
+
+   
+   
+
+
+    useEffect(() => {
+        const users = [];
+        async function getUsers() {
+        for (let convo of Convos) {
+            let user = await getUserById(convo.id);
+            user.id= convo.id;
+            users.push(user);
+        }
+
+        setUsers(users);
+    }
+    getUsers();
+}, [Convos]);
+
+
+
+
+   
+
+    
+      
+
+
+        
+    
+           
+      
+     
+
+        
+ 
+
+
+  
+
+
+    
+
+
+
 //     useEffect(() => {
 //         console.log("test")
 //         async function getConvos() {
@@ -52,12 +125,12 @@ getMessages(id1);
 //     }, []);
 
 
-//   function handleSend (e) {
-//         e.preventDefault();
-//         let content = e.target.elements[0].value;
-//         addMessage(myID,  content, levID,[]);
-//         e.target.elements[0].value = "";
-//     }
+  function handleSend (e) {
+        e.preventDefault();
+        let content = e.target.elements[0].value;
+        addMessage(id1,  content, id2,[]);
+        e.target.elements[0].value = "";
+    }
 
     return (
 
@@ -84,7 +157,7 @@ getMessages(id1);
                     </div>
                     <div className="chatbox-list">
                         {/*  convo list */}
-                        {users.map(user => {
+                        {Users.map(user => {
                             return (
                                 <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
                                     <h2>
@@ -109,10 +182,10 @@ getMessages(id1);
                             )
                         }) : null}
                     </div>
-                    {/* <form className="chatbox-form" onSubmit={handleSend}>
+                    <form className="chatbox-form" onSubmit={handleSend}>
                         <input type="text" placeholder="Type a message" className="chatbox-input" />
                         <button className="chatbox-button" type="submit">Send</button>
-                    </form> */}
+                    </form>
             </div>
         </div>
         </div>

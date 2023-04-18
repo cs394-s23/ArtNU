@@ -42,26 +42,30 @@ export const provider = new GoogleAuthProvider();
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 const myID= "0mg9bB2gmzmOqwvqanBr";
+// export async function getMessages(id) {
+//   const convos = [];
+//   const q = query(collection(db, "users", id, "chatrooms"));
 
-export async function getMessages(id){
-  const convos = []
-  const q = query(collection(db, "users/"+id+"/chatrooms"));
-  const unsubscribe = onSnapshot(q, (snapshot) => {
-    
-    console.log("Current data: ", snapshot.docs);
-    snapshot.docChanges().forEach((change) => {
-      const doc = change.doc;
-      console.log("doc data",doc.data())
-      
-        const convo = doc.data();
-        convo.ref = doc.ref;
-        convo.id = doc.id;
-        console.log("convo", convo)
-        convos.push(convo);
-    });
-  });
-  console.log("convos", convos)
-  return { convos, unsubscribe };
+//   const unsubscribe = onSnapshot(q, (snapshot) => {
+//     snapshot.docChanges().forEach((change) => {
+//       const doc = change.doc;
+//       if (change.type === "added") {
+//         const convo = change.doc.data();
+//         convo.ref = change.doc.ref;
+//         convo.id = change.doc.id;
+//         convos.push(convo);
+//       } 
+//     });
+//   });
+
+//   return () => unsubscribe();
+// }
+
+
+
+
+  
+
     // const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
   // querySnapshot.forEach(async (doc) => {
   // let convo = doc.data();
@@ -73,12 +77,14 @@ export async function getMessages(id){
 
   // // console.log(posts);
   // return convos
-}
+
 
 
 export async function getUserById(id){
   const docRef = doc(db, "users", id);
   const docSnap = await getDoc(docRef);
+
+
   
   return docSnap.data();
 }
