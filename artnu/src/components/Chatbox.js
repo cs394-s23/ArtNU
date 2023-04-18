@@ -21,16 +21,10 @@ const levID = "jrqjR6pZU3qUnEZkzjYm";
 const id1= "iUgNctTeJccdui6TWvRzBTkUZC93";
 const id2= "yr8FEWAHu0w1srk2sm27";
 
-
-
-
 export function ChatBox (props) {
     // const {chatvisible, setchatvisible } = props;
     // console.log(chatvisible)
 
-
-
-    
     const [Convos, setConvos] = useState([]);
     const [selected, setSelected] = useState([]);
     const [Users, setUsers] = useState([]);
@@ -72,57 +66,15 @@ export function ChatBox (props) {
         const users = [];
         async function getUsers() {
         for (let convo of Convos) {
+            console.log(convo)
             let user = await getUserById(convo.id);
             user.id= convo.id;
             users.push(user);
         }
-
         setUsers(users);
     }
     getUsers();
 }, [Convos]);
-
-
-
-
-   
-
-    
-      
-
-
-        
-    
-           
-      
-     
-
-        
- 
-
-
-  
-
-
-    
-
-
-
-//     useEffect(() => {
-//         console.log("test")
-//         async function getConvos() {
-//             let convos = await getMessages(id1);
-//             let users = [];
-//             setconvos(convos);
-//         //     for (let convo of convos) {
-//         //         let user = await getUserById(convo.id);
-//         //         user.id= convo.id;
-//         //         users.push(user);
-//         //     }
-//         //     setusers(users);
-//      }
-//         getConvos();
-//     }, []);
 
 
   function handleSend (e) {
@@ -130,6 +82,14 @@ export function ChatBox (props) {
         let content = e.target.elements[0].value;
         addMessage(id1,  content, id2,[]);
         e.target.elements[0].value = "";
+    }
+
+    function getChatOrder(message) {
+        if (message.postdata.length == 3) {
+            return (
+                <ChatOrder data = {message.postdata}/>
+            )
+        }
     }
 
     return (
@@ -177,8 +137,11 @@ export function ChatBox (props) {
                         <div className = "chat-messages">
                             {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
                                 return (
-                                    <div key={message.id} className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
-                                        <p>{message.content}</p>
+                                    <div key={message.id} className="chatbox-message-box">
+                                        {getChatOrder(message)}
+                                        <p className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
+                                            {message.content}
+                                        </p>
                                     </div>
                                 )
                             }) : null}

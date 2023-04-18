@@ -85,7 +85,7 @@ export async function getUserById(id){
   const docSnap = await getDoc(docRef);
 
 
-  
+  // console.log(docSnap.data())
   return docSnap.data();
 }
 
