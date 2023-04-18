@@ -46,8 +46,6 @@ export function ChatBox (props) {
         getConvos();
     }, []);
 
-    
-
 
   function handleSend (e) {
         e.preventDefault();
