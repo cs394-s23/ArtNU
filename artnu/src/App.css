@@ -3,7 +3,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   width : 100vw;
   overflow-x: hidden;
   font-family: mainfont;
@@ -662,6 +662,13 @@ span.pagelink a{
 
 
 /*chatpage stuff*/
+
+.chatpage {
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 header nav {
   display: flex;
   flex-direction: row;
@@ -670,12 +677,12 @@ header nav {
   width: 100%;
   height: 10%;
   background-color: white;
+  flex: 0 1 auto;
   
 }
 /*chatbox stuff*/
 
 .chatbox {
-  position: fixed;
   width : 95%;
   margin : 2.5%;
   height : 100%;
@@ -687,6 +694,7 @@ header nav {
   align-items: center;
   justify-content: flex-start;
   overflow-y: scroll;
+  flex: 1 1 auto;
 }
 
 .chatbox-header-right{
@@ -720,6 +728,12 @@ height : 10%
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.chatbox-list {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
 .chatbox-main{
   display: flex;
   flex-direction: column;
@@ -735,15 +749,19 @@ height : 10%
 .chatbox-inner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   flex-flow: column nowrap;
   overflow-y: scroll;
   width : 100%;
+  height: 90%;
 }
-.chatbox-message {
+.chat-messages {
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
+  overflow-y: scroll;
+  padding: 0px 11px;
 }
+
 .chatOrder {
   height: 300px;
   width: 300px;
@@ -759,7 +777,7 @@ height : 10%
   max-width: 80%;
   padding: 10px;
   margin-bottom: 10px;
-  border : 1px solid black;
+  border : 1px solid rgb(121, 121, 121);
   border-radius: 10px;
   font-size: 16px;
 
@@ -782,4 +800,7 @@ height : 10%
 .chatbox-message.received p {
   margin: 0;
 }
-
+.chatbox-form {
+  align-self: center;
+  padding-bottom: 5px;
+}

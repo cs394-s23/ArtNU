@@ -134,7 +134,7 @@ export function ChatBox (props) {
 
     return (
 
-    <div classname="chatpage">
+    <div className="chatpage">
              <header>
             <div className="logo">
                 <img src={paw}></img>
@@ -174,18 +174,21 @@ export function ChatBox (props) {
                     </div>
                     <div className="chatbox-inner">
                         {/*  convo messages */}
-                        {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
-                            return (
-                                <div key={message.id} className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
-                                     <p>{message.content}</p>
-                                </div>
-                            )
-                        }) : null}
-                    </div>
-                    <form className="chatbox-form" onSubmit={handleSend}>
-                        <input type="text" placeholder="Type a message" className="chatbox-input" />
+                        <div className = "chat-messages">
+                            {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
+                                return (
+                                    <div key={message.id} className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
+                                        <p>{message.content}</p>
+                                    </div>
+                                )
+                            }) : null}
+                        </div>
+                        <form className="chatbox-form" onSubmit={handleSend}>
+                            <input type="text" placeholder="Type a message" className="chatbox-input" />
                         <button className="chatbox-button" type="submit">Send</button>
                     </form>
+                    </div>
+                    
             </div>
         </div>
         </div>
