@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
 
-const myID= "0mg9bB2gmzmOqwvqanBr";
+const id1= "yr8FEWAHu0w1srk2sm27";
 // test commit
 
 export function PurchaseBox(props) {
@@ -13,13 +13,12 @@ export function PurchaseBox(props) {
   function handleOrderSubmit (e) {
     e.preventDefault();
     let content = e.target.elements[0].value;
-    console.log(content)
-    const postdata= [post.img, post.title, post.author, post.price]
+    const postdata= [post.img, post.author, post.price]
+    console.log(postdata)
     //user id
-    const userid = props.user.id;
-    
-    console.log (userid)
-    addMessage(myID,  content, userid, postdata);
+    const userid = post.uid; 
+    console.log(userid)
+    addMessage(id1,  content, userid, postdata);
     e.target.elements[0].value = "";
     setOrderSubmitted(true);
   
