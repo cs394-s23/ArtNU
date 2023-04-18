@@ -75,7 +75,7 @@ export function Posts(){
                         title = {post.title}
                         // getUser = {getUser} 
                         // userRef = {post.user} 
-                        postId= {post.id}
+                        uid={post.uid}
                     />
                 </>
             ))}

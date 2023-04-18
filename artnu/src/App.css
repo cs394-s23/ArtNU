@@ -686,6 +686,7 @@ header nav {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  overflow-y: scroll;
 }
 
 .chatbox-header-right{

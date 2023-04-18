@@ -125,54 +125,81 @@ getRedirectResult(auth)
   // console.log(posts);
   return convos
 }
+export async function addMessage(id, message, receiverID, postdata) {
+  try {
+    const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
+    const docSnap = await getDoc(docRef);
 
+    // Check if the conversation document exists
+    if (docSnap.exists()) {
+      // Add the message to the existing conversation
+      await updateDoc(docRef, {
+        convo: arrayUnion({
+          sender: id,
+          content: message,
+          postdata: postdata,
+        }),
+      });
+    } else {
+      // Create a new conversation document and add the message to it
+      await setDoc(docRef, {
+        convo: [
+          {
+            sender: id,
+            content: message,
+            postdata: postdata,
+          },
+        ],
+      });
+    }
 
+    // Mirror the message in the receiver's chatroom
+    const docRef2 = doc(db, "users/" + receiverID + "/chatrooms/" + id);
+    const docSnap2 = await getDoc(docRef2);
 
-
-
-
-
-export async function addMessage(id, message, receiverID,postdata) {
-  try { 
-
-    const docRef = doc(db, "users/"+id+"/chatrooms"+"/"+receiverID);
-    // await updateDoc(docRef, {
-    //   convo: arrayUnion({ sender: id, 
-    //     content: message , postdata: postdata})
-    // });
-    await setDoc(
-      docRef, {
-        convo: arrayUnion({ sender: id,
-          content: message, postdata: postdata })
-      }, { merge: true }
-
-    )
-    /* mirror the message in the receiver's chatroom */
-    const docRef2 = doc(db, "users/"+receiverID+"/chatrooms"+"/"+id);
-    // await updateDoc(docRef2, {
-    //   convo: arrayUnion({ sender: id,
-    //     content: message, postdata: postdata })
-    // });
-    await setDoc(
-      docRef2, {
-        convo: arrayUnion({ sender: id,
-          content: message, postdata: postdata })
-      }, { merge: true })
-
-
-    
+    // Check if the conversation document exists
+    if (docSnap2.exists()) {
+      // Add the message to the existing conversation
+      console.log("id: " + id + " receiverID: " + receiverID + " message: " + message + " postdata: " + postdata + "")
+      await updateDoc(docRef2, {
+        
+        convo: arrayUnion({
+          sender: id,
+          content: message,
+          postdata: postdata,
+        }),
+      }).catch((error) => {
+        console.error("Error adding message: ", error);
+      })
+        
+        ;
+    } else {
+      // Create a new conversation document and add the message to it
+      await setDoc(docRef2, {
+        convo: [
+          {
+            sender: id,
+            content: message,
+            postdata: postdata,
+          },
+        ],
+      });
+    }
 
     console.log("Message added successfully!");
   } catch (error) {
     console.error("Error adding message: ", error);
   }
-
-
-
-
-
-
 }
+ 
+
+
+
+
+
+
+// 
+
       
 // export async function addMessage(id, message, receiverID) {
 //   // const levID = "jrqjR6pZU3qUnEZkzjYm";

@@ -16,7 +16,6 @@ import "firebase/firestore";
 import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
 import {db} from '../firebase.js'
 
-const myID= "0mg9bB2gmzmOqwvqanBr";
 
 const levID = "jrqjR6pZU3qUnEZkzjYm";
 const id1= "iUgNctTeJccdui6TWvRzBTkUZC93";
@@ -46,17 +45,18 @@ export function ChatBox (props) {
     
     useEffect(() => {
         const q = query(collection(db, "users", id1, "chatrooms"));
-    
+        
         const unsubscribe = onSnapshot(q, (snapshot) => {
-          const newConvos = [];
-          snapshot.docChanges().forEach((change) => {
-            if (change.type === "added") {
-              const convo = change.doc.data();
-              convo.id = change.doc.id;
+          let newConvos = [];
+          snapshot.forEach((change) => {
+            console.log("sent");
+            
+              const convo = change.data();
+              convo.id = change.id;
               newConvos.push(convo);
-            }
+            
           });
-          setConvos(Convos => [...Convos, ...newConvos])
+          setConvos(newConvos);
         });
     
         return () => unsubscribe();
@@ -176,7 +176,7 @@ export function ChatBox (props) {
                         {/*  convo messages */}
                         {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
                             return (
-                                <div key={message.id} className={`chatbox-message ${message.sender === myID ? 'sent' : 'received'}`}>
+                                <div key={message.id} className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
                                      <p>{message.content}</p>
                                 </div>
                             )
