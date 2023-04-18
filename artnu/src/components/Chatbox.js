@@ -11,6 +11,10 @@ import {ChatOrder} from './chatOrder.js'
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
 const levID = "jrqjR6pZU3qUnEZkzjYm";
+const id1= "iUgNctTeJccdui6TWvRzBTkUZC93";
+const id2= "yr8FEWAHu0w1srk2sm27";
+
+
 
 
 export function ChatBox (props) {
@@ -29,30 +33,31 @@ export function ChatBox (props) {
         let convo = convos.find(convo => convo.id === id)
     }
  
-    
-    useEffect(() => {
-        console.log("test")
-        async function getConvos() {
-            let convos = await getMessages(myID);
-            let users = [];
-            setconvos(convos);
-            for (let convo of convos) {
-                let user = await getUserById(convo.id);
-                user.id= convo.id;
-                users.push(user);
-            }
-            setusers(users);
-        }
-        getConvos();
-    }, []);
+addMessage(id1, "new", id2, []);
+getMessages(id1);
+//     useEffect(() => {
+//         console.log("test")
+//         async function getConvos() {
+//             let convos = await getMessages(id1);
+//             let users = [];
+//             setconvos(convos);
+//         //     for (let convo of convos) {
+//         //         let user = await getUserById(convo.id);
+//         //         user.id= convo.id;
+//         //         users.push(user);
+//         //     }
+//         //     setusers(users);
+//      }
+//         getConvos();
+//     }, []);
 
 
-  function handleSend (e) {
-        e.preventDefault();
-        let content = e.target.elements[0].value;
-        addMessage(myID,  content, levID,[]);
-        e.target.elements[0].value = "";
-    }
+//   function handleSend (e) {
+//         e.preventDefault();
+//         let content = e.target.elements[0].value;
+//         addMessage(myID,  content, levID,[]);
+//         e.target.elements[0].value = "";
+//     }
 
     return (
 
@@ -104,10 +109,10 @@ export function ChatBox (props) {
                             )
                         }) : null}
                     </div>
-                    <form className="chatbox-form" onSubmit={handleSend}>
+                    {/* <form className="chatbox-form" onSubmit={handleSend}>
                         <input type="text" placeholder="Type a message" className="chatbox-input" />
                         <button className="chatbox-button" type="submit">Send</button>
-                    </form>
+                    </form> */}
             </div>
         </div>
         </div>

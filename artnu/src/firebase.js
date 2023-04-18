@@ -46,16 +46,20 @@ const myID= "0mg9bB2gmzmOqwvqanBr";
 export async function getMessages(id){
   var convos = []
 
-  const query = query(collection(db, "users", id, "chatrooms"));
-  const unsubscribe = onSnapshot(query, (snapshot) => {
+  const q = query(collection(db, "users", id, "chatrooms"));
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    console.log("Current data: ", snapshot.docs);
     snapshot.docChanges().forEach((change) => {
+
       const doc = change.doc;
-      if (change.type === "added") {
+      console.log("doc data",doc.data())
+      
         const convo = doc.data();
         convo.ref = doc.ref;
         convo.id = doc.id;
+        console.log("convo", convo)
         convos.push(convo);
-      } 
+      
       // else if (change.type === "modified") {
       //   const index = convos.findIndex((c) => c.id === doc.id);
       //   if (index !== -1) {
@@ -69,7 +73,9 @@ export async function getMessages(id){
       // }
     });
   });
-  unsubscribe();
+  console.log("convos", convos)
+   unsubscribe();
+  
   return { convos, unsubscribe };
     // const querySnapshot = await getDocs(collection(db, "users/"+id+"/chatrooms"));
   // querySnapshot.forEach(async (doc) => {

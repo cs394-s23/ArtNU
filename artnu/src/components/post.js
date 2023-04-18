@@ -8,17 +8,17 @@ export function Post(props) {
     const [popUpVisible, setPopUpVisible] = useState(false);
     const [user, setUser] = useState({});
 
-    useEffect(() => {
-        async function fetchData() {
-          const data = await props.getUser(props.userRef);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       const data = await props.getUser(props.userRef);
 
                
            
 
-          setUser(data);
-        } 
-        fetchData();
-      }, []);
+    //       setUser(data);
+    //     } 
+    //     fetchData();
+    //   }, []);
 
     const togglePopUp = () => {
         setPopUpVisible(!popUpVisible);

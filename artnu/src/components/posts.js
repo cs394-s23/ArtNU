@@ -23,13 +23,13 @@ export function Posts(){
         setFilter(filterType)
     }
 
-    async function getUser(userRef) {
-        const ref = await getDoc(userRef);
-        let user = ref.data();
-        user.id = ref.id;
-        // console.log(ref.data());
-        return user;
-    }
+    // async function getUser(userRef) {
+    //     const ref = await getDoc(userRef);
+    //     let user = ref.data();
+    //     user.id = ref.id;
+    //     // console.log(ref.data());
+    //     return user;
+    // }
     
     
     useEffect(()=>{
@@ -73,8 +73,8 @@ export function Posts(){
                         price={post.price}
                         caption={post.caption}
                         title = {post.title}
-                        getUser = {getUser} 
-                        userRef = {post.user} 
+                        // getUser = {getUser} 
+                        // userRef = {post.user} 
                         postId= {post.id}
                     />
                 </>
