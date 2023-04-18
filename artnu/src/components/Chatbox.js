@@ -43,27 +43,29 @@ export function ChatBox (props) {
         let convo = convos.find(convo => convo.id === id)
     }
         
-
+    
     useEffect(() => {
-        const convos = [];
         const q = query(collection(db, "users", id1, "chatrooms"));
-      
+    
         const unsubscribe = onSnapshot(q, (snapshot) => {
+          const newConvos = [];
           snapshot.docChanges().forEach((change) => {
-            const doc = change.doc;
             if (change.type === "added") {
               const convo = change.doc.data();
-              convo.ref = change.doc.ref;
               convo.id = change.doc.id;
-              convos.push(convo);
+              newConvos.push(convo);
             }
-
+          });
+          setConvos(Convos => [...Convos, ...newConvos])
         });
-        setConvos(convos);
-    }
-    );
-    return () => unsubscribe();
-    }, [id1]);
+    
+        return () => unsubscribe();
+      }, []);
+    
+ 
+
+   
+   
 
 
     useEffect(() => {
@@ -123,12 +125,12 @@ export function ChatBox (props) {
 //     }, []);
 
 
-//   function handleSend (e) {
-//         e.preventDefault();
-//         let content = e.target.elements[0].value;
-//         addMessage(myID,  content, levID,[]);
-//         e.target.elements[0].value = "";
-//     }
+  function handleSend (e) {
+        e.preventDefault();
+        let content = e.target.elements[0].value;
+        addMessage(id1,  content, id2,[]);
+        e.target.elements[0].value = "";
+    }
 
     return (
 
@@ -180,10 +182,10 @@ export function ChatBox (props) {
                             )
                         }) : null}
                     </div>
-                    {/* <form className="chatbox-form" onSubmit={handleSend}>
+                    <form className="chatbox-form" onSubmit={handleSend}>
                         <input type="text" placeholder="Type a message" className="chatbox-input" />
                         <button className="chatbox-button" type="submit">Send</button>
-                    </form> */}
+                    </form>
             </div>
         </div>
         </div>
