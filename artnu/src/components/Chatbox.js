@@ -17,8 +17,7 @@ import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addD
 import {db} from '../firebase.js'
 
 
-const levID = "jrqjR6pZU3qUnEZkzjYm";
-const id1= "iUgNctTeJccdui6TWvRzBTkUZC93";
+const id1= "0mg9bB2gmzmOqwvqanBr";
 const id2= "yr8FEWAHu0w1srk2sm27";
 
 export function ChatBox (props) {
@@ -54,30 +53,25 @@ export function ChatBox (props) {
         });
     
         return () => unsubscribe();
-      }, []);
-    
- 
-
-   
-   
+    }, []);
 
 
     useEffect(() => {
         const users = [];
         async function getUsers() {
-        for (let convo of Convos) {
-            console.log(convo)
-            let user = await getUserById(convo.id);
-            user.id= convo.id;
-            users.push(user);
+            for (let convo of Convos) {
+                console.log(convo)
+                let user = await getUserById(convo.id);
+                user.id= convo.id;
+                users.push(user);
         }
         setUsers(users);
     }
     getUsers();
-}, [Convos]);
+    }, [Convos]);
 
 
-  function handleSend (e) {
+    function handleSend (e) {
         e.preventDefault();
         let content = e.target.elements[0].value;
         addMessage(id1,  content, id2,[]);
@@ -111,7 +105,7 @@ export function ChatBox (props) {
            
                 <div className="chatbox-side">
                     <div className="chatbox-header-left">
-                    <a>General</a>
+                        <a>General</a>
                         <a>Orders</a>
                         <a>Commissions</a>
                     </div>
@@ -120,6 +114,7 @@ export function ChatBox (props) {
                         {Users.map(user => {
                             return (
                                 <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
+                                    <img className="profile-pic" src={user.profilepic}></img>
                                     <h2>
                                         {user.author}
                                     </h2>
