@@ -2,10 +2,12 @@ import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore"; 
 import {db} from "../firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { useUser } from "../context/AuthContext.js";
 
 
 export function AddPost(props) {
   const [file, setFile] = useState(null);
+  var {user} = useUser();
   
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -50,7 +52,8 @@ export function AddPost(props) {
             caption: newPost.caption,
             tags: newPost.tags,
             date: Date.now(),
-            title: newPost.title
+            title: newPost.title,
+            uid: user.uid
           });
           console.log("Document written with ID: ", docRef.id);
           togglePopUp();
