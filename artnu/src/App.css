@@ -339,6 +339,10 @@ span.pagelink a{
   background: #f6f6f6;
   color: #333;
 }
+h1 { 
+  
+}
+
 .popup-visible h1 {
   justify-self: center;
   font-size: 1.5rem;
@@ -732,7 +736,17 @@ height : 10%
 .chatbox-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 90%;
+  width: 100%;
+}
+
+.chatbox-list .chatbox-item {
+  margin: 5px 5px;
+  border: 0.25px solid rgb(175, 175, 175);
+  border-radius: 10px;
+  background-color: lavender;
+  width: 100%;
 }
 .chatbox-main{
   display: flex;
@@ -763,19 +777,54 @@ height : 10%
 }
 
 .chatOrder {
-  height: 300px;
+  display: flex;
+  flex-direction: column;
   width: 300px;
-  border: 1px black solid;
   height: fit-content;
+  border: 1px solid rgb(121, 121, 121);
   background-color:rgb(212, 208, 208);
-  padding: 5px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
-.chatOrder img {
+.chatOrder .order-info {
+  display: flex;
+  flex-direction: column;
+  /* height: 20%; */
+}
+.chatOrder .order-info h1{
+  margin: 0;
+}
+.chatOrder .order-info .order-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5em;
+  margin: 0;
+  height: 25%;
+}
+/* .chatOrder .img-container {
+
+} */
+
+.chatOrder .img-container img {
   height: 100%;
   width: 100%;
+  border-radius: 10px;
   /* display: none; */
 }
+
+.chatOrder .order-confirm {
+  align-self: center;
+  margin-top: 10px;
+  padding: 4px 10px;
+  background-color: rgb(247, 196, 102);
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
 .chatbox-message-box {
   display: flex;
   flex-direction: column;
@@ -783,10 +832,10 @@ height : 10%
 .chatbox-message {
   max-width: 80%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 4px 0px;
   border : 1px solid rgb(121, 121, 121);
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 1em;
 
 }
 
