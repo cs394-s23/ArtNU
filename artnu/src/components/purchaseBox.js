@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
+import { useUser } from "../context/AuthContext.js";
 
 const id1= "yr8FEWAHu0w1srk2sm27";
 // test commit
@@ -8,6 +9,15 @@ export function PurchaseBox(props) {
   const post = props.post;
   const { popUpVisible, togglePopUp } = props;
   const [orderSubmitted, setOrderSubmitted] = useState(false); // Add a state variable to keep track of order submission
+  const [myID, setMyID] = useState(null);
+  var {user} = useUser()
+
+  useEffect(() => {
+      if (user) {
+          setMyID(user.uid)
+          console.log(user.uid)
+      }
+}, [user]);
 
  
   function handleOrderSubmit (e) {
@@ -18,7 +28,7 @@ export function PurchaseBox(props) {
     //user id
     const userid = post.uid; 
     console.log(userid)
-    addMessage(id1,  content, userid, postdata);
+    addMessage(user.uid,  content, userid, postdata);
     e.target.elements[0].value = "";
     setOrderSubmitted(true);
   

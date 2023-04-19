@@ -192,6 +192,26 @@ export async function addMessage(id, message, receiverID, postdata) {
     console.error("Error adding message: ", error);
   }
 }
+
+
+export  async function addUser(uid, displayName) {
+  const userRef = doc(db, "users", uid);
+  const userSnapshot = await getDoc(userRef);
+  const chatroomsRef = collection(userRef, "chatrooms");
+
+
+
+// if user has never existed
+if (!userSnapshot.exists()) {
+  await setDoc(userRef, {
+    author: displayName,
+  });
+  await addDoc(chatroomsRef, {
+    chatrooms: ["initElement"]
+  })
+}
+
+}
  
 
 

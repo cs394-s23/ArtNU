@@ -2,7 +2,7 @@ import {Posts} from './posts.js';
 import {Navbar} from './navbar.js'
 import {Filters} from './filters.js'
 import {useState,useEffect} from 'react';
-import user from './icons/user.png'
+import myUser from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost";
 import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
@@ -16,6 +16,7 @@ import "firebase/firestore";
 import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
 import {db} from '../firebase.js'
 import { useUser } from '../context/AuthContext.js';
+import { Box, TextField, Button, InputBase } from "@mui/material";
 
 
 const levID = "jrqjR6pZU3qUnEZkzjYm";
@@ -117,7 +118,7 @@ export function ChatBox (props) {
 
             <Navbar/>
                 <a href='../ArtNU/profile'>
-                <img src={user} className="user"></img>
+                <img src={myUser} className="user"></img>
                 </a>
             </header>
         
@@ -160,10 +161,21 @@ export function ChatBox (props) {
                                 )
                             }) : null}
                         </div>
-                        <form className="chatbox-form" onSubmit={handleSend}>
-                            <input type="text" placeholder="Type a message" className="chatbox-input" />
-                        <button className="chatbox-button" type="submit">Send</button>
-                    </form>
+                        <form onSubmit={handleSend}>
+  <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <InputBase
+      placeholder="Type a message"
+      sx={{ mr: 1, flexGrow: 1, borderRadius: '20px', border: '2px solid #ddd', p: '10px' }}
+    />
+    <Button
+      type="submit"
+      variant="contained"
+      sx={{ borderRadius: '20px', backgroundColor: '#1a73e8', color: '#fff' }}
+    >
+      Send
+    </Button>
+  </Box>
+</form>
                     </div>
                     
             </div>

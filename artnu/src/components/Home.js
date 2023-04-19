@@ -1,18 +1,27 @@
 import {Posts} from './posts.js';
 import {Navbar} from './navbar.js'
 import {Filters} from './filters.js'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import myUser from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost.js";
 import SignIn from './SignIn.js';
 import { useUser } from '../context/AuthContext.js';
 import { Button } from '@mui/material';
+import { addUser } from '../firebase.js';
 
 export let togglePopUp;
 
 export default function Home() {
   const { user, signIn, signOut } = useUser();
+
+  useEffect(()=>{
+    if (user){
+      addUser(user.uid, user.displayName)
+      console.log('added user', user.uid, user.displayName)
+    }
+  }, [user])
+
   const [popUpVisible, setPopUpVisible] = useState(false);
 
   togglePopUp = () => {
