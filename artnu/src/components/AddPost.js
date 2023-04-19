@@ -26,18 +26,21 @@ export function AddPost(props) {
   });
 
   async function getPhoto(id) {
+    console.log("getting photo")
     const storage = getStorage();
     const storageRef = ref(storage, `images/${id}`);
+    console.log("getting snapshot")
     const snapshot = await uploadBytes(storageRef, file)
+    console.log("returning snapshot")
     return await getDownloadURL(snapshot.ref);
   }
 
   async function handlePost() {
+    console.log("Adding post")
     try {
         if (file) {
           let url = await getPhoto(id);
           console.log(url);
-          
           const docRef = await addDoc(collection(db, "posts"), {
             price: newPost.price,
             likes: newPost.likes,
