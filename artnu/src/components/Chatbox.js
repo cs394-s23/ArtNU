@@ -15,6 +15,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
 import {db} from '../firebase.js'
+import { useUser } from '../context/AuthContext.js';
 
 
 const id1= "0mg9bB2gmzmOqwvqanBr";
@@ -23,13 +24,23 @@ const id2= "yr8FEWAHu0w1srk2sm27";
 export function ChatBox (props) {
     // const {chatvisible, setchatvisible } = props;
     // console.log(chatvisible)
+    var {user} = useUser()
 
     const [Convos, setConvos] = useState([]);
     const [selected, setSelected] = useState([]);
     const [Users, setUsers] = useState([]);
     const [unsubscribe, setUnsubscribe] = useState(null);
+    const [myID, setMyID] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            setMyID(user.uid)
+            console.log(user.uid)
+        }
+}, [user]);
 
     function selectConvo (id, convos) {
+        console.log(id)
         setSelected(id);
         //find the convo with the id
         let convo = convos.find(convo => convo.id === id)
@@ -37,7 +48,9 @@ export function ChatBox (props) {
         
     
     useEffect(() => {
-        const q = query(collection(db, "users", id1, "chatrooms"));
+        if (user){
+        console.log(myID)
+        const q = query(collection(db, "users", user.uid, "chatrooms"));
         
         const unsubscribe = onSnapshot(q, (snapshot) => {
           let newConvos = [];
@@ -53,17 +66,19 @@ export function ChatBox (props) {
         });
     
         return () => unsubscribe();
-    }, []);
-
-
+    }
+      }, [user]);
+    
+ 
     useEffect(() => {
         const users = [];
         async function getUsers() {
-            for (let convo of Convos) {
-                console.log(convo)
-                let user = await getUserById(convo.id);
-                user.id= convo.id;
-                users.push(user);
+        for (let convo of Convos) {
+            console.log(convo.id.trim())
+            let currUser = await getUserById(convo.id.trim());
+            console.log(currUser)
+            currUser.id= convo.id;
+            users.push(currUser);
         }
         setUsers(users);
     }
@@ -74,7 +89,7 @@ export function ChatBox (props) {
     function handleSend (e) {
         e.preventDefault();
         let content = e.target.elements[0].value;
-        addMessage(id1,  content, id2,[]);
+        addMessage(user.uid,  content, selected,[]);
         e.target.elements[0].value = "";
     }
 
@@ -85,6 +100,8 @@ export function ChatBox (props) {
             )
         }
     }
+
+    if (user){
 
     return (
 
@@ -134,7 +151,7 @@ export function ChatBox (props) {
                                 return (
                                     <div key={message.id} className="chatbox-message-box">
                                         {getChatOrder(message)}
-                                        <p className={`chatbox-message ${message.sender === id1 ? 'sent' : 'received'}`}>
+                                        <p className={`chatbox-message ${message.sender === user.uid ? 'sent' : 'received'}`}>
                                             {message.content}
                                         </p>
                                     </div>
@@ -151,6 +168,7 @@ export function ChatBox (props) {
         </div>
         </div>
     )
+                        }
 }
       
 
