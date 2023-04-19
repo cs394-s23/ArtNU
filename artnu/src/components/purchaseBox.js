@@ -7,7 +7,7 @@ const id1= "yr8FEWAHu0w1srk2sm27";
 
 export function PurchaseBox(props) {
   const post = props.post;
-  console.log(post)
+  //console.log(post)
   const { popUpVisible, togglePopUp } = props;
   const [orderSubmitted, setOrderSubmitted] = useState(false); // Add a state variable to keep track of order submission
   const [myID, setMyID] = useState(null);
@@ -16,7 +16,7 @@ export function PurchaseBox(props) {
   useEffect(() => {
       if (user) {
           setMyID(user.uid)
-          console.log(user.uid)
+          //console.log(user.uid)
       }
 }, [user]);
 
@@ -25,10 +25,10 @@ export function PurchaseBox(props) {
     e.preventDefault();
     let content = e.target.elements[0].value;
     const postdata= [post.img, post.author, post.price]
-    console.log(postdata)
+    //console.log(postdata)
     //user id
     const userid = post.uid; 
-    console.log(userid)
+    //console.log(userid)
     addMessage(user.uid,  content, userid, postdata);
     e.target.elements[0].value = "";
     setOrderSubmitted(true);

@@ -5,6 +5,10 @@ import { Typography, Box, TextField, Button, Card, CardHeader, CardContent, Avat
 import { Navbar } from "./navbar";
 import { Alert } from "@mui/material";
 import { addUser } from "../firebase";
+import { posts_data } from "../firebase.js";
+import {Post} from "./post.js" ;
+
+
 
 export function Profile() {
   const { user, signIn, signOut } = useUser();
@@ -15,8 +19,10 @@ export function Profile() {
   const [year, setYear] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
+  const [posts, setPosts] = useState([])
+
   useEffect(() => {
-    console.log(user);
+    //console.log(user);
     if (user) {
       setDisplayName(user.displayName);
       setEmail(user.email);
@@ -24,17 +30,55 @@ export function Profile() {
     }
   }, [user]);
 
+
+  function filterByID(post){
+    console.log("user", user)
+    if (post.uid && user && post){
+      if (post.uid == user.uid){
+        console.log("FOUND A MATCH")
+        return true
+      }
+      else {
+        return false
+      }
+    }
+  }
+
+
+  useEffect(() =>{ // initialize THIS ONLY ONCE
+    const dp = posts_data
+    .then(data => {
+        let user_posts = data.filter(filterByID)
+        setPosts(user_posts)
+    })}, [user]
+  )
+
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
-    console.log(displayName, email, uid, major, year);
+    //console.log(displayName, email, uid, major, year);
     addUser(uid, displayName, major, year, true)
-    console.log(uid)
+    //console.log(uid)
     setShowAlert(true);
   };
 
   if (!user) {
     return <SignIn />;
   }
+
+  console.log(posts)
+
+  //let user_posts = posts.filter(post => post.uid == user.uid)
+  // useEffect(()=>{
+  //   let user_posts = []
+  //   for (let key in posts){
+  //     const p = posts[key]
+  //     if (p.uid == user.uid){
+  //       user_posts.push(p)
+  //     }
+  //   }
+  //   setPosts(user_posts)
+  // }, []);
+  
 
 return (
   <div>
@@ -110,6 +154,34 @@ return (
         </CardContent>
       </Card>
     </Box>
+
+    {/* post generation below */}
+
+  <div>
+    Posts should be below
+    <div className="feed">
+    <div className = "postsfeed">
+            {posts.map((post) => (
+    
+                <>
+                    <Post
+                        key = {post.ref}
+                        img={post.img}
+                        author={post.author}
+                        likes={post.likes}
+                        price={post.price}
+                        caption={post.caption}
+                        title = {post.title}
+                        // getUser = {getUser} 
+                        // userRef = {post.user} 
+                        uid={post.uid}
+                    />
+                </>
+            ))}
+        </div>
+        </div>
+  </div>
+
   </div>
 );
 
