@@ -207,7 +207,7 @@ export async function addMessage(id, message, receiverID, postdata) {
 }
 
 
-export  async function addUser(uid, displayName) {
+export  async function addUser(uid, displayName, major, year) {
   const userRef = doc(db, "users", uid);
   const userSnapshot = await getDoc(userRef);
   const chatroomsRef = collection(userRef, "chatrooms");
@@ -215,14 +215,16 @@ export  async function addUser(uid, displayName) {
 
 
 // if user has never existed
-if (!userSnapshot.exists()) {
+
   await setDoc(userRef, {
     author: displayName,
+    major: major,
+    year: year
   });
   await addDoc(chatroomsRef, {
     chatrooms: ["initElement"]
   })
-}
+
 
 }
  
