@@ -7,6 +7,7 @@ const id1= "yr8FEWAHu0w1srk2sm27";
 
 export function PurchaseBox(props) {
   const post = props.post;
+  console.log(post)
   const { popUpVisible, togglePopUp } = props;
   const [orderSubmitted, setOrderSubmitted] = useState(false); // Add a state variable to keep track of order submission
   const [myID, setMyID] = useState(null);

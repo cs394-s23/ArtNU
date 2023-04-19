@@ -80,14 +80,27 @@ const myID= "0mg9bB2gmzmOqwvqanBr";
 
 
 
-export async function getUserById(id){
-  const docRef = doc(db, "users", id);
-  const docSnap = await getDoc(docRef);
-
-
-  // console.log(docSnap.data())
-  return docSnap.data();
+// export async function getUserById(id){
+//   const docRef = doc(db, "users", id);
+//   const docSnap = await getDoc(docRef);
+//   console.log(docSnap.data())
+//   return docSnap.data();
+// }
+export async function getUserById(id) {
+  try {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    if (!docSnap.data()) {
+      return null
+    }
+    console.log(docSnap.data());
+    return docSnap.data();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
+
 
 export async function getMessagesBetween(id, receiverID){
   var convos = []

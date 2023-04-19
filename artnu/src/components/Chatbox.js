@@ -75,11 +75,15 @@ export function ChatBox (props) {
         const users = [];
         async function getUsers() {
         for (let convo of Convos) {
+            if (convo.id != "undefined"){
             console.log(convo.id.trim())
             let currUser = await getUserById(convo.id.trim());
+            
             console.log(currUser)
+            if (currUser){
             currUser.id= convo.id;
             users.push(currUser);
+            }}
         }
         setUsers(users);
     }
