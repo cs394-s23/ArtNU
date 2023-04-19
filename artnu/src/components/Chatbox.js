@@ -19,9 +19,7 @@ import { useUser } from '../context/AuthContext.js';
 import { Box, TextField, Button, InputBase } from "@mui/material";
 
 
-const levID = "jrqjR6pZU3qUnEZkzjYm";
-// const id1= "iUgNctTeJccdui6TWvRzBTkUZC93";
-const id1 = "0DI2Ntt7UCTr9ifpfXFX8ognX623"
+const id1= "0mg9bB2gmzmOqwvqanBr";
 const id2= "yr8FEWAHu0w1srk2sm27";
 
 export function ChatBox (props) {
@@ -73,7 +71,6 @@ export function ChatBox (props) {
       }, [user]);
     
  
-
     useEffect(() => {
         const users = [];
         async function getUsers() {
@@ -87,10 +84,10 @@ export function ChatBox (props) {
         setUsers(users);
     }
     getUsers();
-}, [Convos]);
+    }, [Convos]);
 
 
-  function handleSend (e) {
+    function handleSend (e) {
         e.preventDefault();
         let content = e.target.elements[0].value;
         addMessage(user.uid,  content, selected,[]);
@@ -126,7 +123,7 @@ export function ChatBox (props) {
            
                 <div className="chatbox-side">
                     <div className="chatbox-header-left">
-                    <a>General</a>
+                        <a>General</a>
                         <a>Orders</a>
                         <a>Commissions</a>
                     </div>
@@ -135,6 +132,7 @@ export function ChatBox (props) {
                         {Users.map(user => {
                             return (
                                 <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
+                                    <img className="profile-pic" src={user.profilepic}></img>
                                     <h2>
                                         {user.author}
                                     </h2>

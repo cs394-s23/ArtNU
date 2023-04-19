@@ -25,7 +25,7 @@ export function Navbar(props) {
           <a onClick={togglePopUp}>       
             <img src={plus}></img>
           </a>
-          </nav>
+        </nav>
              
               
            
