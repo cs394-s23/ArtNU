@@ -53,6 +53,7 @@ function SignIn() {
               },
             }}
             onClick={signIn}
+            data-cy="sign-in"
           >
             Sign In with Google
           </Button>
