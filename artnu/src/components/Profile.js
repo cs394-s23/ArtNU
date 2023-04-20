@@ -81,8 +81,8 @@ export function Profile() {
   
 
 return (
-  <div>
-    <Navbar />
+  <div className = "profile">
+    <Navbar/>
     <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
       <Card sx={{ width: 500 }}>
                   <Typography variant="h5" sx={{ mb: 2 }}>
@@ -158,7 +158,7 @@ return (
     {/* post generation below */}
 
   <div>
-    Posts should be below
+    <h1>Artist Posts:</h1>
     <div className="feed">
     <div className = "postsfeed">
             {posts.map((post) => (
