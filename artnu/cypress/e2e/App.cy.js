@@ -11,10 +11,11 @@ describe ('Test App', () => {
         cy.get('[data-cy=sign-in]').should('contain', 'Sign In');
     });
 
-    it('shows homepage when click home button', () => {
-        cy.visit ('http://localhost:3000/ArtNU/explore');
-        cy.get('[data-cy=explore-btn').click();
-        cy.get('[data-cy=page-title]').should('contain' ,'Explore');
+    it('sends order', () => {
+        cy.visit ('/');
+        cy.get('[data-cy=buy-btn]').first().click();
+        cy.get('[data-cy=send-btn]').click();
+        cy.get('[data-cy=order-complete-msg]').should('contain', 'Order sent.')
     });
   
   });
