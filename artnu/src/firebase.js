@@ -6,7 +6,8 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addDoc, doc, updateDoc, arrayUnion , setDoc} from "firebase/firestore"; 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
-import { getAuth, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, getRedirectResult, GoogleAuthProvider, connectAuthEmulator, signInWithCredential, signInWithRedirect} from "firebase/auth";
+import { getDatabase, connectDatabaseEmulator } from "firebase/database";
 
 
 // Your web app's Firebase configuration
@@ -38,10 +39,25 @@ const analytics = getAnalytics(app);
 const storage = getStorage();
 export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
+const database = getDatabase(app);
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 const myID= "0mg9bB2gmzmOqwvqanBr";
+
+// if (!windows.EMULATION && process.env.NODE_ENV !== 'production' !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
+  connectAuthEmulator(auth, "http://127.0.0.1:9099");
+  connectDatabaseEmulator(database, "127.0.0.1", 9000);
+
+  /* signInWithCredential(auth, GoogleAuthProvider.credential(
+    '{"sub": "LHgJj7vIBfE1X7lJ1qdXRiuTm9XS", "email": "tatyanapetriv2023@u.northwestern.edu", "displayName":"tanya petriv", "email_verified": false}'
+  )); */
+
+  
+  // set flag to avoid connecting twice, e.g., because of an editor hot-reload
+  //windows.EMULATION = true;
+}
 // export async function getMessages(id) {
 //   const convos = [];
 //   const q = query(collection(db, "users", id, "chatrooms"));
