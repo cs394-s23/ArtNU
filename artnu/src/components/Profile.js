@@ -17,6 +17,8 @@ export function Profile() {
   const [uid, setUID] = useState("");
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
+  const [interests, setInterests] = useState("");
+  const [hometown, setHometown] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
   const [posts, setPosts] = useState([])
@@ -56,7 +58,7 @@ export function Profile() {
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
     //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year, true)
+    addUser(uid, displayName, major, year, interests, hometown, true)
     //console.log(uid)
     setShowAlert(true);
   };
@@ -83,45 +85,13 @@ export function Profile() {
 return (
   <div className = "profile">
     <Navbar/>
-    <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
+    <Box sx={{ m: 2, display: "flex", justifyContent: "center", bgcolor:""}}>
       <Card sx={{ width: 500 }}>
                   <Typography variant="h5" sx={{ mb: 2 }}>
-            User Profile
+            Tell us about yourself!
           </Typography>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: "primary.main" }}>
-              {displayName[0]}
-            </Avatar>
-          }
-          title={displayName}
-          subheader={email}
-        />
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Display Name"
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
-              />
-            </Box>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Box>
-            {/* <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-          <TextField
-            label="UID"
-            value={uid}
-            disabled
-            InputProps={{ readOnly: true }}
-          />
-        </Box> */}
             <Box sx={{ bgcolor: "background.paper", p: 2 }}>
               <TextField
                 label="Major"
@@ -134,6 +104,20 @@ return (
                 label="Year"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
+              />
+            </Box>
+            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+              <TextField
+                label="Interests"
+                value={interests}
+                onChange={(e) => setInterests(e.target.value)}
+              />
+            </Box>
+            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+              <TextField
+                label="Hometown"
+                value={hometown}
+                onChange={(e) => setHometown(e.target.value)}
               />
             </Box>
             <Box sx={{ p: 2 }}>
