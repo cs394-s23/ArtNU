@@ -34,7 +34,7 @@ export function Post(props) {
                 <img src={props.img}/>
                 <span className = "post-price"> ${props.price} </span>
                 <div className = "btns">
-                <button class="buy" onClick={togglePopUp}> Buy </button>
+                <button class="buy" onClick={togglePopUp} data-cy="buy-btn"> Buy </button>
                 <button class="commission"> Commission  </button>
             </div>
    

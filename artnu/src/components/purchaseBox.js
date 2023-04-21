@@ -46,7 +46,7 @@ export function PurchaseBox(props) {
               <button className="close-btn" onClick={togglePopUp}>
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <p>Order sent. Check your <span className="pagelink"><a href="../ArtNU/chatbox"> inbox</a></span> for updates.</p>
+                <p data-cy="order-complete-msg">Order sent. Check your <span className="pagelink"><a href="../ArtNU/chatbox"> inbox</a></span> for updates.</p>
               </div>
             ) : (
               <div className="addPost">
@@ -67,7 +67,7 @@ export function PurchaseBox(props) {
                 </div>
                 <form className="popup-input" onSubmit={handleOrderSubmit}>
                         <input type="text" placeholder="Type a message" className="chatbox-input" />
-                        <button type="submit">
+                        <button type="submit" data-cy="send-btn">
                         <i class="fa-solid fa-paper-plane"></i>
                        </button>
                   </form>
