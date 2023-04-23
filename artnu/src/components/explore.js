@@ -22,7 +22,7 @@ export default function Explore() {
             <img src={paw}></img>
             <span>NU Art</span>
           </div>
-          <span className="page-title">Explore</span>
+          <span className="page-title" data-cy="page-title">Explore</span>
             <a href='../ArtNU/profile'>
               <img src={user} class="user"></img>
             </a>
