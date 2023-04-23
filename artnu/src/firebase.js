@@ -234,7 +234,7 @@ export async function addMessage(id, message, receiverID, postdata) {
 }
 
 
-export  async function addUser(uid, displayName, major="null", year="null") {
+export  async function addUser(uid, displayName, major="null", year="null", interests="null", hometown="null") {
   const userRef = doc(db, "users", uid);
   const userSnapshot = await getDoc(userRef);
   const chatroomsRef = collection(userRef, "chatrooms");
@@ -246,7 +246,9 @@ export  async function addUser(uid, displayName, major="null", year="null") {
   await setDoc(userRef, {
     author: displayName,
     major: major,
-    year: year
+    year: year,
+    interests: interests,
+    hometown: hometown
   });
   await addDoc(chatroomsRef, {
     chatrooms: ["initElement"]

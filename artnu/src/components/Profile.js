@@ -20,6 +20,7 @@ export function Profile() {
   const [interests, setInterests] = useState("");
   const [hometown, setHometown] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [showAddInfo, setShowAddInfo] = useState(true)
 
   const [posts, setPosts] = useState([])
 
@@ -58,10 +59,15 @@ export function Profile() {
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
     //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year, interests, hometown, true)
+    addUser(uid, displayName, major, year, interests, hometown)
     //console.log(uid)
     setShowAlert(true);
+    setShowAddInfo(false);
   };
+
+  const closeAddInfoPopUp = () => {
+    setShowAddInfo(false);
+  }
 
   if (!user) {
     return <SignIn />;
@@ -83,88 +89,96 @@ export function Profile() {
   
 
 return (
-  <div className = "profile">
+  <div className = "profile-page">
     <Navbar/>
-    <Box sx={{ m: 2, display: "flex", justifyContent: "center", bgcolor:""}}>
-      <Card sx={{ width: 500 }}>
-                  <Typography variant="h5" sx={{ mb: 2 }}>
+    {showAddInfo && (
+    <div className="add-info-popup-bg">
+      <Box className="add-info-popup" sx={{ m: 2, display: "flex", justifyContent: "center", bgcolor:""}}>
+        <Card sx={{ width: 500 }}>
+          <button onClick={closeAddInfoPopUp}>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <Typography variant="h5" sx={{ mb:2, padding:2}}>
             Tell us about yourself!
           </Typography>
-        <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Major"
-                value={major}
-                onChange={(e) => setMajor(e.target.value)}
-              />
+          <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+                <TextField
+                  label="Major"
+                  value={major}
+                  onChange={(e) => setMajor(e.target.value)}
+                />
+              </Box>
+              <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+                <TextField
+                  label="Year"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                />
+              </Box>
+              <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+                <TextField
+                  label="Interests"
+                  value={interests}
+                  onChange={(e) => setInterests(e.target.value)}
+                />
+              </Box>
+              <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+                <TextField
+                  label="Hometown"
+                  value={hometown}
+                  onChange={(e) => setHometown(e.target.value)}
+                />
+              </Box>
+              <Box sx={{ p: 2 }}>
+                <Button variant="contained" onClick={handleSave}>
+                  Save
+                </Button>
+                {showAlert && (
+                  <Alert
+                    severity="success"
+                    sx={{ mt: 2 }}
+                    onClose={() => setShowAlert(false)}
+                  >
+                    Changes saved successfully!
+                  </Alert>
+                )}
+              </Box>
             </Box>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Year"
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-              />
-            </Box>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Interests"
-                value={interests}
-                onChange={(e) => setInterests(e.target.value)}
-              />
-            </Box>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Hometown"
-                value={hometown}
-                onChange={(e) => setHometown(e.target.value)}
-              />
-            </Box>
-            <Box sx={{ p: 2 }}>
-              <Button variant="contained" onClick={handleSave}>
-                Save
-              </Button>
-              {showAlert && (
-                <Alert
-                  severity="success"
-                  sx={{ mt: 2 }}
-                  onClose={() => setShowAlert(false)}
-                >
-                  Changes saved successfully!
-                </Alert>
-              )}
-            </Box>
-          </Box>
-        </CardContent>
-      </Card>
-    </Box>
+          </CardContent>
+        </Card>
+      </Box>
+    </div>
+    )}
+    
 
     {/* post generation below */}
 
-  <div>
-    <h1>Artist Posts:</h1>
-    <div className="feed">
-    <div className = "postsfeed">
-            {posts.map((post) => (
-    
-                <>
-                    <Post
-                        key = {post.ref}
-                        img={post.img}
-                        author={post.author}
-                        likes={post.likes}
-                        price={post.price}
-                        caption={post.caption}
-                        title = {post.title}
-                        // getUser = {getUser} 
-                        // userRef = {post.user} 
-                        uid={post.uid}
-                    />
-                </>
-            ))}
-        </div>
-        </div>
-  </div>
+    <div className="profile">
+      <div className="user-info">
+        <h1>{user.displayName}</h1>
+        <h2>{user.major}</h2>
+      </div>
+      <div className = "postsfeed">
+        {posts.map((post) => (
+          <>
+              <Post
+                  key = {post.ref}
+                  img={post.img}
+                  author={post.author}
+                  likes={post.likes}
+                  price={post.price}
+                  caption={post.caption}
+                  title = {post.title}
+                  // getUser = {getUser} 
+                  // userRef = {post.user} 
+                  uid={post.uid}
+              />
+          </>
+        ))}
+      </div>
+    </div>
 
   </div>
 );
