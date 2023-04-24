@@ -608,6 +608,7 @@ h1 {
 .explore .postsfeed {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100vw;
   height: fit-content;
   overflow: scroll;

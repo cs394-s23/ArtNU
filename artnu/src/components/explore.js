@@ -29,16 +29,7 @@ export default function Explore() {
         </header>
   
         <main className="explore">   
-        <section className="nu-favorites">
-            <h1>NU Favorites</h1>
-            <Posts/>
-        </section>
-        <section className="friends-like">
-            <h1>Your friends like</h1>
-            <Posts/>
-        </section>
-        <section className="curr-popups">
-            <h1>Current Pop Ups</h1>
+        <section>
             <Posts/>
         </section>
         </main>

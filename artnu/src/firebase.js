@@ -54,7 +54,7 @@ export const db = initializeFirestore(app, settings)
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
 
-if (!windows.EMULATION && process.env.NODE_ENV !== 'production') {
+if (!windows.EMULATION && process.env.NODE_ENV == 'production') {
 // if (process.env.REACT_APP_EMULATE) {
   connectAuthEmulator(auth, "http://127.0.0.1:9099");
   connectDatabaseEmulator(database, "127.0.0.1", 9000);
