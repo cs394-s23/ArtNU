@@ -8,6 +8,7 @@ import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addD
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { getAuth, getRedirectResult, GoogleAuthProvider, connectAuthEmulator, signInWithCredential, signInWithRedirect} from "firebase/auth";
 import { getDatabase, connectDatabaseEmulator } from "firebase/database";
+import { windows } from "./globals.js";
 
 
 // Your web app's Firebase configuration
@@ -31,8 +32,6 @@ const firebaseConfig = {
 };
 
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -49,15 +48,14 @@ if (process.env.REACT_APP_EMULATE) {
   };
 }
 
-
 export const db = initializeFirestore(app, settings)
 // Initialize Cloud Firestore and get a reference to the service
 //export const db = getFirestore(app);
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
 
-// if (!windows.EMULATION && process.env.NODE_ENV !== 'production' !== 'production') {
-if (process.env.REACT_APP_EMULATE) {
+if (!windows.EMULATION && process.env.NODE_ENV == 'production') {
+// if (process.env.REACT_APP_EMULATE) {
   connectAuthEmulator(auth, "http://127.0.0.1:9099");
   connectDatabaseEmulator(database, "127.0.0.1", 9000);
   connectFirestoreEmulator(db, "127.0.0.1", 8080);
@@ -65,9 +63,8 @@ if (process.env.REACT_APP_EMULATE) {
     '{"sub": "LHgJj7vIBfE1X7lJ1qdXRiuTm9XS", "email": "tatyanapetriv2023@u.northwestern.edu", "displayName":"tanya petriv", "email_verified": false}'
   ));
 
-  
   // set flag to avoid connecting twice, e.g., because of an editor hot-reload
-  //windows.EMULATION = true;
+  windows.EMULATION = true;
 }
 // export async function getMessages(id) {
 //   const convos = [];
