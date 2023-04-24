@@ -30,6 +30,20 @@ export function Profile() {
     }
   }, [user]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    // Simulate loading for 2 seconds
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 750);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   function filterByID(post){
     console.log("user", user)
@@ -61,9 +75,9 @@ export function Profile() {
     setShowAlert(true);
   };
 
-  if (!user) {
-    return <SignIn />;
-  }
+  //if (!user) {
+  //  return <SignIn />;
+  //}
 
   console.log(posts)
 
@@ -81,31 +95,38 @@ export function Profile() {
   
 
 return (
-  <div>
-    <Navbar />
-    <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
-      <Card sx={{ width: 500 }}>
-                  <Typography variant="h5" sx={{ mb: 2 }}>
-            User Profile
-          </Typography>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: "primary.main" }}>
-              {displayName[0]}
-            </Avatar>
-          }
-          title={displayName}
-          subheader={email}
-        />
-        <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-              <TextField
-                label="Display Name"
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
+  <>
+    {isLoading ? (
+      <div>Loading...</div>
+    ) : (
+      <>
+        {user ? (
+          <>
+            <div>
+              <Navbar />
+              <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
+              <Card sx={{ width: 500 }}>
+                <Typography variant="h5" sx={{ mb: 2 }}>
+                User Profile
+                </Typography>
+                <CardHeader
+                avatar={
+                <Avatar sx={{ bgcolor: "primary.main" }}>
+                {displayName[0]}
+                </Avatar>
+                }
+                title={displayName}
+                subheader={email}
               />
+              <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+                <TextField
+                  label="Display Name"
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
+                />
             </Box>
             <Box sx={{ bgcolor: "background.paper", p: 2 }}>
               <TextField
@@ -115,13 +136,13 @@ return (
               />
             </Box>
             {/* <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-          <TextField
+            <TextField
             label="UID"
             value={uid}
             disabled
             InputProps={{ readOnly: true }}
-          />
-        </Box> */}
+            />
+            </Box> */}
             <Box sx={{ bgcolor: "background.paper", p: 2 }}>
               <TextField
                 label="Major"
@@ -183,6 +204,16 @@ return (
   </div>
 
   </div>
+  </>
+    ) : (
+      <>
+      <SignIn></SignIn>
+      </>
+    )}
+    </>
+  )}
+  </>
+  
 );
 
 }

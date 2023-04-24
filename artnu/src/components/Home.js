@@ -31,7 +31,7 @@ export default function Home() {
     // Simulate loading for 2 seconds
     const timeoutId = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 750);
 
     return () => {
       clearTimeout(timeoutId);
