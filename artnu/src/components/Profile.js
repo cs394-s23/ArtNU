@@ -58,7 +58,6 @@ export function Profile() {
     }
   }
 
-
   useEffect(() =>{ // initialize THIS ONLY ONCE
     const dp = posts_data
     .then(data => {

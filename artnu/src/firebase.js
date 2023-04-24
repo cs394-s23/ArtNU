@@ -9,6 +9,7 @@ import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { getAuth, getRedirectResult, GoogleAuthProvider, connectAuthEmulator, signInWithCredential, signInWithRedirect} from "firebase/auth";
 import { getDatabase, connectDatabaseEmulator } from "firebase/database";
 import { windows } from "./globals.js";
+import { useEffect } from "react";
 
 
 // Your web app's Firebase configuration
@@ -124,6 +125,20 @@ export async function getUserById(id) {
     return null;
   }
 }
+
+//get all userList
+export async function getUserList(){
+  var userList = []
+  const userSnapshot = await getDocs(collection(db, "users"));
+  userSnapshot.forEach(async (doc) => {
+    let user = doc.data();
+    user.id = doc.id;
+    userList.push(user)
+  });
+  return userList
+}
+
+export const user_list = getUserList();
 
 
 export async function getMessagesBetween(id, receiverID){

@@ -5,6 +5,7 @@ import {useState} from 'react';
 import user from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost.js";
+import { UserList } from "./UserList.js";
 
 export default function Explore() {
     
@@ -28,7 +29,10 @@ export default function Explore() {
             </a>
         </header>
   
-        <main className="explore">   
+        <main className="explore">  
+        <section>
+          <UserList/>
+        </section> 
         <section>
             <Posts/>
         </section>

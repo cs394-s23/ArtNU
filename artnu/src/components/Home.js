@@ -15,12 +15,13 @@ export let togglePopUp;
 export default function Home() {
   const { user, signIn, signOut } = useUser();
 
-  useEffect(() => {
-    if (user) {
-      addUser(user.uid, user.displayName)
-      console.log('added user', user.uid, user.displayName)
-    }
-  }, [user])
+  //not sure why we are reseting the user upon Homepage, so i removed
+  // useEffect(() => {
+  //   if (user) {
+  //     addUser(user.uid, user.displayName)
+  //     console.log('added user', user.uid, user.displayName)
+  //   }
+  // }, [user])
 
   const [isLoading, setIsLoading] = useState(true);
   const [popUpVisible, setPopUpVisible] = useState(false);
