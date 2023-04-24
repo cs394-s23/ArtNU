@@ -120,7 +120,7 @@ export async function getUserById(id) {
     if (!docSnap.data()) {
       return null
     }
-    console.log(docSnap.data());
+    //console.log(docSnap.data());
     return docSnap.data();
   } catch (error) {
     console.log(error);
@@ -170,6 +170,8 @@ export async function addMessage(id, message, receiverID, postdata) {
   try {
     const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
     const docSnap = await getDoc(docRef);
+    let convo = docSnap.data()
+    
 
     // Check if the conversation document exists
     if (docSnap.exists()) {
@@ -201,7 +203,7 @@ export async function addMessage(id, message, receiverID, postdata) {
     // Check if the conversation document exists
     if (docSnap2.exists()) {
       // Add the message to the existing conversation
-      console.log("id: " + id + " receiverID: " + receiverID + " message: " + message + " postdata: " + postdata + "")
+     //console.log("id: " + id + " receiverID: " + receiverID + " message: " + message + " postdata: " + postdata + "")
       await updateDoc(docRef2, {
         
         convo: arrayUnion({
@@ -241,6 +243,7 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
 
 
 
+
 // if user has never existed
 
   await setDoc(userRef, {
@@ -250,9 +253,8 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
     interests: interests,
     hometown: hometown
   });
-  await addDoc(chatroomsRef, {
-    chatrooms: ["initElement"]
-  })
+ 
+
 
 
 }

@@ -38,7 +38,8 @@ export function ChatOrder(props) {
   
 
   let img = props.data[0];
-
+  console.log("myID",myID)
+  
   return (
     <div className={`chatOrder ${props.sender === myID ? 'sent' : 'received'}`}>
       <div className="order-info">
