@@ -26,7 +26,7 @@ export function UserList(){
             <ul>
                 {userList.map(user => (
                     <li key={user.id}>
-                        <Link to={`../ArtNU/users/${user.id}`}>{user.author}</Link>
+                        <Link to={`../ArtNU/${user.id}`}>{user.author}</Link>
                     </li>
                 ))}
             </ul>

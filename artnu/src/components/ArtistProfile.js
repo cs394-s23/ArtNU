@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { user_list } from "../firebase.js"
 import { useParams } from 'react-router-dom'
-import 'firebase/firestore';
+import { getUserById } from "../firebase.js";
+import { Navbar } from "./navbar";
 
 
 export function ArtistProfile() {
@@ -9,7 +9,20 @@ export function ArtistProfile() {
 
     const { id } = useParams();
 
-    console.log("user id", id)
+    let userF = getUserById(id)
+
+    console.log("id", id)
+    console.log("user", userF)
+
+    useEffect(() => {
+        async function fetchData() {
+            const user = await getUserById(id)
+            setUserData(user)
+        }
+        fetchData();
+    }, [id])
+
+   console.log(userData)
 
     // function filterByID(user){
     //     console.log("FILTERING")
@@ -18,41 +31,41 @@ export function ArtistProfile() {
     //     } else { return false}
     // };
 
-    console.log(user_list)
 
 
-    useEffect(() => {
-        console.log("Inside useEFFECT")
-        // const getUserData = async () => {
-        //     const user_list_data = await user_list;
-        //     const doc = await user_list_data.doc(userId).get();
-        //     setUserData(doc.data());
-        // }
-        // getUserData();
-        const fetchUserData = async () => {
-            try {
-                const userRef = firestore.collection('users').doc(id);
-                const userData = await userRef.get();
-                if(userData.exists) {
-                    setUserData(userData.data());
-                } else {
-                    console.log("no user found with id ${id}")
-                }
-            } catch (error) {
-                console.error("error fetching user data");
-            }
-        };
-        fetchUserData();
-    }, [id]);
+    // useEffect(() => {
+    //     console.log("Inside useEFFECT")
+    //     // const getUserData = async () => {
+    //     //     const user_list_data = await user_list;
+    //     //     const doc = await user_list_data.doc(userId).get();
+    //     //     setUserData(doc.data());
+    //     // }
+    //     // getUserData();
+    //     const fetchUserData = async () => {
+    //         try {
+    //             const userRef = firestore.collection('users').doc(id);
+    //             const userData = await userRef.get();
+    //             if(userData.exists) {
+    //                 setUserData(userData.data());
+    //             } else {
+    //                 console.log("no user found with id ${id}")
+    //             }
+    //         } catch (error) {
+    //             console.error("error fetching user data");
+    //         }
+    //     };
+    //     fetchUserData();
+    // }, [id]);
 
-
-
-    console.log("users", userData)
+    if(!userData) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
-            <h1>Profile</h1>
-            <p> Major:</p>
+            <Navbar />
+            <h1>{userData.author}'s Profile</h1>
+            <p> Major: {userData.major}</p>
         </div>
     );
 };
