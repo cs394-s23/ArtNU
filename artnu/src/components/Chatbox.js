@@ -101,9 +101,9 @@ export function ChatBox (props) {
     }
 
     function getChatOrder(message) {
-        if (message.postdata.length == 3) {
+        if (message.orderid) {
             return (
-                <ChatOrder data = {message.postdata} />
+                <ChatOrder data = {message} />
             )
         }
     }

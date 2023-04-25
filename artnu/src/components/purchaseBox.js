@@ -28,10 +28,9 @@ export function PurchaseBox(props) {
     //console.log(postdata)
     //user id
     const userid = post.uid;
-    const random = String(Math.random()).replace(".","L")
-    console.log(random)
-    addMessage(user.uid,  content, userid, random);
-    addOrder(user.uid, userid, postdata, random)
+    const orderId = String(Math.random())
+    addMessage(user.uid,  content, userid, postdata, orderId);
+    addOrder(user.uid, userid, postdata, orderId);
     e.target.elements[0].value = "";
     setOrderSubmitted(true);
 }

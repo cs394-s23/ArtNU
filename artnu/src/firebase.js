@@ -126,6 +126,18 @@ export async function getUserById(id) {
   }
 }
 
+export async function getOrderById(userId) {
+  const orderRef = doc(db, "orders", userId);
+  const orderSnap = await getDoc(orderRef);
+  if (!orderSnap.data()) {
+    return null
+  }
+  else {
+    const order = orderSnap.data();
+    return order
+  }
+}
+
 //get all userList
 export async function getUserList(){
   var userList = []
@@ -264,7 +276,7 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
  
 export async function addOrder(uid, recieverid, postdata, orderid) {
   try {
-      const docRef = await addDoc(collection(db, "orders/", orderid), {
+      const docRef = await setDoc(doc(db, "orders", orderid), {
         senderid: uid,
         reciever: recieverid,
         data: postdata

@@ -1,11 +1,13 @@
+import { setDefaultEventParameters } from '@firebase/analytics';
 import { useState, useEffect } from 'react';
 import { useUser } from '../context/AuthContext.js';
-import { addMessage } from '../firebase.js';
+import { addMessage, getOrderById } from '../firebase.js';
 
 
 export function ChatOrder(props) {
   const [confirm, setConfirm] = useState(false);
   const [myID, setMyID] = useState(null);
+  const [order, setOrder] = useState([]);
   const { user } = useUser();
 
   useEffect(() => {
@@ -15,18 +17,44 @@ export function ChatOrder(props) {
   }, [user]);
 
   function handleClick() {
-      setConfirm(true);
-      console.log("props",props.data)  
+      setConfirm(!confirm);
+      const docRef = getOrderById(props.data.orderid)
+      async function updateConfirm() {
+        const order_data = await getOrderById(props.data.orderid)
+        order_data.data[4] = !order_data.data[4];
+        console.log(order_data.data)
+        // NOW WE JUST NEED TO UPDATE THE DOC
+      }
+      updateConfirm();
+      
+      
+//       const data = 
+//       setDoc(docRef, data, { merge:true })
+//       .then(docRef => {
+//           console.log("Document Field has been updated successfully");
+//         })
+//       .catch(error => {
+//       console.log(error);
+// })
   }
+  useEffect(() => {
+    async function fetchData() {
+        const order_data = await getOrderById(props.data.orderid)
+        console.log("this work?", order_data.data)
+        setOrder(order_data.data)
+    }
+    fetchData();
+}, [])
 
-
-  let [img, author, price]  = props.data;
-  // console.log("myID",myID)
+  // console.log(order)
+  let [img, author, price, title, confirmed]  = order
+  
+  
   
   return (
     <div className={`chatOrder ${props.sender === myID ? 'sent' : 'received'}`}>
       <div className="order-info">
-        <h1>Order For: </h1>
+        <h1>Order For: {title} </h1>
         <div className="order-price">
           <p>Price</p>
           <p>${price}</p>
