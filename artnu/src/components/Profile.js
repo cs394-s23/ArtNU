@@ -155,8 +155,8 @@ return (
         <div className="rest">
           <h1>{userData.author}</h1>
           {userData.major && <h2 className="major">{userData.major} Major</h2>}
-          <h2>Hometown: {userData.hometown}</h2>
-          <h2>Interests: {userData.interests}</h2>
+          <h3>Hometown: {userData.hometown}</h3>
+          <h3>Interests: {userData.interests}</h3>
         </div>
       </div>
     <div className = "postsfeed">

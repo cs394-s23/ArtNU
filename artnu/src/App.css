@@ -986,7 +986,7 @@ header nav {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #434343;
 
 }
 
@@ -1036,9 +1036,16 @@ header nav {
   z-index: 999;
 }
 
-.profile .user-info strong{
+.profile .user-info h1{
   color: #434343;
-  
+}
+
+.profile .user-info h2{
+  color: #9796F0;
+}
+
+.profile .user-info h3{
+  color: #ABABAB;
 }
 
 .user-info h1
