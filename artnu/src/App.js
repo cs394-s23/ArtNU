@@ -16,6 +16,8 @@ import { auth, provider } from './firebase.js';
 import { signInWithRedirect } from 'firebase/auth';
 import { UserProvider } from './context/AuthContext';
 import { Profile } from './components/Profile';
+import {ArtistProfile} from './components/ArtistProfile';
+
 
 function App() {
   readPosts()
@@ -34,6 +36,7 @@ function App() {
             <Route path="ArtNU/chatbox" element={<ChatBox/>}/>
             <Route path="ArtNU/profile" element={<Profile/>}/>
             <Route path="ArtNU/home" element={<UserProvider><Home/></UserProvider>}/>
+            <Route path="ArtNU/:id" element={<ArtistProfile/>}/>
             {/* <Route path="ArtNU/signin" element={<SignIn/>}/>
             <Route path="ArtNU/signup" element={<SignUp/>}/> */}
             <Route

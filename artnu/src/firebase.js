@@ -8,6 +8,8 @@ import { query, onSnapshot, collection, getDocs, getDoc, DocumentReference, addD
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { getAuth, getRedirectResult, GoogleAuthProvider, connectAuthEmulator, signInWithCredential, signInWithRedirect} from "firebase/auth";
 import { getDatabase, connectDatabaseEmulator } from "firebase/database";
+import { windows } from "./globals.js";
+import { useEffect } from "react";
 
 
 // Your web app's Firebase configuration
@@ -31,8 +33,6 @@ const firebaseConfig = {
 };
 
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -49,15 +49,14 @@ if (process.env.NODE_ENV == 'production') {
   };
 }
 
-
 export const db = initializeFirestore(app, settings)
 // Initialize Cloud Firestore and get a reference to the service
 //export const db = getFirestore(app);
 const myID= "0mg9bB2gmzmOqwvqanBr";
 
 
-// if (!windows.EMULATION && process.env.NODE_ENV !== 'production' !== 'production') {
-if (process.env.NODE_ENV == 'production') {
+
+if (!windows.EMULATION && process.env.NODE_ENV == 'production') {
   connectAuthEmulator(auth, "http://127.0.0.1:9099");
   connectDatabaseEmulator(database, "127.0.0.1", 9000);
   connectFirestoreEmulator(db, "127.0.0.1", 8080);
@@ -65,9 +64,8 @@ if (process.env.NODE_ENV == 'production') {
     '{"sub": "LHgJj7vIBfE1X7lJ1qdXRiuTm9XS", "email": "tatyanapetriv2023@u.northwestern.edu", "displayName":"tanya petriv", "email_verified": false}'
   ));
 
-  
   // set flag to avoid connecting twice, e.g., because of an editor hot-reload
-  //windows.EMULATION = true;
+  windows.EMULATION = true;
 }
 // export async function getMessages(id) {
 //   const convos = [];
@@ -120,13 +118,27 @@ export async function getUserById(id) {
     if (!docSnap.data()) {
       return null
     }
-    console.log(docSnap.data());
+    //console.log(docSnap.data());
     return docSnap.data();
   } catch (error) {
     console.log(error);
     return null;
   }
 }
+
+//get all userList
+export async function getUserList(){
+  var userList = []
+  const userSnapshot = await getDocs(collection(db, "users"));
+  userSnapshot.forEach(async (doc) => {
+    let user = doc.data();
+    user.id = doc.id;
+    userList.push(user)
+  });
+  return userList
+}
+
+export const user_list = getUserList();
 
 
 export async function getMessagesBetween(id, receiverID){
@@ -170,6 +182,8 @@ export async function addMessage(id, message, receiverID, postdata) {
   try {
     const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
     const docSnap = await getDoc(docRef);
+    let convo = docSnap.data()
+    
 
     // Check if the conversation document exists
     if (docSnap.exists()) {
@@ -201,7 +215,7 @@ export async function addMessage(id, message, receiverID, postdata) {
     // Check if the conversation document exists
     if (docSnap2.exists()) {
       // Add the message to the existing conversation
-      console.log("id: " + id + " receiverID: " + receiverID + " message: " + message + " postdata: " + postdata + "")
+     //console.log("id: " + id + " receiverID: " + receiverID + " message: " + message + " postdata: " + postdata + "")
       await updateDoc(docRef2, {
         
         convo: arrayUnion({
@@ -241,6 +255,7 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
 
 
 
+
 // if user has never existed
 
   await setDoc(userRef, {
@@ -250,9 +265,8 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
     interests: interests,
     hometown: hometown
   });
-  await addDoc(chatroomsRef, {
-    chatrooms: ["initElement"]
-  })
+ 
+
 
 
 }

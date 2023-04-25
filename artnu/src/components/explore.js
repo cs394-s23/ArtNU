@@ -5,6 +5,7 @@ import {useState} from 'react';
 import user from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost.js";
+import { UserList } from "./UserList.js";
 
 export default function Explore() {
     
@@ -28,17 +29,11 @@ export default function Explore() {
             </a>
         </header>
   
-        <main className="explore">   
-        <section className="nu-favorites">
-            <h1>NU Favorites</h1>
-            <Posts/>
-        </section>
-        <section className="friends-like">
-            <h1>Your friends like</h1>
-            <Posts/>
-        </section>
-        <section className="curr-popups">
-            <h1>Current Pop Ups</h1>
+        <main className="explore">  
+        <section>
+          <UserList/>
+        </section> 
+        <section>
             <Posts/>
         </section>
         </main>
