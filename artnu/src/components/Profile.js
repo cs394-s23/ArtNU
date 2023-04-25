@@ -24,6 +24,7 @@ export function Profile() {
   useEffect(() => {
     //console.log(user);
     if (user) {
+
       setDisplayName(user.displayName);
       setEmail(user.email);
       setUID(user.uid);
@@ -69,7 +70,7 @@ export function Profile() {
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
     //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year, true)
+    addUser(uid, displayName, major, year, interests, hometown);
     //console.log(uid)
     setShowAlert(true);
   };
