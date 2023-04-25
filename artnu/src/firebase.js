@@ -126,8 +126,8 @@ export async function getUserById(id) {
   }
 }
 
-export async function getOrderById(userId) {
-  const orderRef = doc(db, "orders", userId);
+export async function getOrderById(orderid) {
+  const orderRef = doc(db, "orders", orderid);
   const orderSnap = await getDoc(orderRef);
   if (!orderSnap.data()) {
     return null
@@ -190,7 +190,7 @@ getRedirectResult(auth)
   // console.log(posts);
   return convos
 }
-export async function addMessage(id, message, receiverID, postdata) {
+export async function addMessage(id, message, receiverID, postdata, orderid) {
   try {
     const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
     const docSnap = await getDoc(docRef);
@@ -205,6 +205,7 @@ export async function addMessage(id, message, receiverID, postdata) {
           sender: id,
           content: message,
           postdata: postdata,
+          orderid: orderid,
         }),
       });
     } else {
@@ -215,6 +216,7 @@ export async function addMessage(id, message, receiverID, postdata) {
             sender: id,
             content: message,
             postdata: postdata,
+            orderid: orderid,
           },
         ],
       });
@@ -286,6 +288,14 @@ export async function addOrder(uid, recieverid, postdata, orderid) {
   }
 }
 
+export async function updateOrder(postdata, orderid) {
+  const orderRef = doc(db, "orders", orderid);
+  try {
+      setDoc(orderRef, { data: postdata });
+    } catch (e) {
+      console.error("Error updating order: ", e);
+  }
+}
 
 
 

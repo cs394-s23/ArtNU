@@ -101,13 +101,14 @@ export function ChatBox (props) {
     }
 
     function getChatOrder(message) {
+        console.log("message: ", message)
         if (message.orderid) {
+            console.log("u got here")
             return (
                 <ChatOrder data = {message} />
             )
         }
     }
-
     if (user){
 
     return (

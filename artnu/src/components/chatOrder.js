@@ -1,11 +1,11 @@
 import { setDefaultEventParameters } from '@firebase/analytics';
 import { useState, useEffect } from 'react';
 import { useUser } from '../context/AuthContext.js';
-import { addMessage, getOrderById } from '../firebase.js';
+import { addMessage, updateOrder, getOrderById } from '../firebase.js';
 
 
 export function ChatOrder(props) {
-  const [confirm, setConfirm] = useState(false);
+  const [confirm, setConfirm] = useState(null);
   const [myID, setMyID] = useState(null);
   const [order, setOrder] = useState([]);
   const { user } = useUser();
@@ -17,16 +17,15 @@ export function ChatOrder(props) {
   }, [user]);
 
   function handleClick() {
-      setConfirm(!confirm);
-      const docRef = getOrderById(props.data.orderid)
+      // const docRef = getOrderById(props.data.orderid)
       async function updateConfirm() {
         const order_data = await getOrderById(props.data.orderid)
         order_data.data[4] = !order_data.data[4];
-        console.log(order_data.data)
+        console.log(props.data)
+        updateOrder(order_data.data, props.data.orderid)
         // NOW WE JUST NEED TO UPDATE THE DOC
       }
       updateConfirm();
-      
       
 //       const data = 
 //       setDoc(docRef, data, { merge:true })
@@ -48,8 +47,7 @@ export function ChatOrder(props) {
 
   // console.log(order)
   let [img, author, price, title, confirmed]  = order
-  
-  
+  setConfirm(confirmed)
   
   return (
     <div className={`chatOrder ${props.sender === myID ? 'sent' : 'received'}`}>
