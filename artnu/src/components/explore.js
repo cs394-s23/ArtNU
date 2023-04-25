@@ -34,6 +34,7 @@ export default function Explore() {
           <UserList/>
         </section> 
         <section>
+            <h1> All Artwork </h1>
             <Posts/>
         </section>
         </main>
