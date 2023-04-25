@@ -20,18 +20,44 @@
 
 .artistProfile {
   display: block;
-  text-align: center;
+  width:50%;
+  border: 1px black solid;
+  margin: 0 auto;
 }
 
-.artistProfile h1 {
-  font-weight: bolder;
-  font-size:xx-large;
-}
+
 
 .artistProfile .home .postsfeed .post {
   width: 300px;
   margin: 20px;
 
+}
+
+.art-caption {
+  text-align: left;
+  margin: -20px;
+  font-size: large;
+  margin-left: 45px;
+
+}
+
+.artistProfile h1 {
+  padding-top: 10px;
+  margin-left: 45px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.artist-info {
+  display: flex;
+  margin-left: 30px;
+}
+
+.artistProfile .artist-info p {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: left;
+  margin: 15px;
 }
 
 @font-face {
@@ -613,7 +639,8 @@ span.pagelink a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 25px;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .explore .feed {
@@ -624,7 +651,7 @@ span.pagelink a{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   overflow: scroll;
   gap: 0%;
@@ -680,7 +707,6 @@ span.pagelink a{
   width:0px;
   margin:0px;
 }
-
 
 .explore .friends-like .filters, .explore .curr-popups .filters {
   display: none;
@@ -1019,7 +1045,7 @@ header nav {
 .card-header {
   width: 100%;
   text-align:center;
-  margin-top: -25px;
+  margin-top: -10px;
 }
 
 .card-header .card-author {

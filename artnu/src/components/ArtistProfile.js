@@ -5,6 +5,9 @@ import { Navbar } from "./navbar";
 import { Post } from "./post.js";
 import { useUser } from "../context/AuthContext.js";
 import { posts_data } from "../firebase.js";
+import paw from './icons/paw.png';
+import user_img from './icons/user.png';
+
 
 
 
@@ -91,15 +94,31 @@ export function ArtistProfile() {
 
     return (
         <>
+        <header>
+          <div className="logo">
+            <img src={paw}></img>
+            <span>NU Art</span>
+          </div>
+          <span className="page-title" data-cy="page-title">{userData.author}'s Profile</span>
+          <a href='../ArtNU/profile'>
+              <img src={user_img} class="user"></img>
+            </a>
+        </header>
+        <main>
+        
         <div className="artistProfile">
+            <h1>Artist Info:</h1>
             <div className="artist-info">
-                <h1>{userData.author}'s Profile</h1>
                 <p> Major: {userData.major}</p>
                 <p> Current Year: {userData.year}</p>
+                <p> Hometown: {userData.hometown}</p>
+                <p> Interests: {userData.interests}</p>
+
             </div>
             <div>
-                <p>Posts should be below</p>
-                <div className="home">
+                <h1>Artist Posts:</h1>
+                <p className="art-caption"> Browse artwork done by {userData.author} </p>
+                <div className="explore">
                     <div className="postsfeed">
                         {posts.map((post) => (
 
@@ -123,6 +142,7 @@ export function ArtistProfile() {
             </div>
 
         </div>
+        </main>
         <aside>
             <Navbar/>
         </aside>
