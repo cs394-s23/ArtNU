@@ -24,11 +24,19 @@ export function Profile() {
 
   useEffect(() => {
     //console.log(user);
+    async function wrapper(id){
+      const data = await getUserById(id)
+      console.log(data.author)
+      setDisplayName(data.author)
+      setMajor(data.major)
+      setYear(data.year)
+    }
     if (user) {
-
-      setDisplayName(user.displayName);
+      wrapper(user.uid)
+      // setDisplayName(user.displayName);
       setEmail(user.email);
       setUID(user.uid);
+      setMajor()
     }
   }, [user]);
 
