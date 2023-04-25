@@ -32,7 +32,7 @@ export function ChatBox (props) {
     const [Users, setUsers] = useState([]);
     const [unsubscribe, setUnsubscribe] = useState(null);
     const [myID, setMyID] = useState(null);
-
+    
     useEffect(() => {
         if (user) {
             setMyID(user.uid)
@@ -45,12 +45,14 @@ export function ChatBox (props) {
         setSelected(id);
         //find the convo with the id
         let convo = convos.find(convo => convo.id === id)
+        console.log(selected)
+        console.log(Users)
     }
-        
+    
     
     useEffect(() => {
         if (user){
-        console.log(myID)
+        // console.log(myID)
         const q = query(collection(db, "users", user.uid, "chatrooms"));
         
         const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -101,7 +103,7 @@ export function ChatBox (props) {
     function getChatOrder(message) {
         if (message.postdata.length == 3) {
             return (
-                <ChatOrder data = {message.postdata}/>
+                <ChatOrder data = {message.postdata} />
             )
         }
     }
@@ -127,9 +129,6 @@ export function ChatBox (props) {
            
                 <div className="chatbox-side">
                     <div className="chatbox-header-left">
-                        <a>General</a>
-                        <a>Orders</a>
-                        <a>Commissions</a>
                     </div>
                     <div className="chatbox-list">
                         {/*  convo list */}

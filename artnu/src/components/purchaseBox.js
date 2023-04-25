@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getMessages, addMessage, getMessagesBetween, getUserById} from '../firebase.js';
+import { getMessages, addMessage, addOrder, getMessagesBetween, getUserById} from '../firebase.js';
 import { useUser } from "../context/AuthContext.js";
 
 const id1= "yr8FEWAHu0w1srk2sm27";
@@ -24,17 +24,17 @@ export function PurchaseBox(props) {
   function handleOrderSubmit (e) {
     e.preventDefault();
     let content = e.target.elements[0].value;
-    const postdata= [post.img, post.author, post.price]
+    const postdata= [post.img, post.author, post.price, post.title, false]
     //console.log(postdata)
     //user id
-    const userid = post.uid; 
-    //console.log(userid)
-    addMessage(user.uid,  content, userid, postdata);
+    const userid = post.uid;
+    const random = String(Math.random()).replace(".","L")
+    console.log(random)
+    addMessage(user.uid,  content, userid, random);
+    addOrder(user.uid, userid, postdata, random)
     e.target.elements[0].value = "";
     setOrderSubmitted(true);
-  
 }
-
 
   return (
     <div>

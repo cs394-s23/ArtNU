@@ -252,12 +252,7 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
   const userRef = doc(db, "users", uid);
   const userSnapshot = await getDoc(userRef);
   const chatroomsRef = collection(userRef, "chatrooms");
-
-
-
-
 // if user has never existed
-
   await setDoc(userRef, {
     author: displayName,
     major: major,
@@ -265,14 +260,19 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
     interests: interests,
     hometown: hometown
   });
- 
-
-
-
 }
  
-
-
+export async function addOrder(uid, recieverid, postdata, orderid) {
+  try {
+      const docRef = await addDoc(collection(db, "orders/", orderid), {
+        senderid: uid,
+        reciever: recieverid,
+        data: postdata
+      });
+    } catch (e) {
+      console.error("Error adding order: ", e);
+  }
+}
 
 
 
