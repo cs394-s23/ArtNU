@@ -28,8 +28,8 @@ export function Profile() {
   useEffect(() => {
     //console.log(user);
     async function wrapper(id){
-      const data = await getUserById(id);
-      console.log(data.author);
+      const data = await getUserById(id)
+      console.log(data.author)
       setDisplayName(data.author);
       setMajor(data.major);
       setYear(data.year);
@@ -37,10 +37,12 @@ export function Profile() {
       setHometown(data.hometown);
     }
     if (user) {
-      wrapper(user.uid);
+      wrapper(user.uid)
+      // setDisplayName(user.displayName);
+      setEmail(user.email);
+      setUID(user.uid);
     }
   }, [user]);
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
