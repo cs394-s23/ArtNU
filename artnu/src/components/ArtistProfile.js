@@ -90,37 +90,43 @@ export function ArtistProfile() {
     }
 
     return (
-        <div>
-            
-            <Navbar />
-            <h1>{userData.author}'s Profile</h1>
-            <p> Major: {userData.major}</p>
+        <>
+        <div className="artistProfile">
+            <div className="artist-info">
+                <h1>{userData.author}'s Profile</h1>
+                <p> Major: {userData.major}</p>
+                <p> Current Year: {userData.year}</p>
+            </div>
             <div>
-    Posts should be below
-    <div className="feed">
-    <div className = "postsfeed">
-            {posts.map((post) => (
-    
-                <>
-                    <Post
-                        key = {post.ref}
-                        img={post.img}
-                        author={post.author}
-                        likes={post.likes}
-                        price={post.price}
-                        caption={post.caption}
-                        title = {post.title}
-                        // getUser = {getUser} 
-                        // userRef = {post.user} 
-                        uid={post.uid}
-                    />
-                </>
-            ))}
-        </div>
-        </div>
-  </div>
+                <p>Posts should be below</p>
+                <div className="home">
+                    <div className="postsfeed">
+                        {posts.map((post) => (
+
+                            <>
+                                <Post
+                                    key={post.ref}
+                                    img={post.img}
+                                    author={post.author}
+                                    likes={post.likes}
+                                    price={post.price}
+                                    caption={post.caption}
+                                    title={post.title}
+                                    // getUser = {getUser} 
+                                    // userRef = {post.user} 
+                                    uid={post.uid}
+                                />
+                            </>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
         </div>
+        <aside>
+            <Navbar/>
+        </aside>
+        </>
     );
 };
 
