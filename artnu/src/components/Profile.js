@@ -13,34 +13,20 @@ import { getUserById } from "../firebase";
 
 export function Profile() {
   const { user, signIn, signOut } = useUser();
-  const [displayName, setDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const [uid, setUID] = useState("");
-  const [major, setMajor] = useState("");
-  const [year, setYear] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const [interests, setInterests] = useState("");
-  const [hometown, setHometown] = useState("");
   const [showAddInfo, setShowAddInfo] = useState(true)
+  const [userData, setUserData] = useState(null)
 
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    //console.log(user);
     async function wrapper(id){
       const data = await getUserById(id)
-      console.log(data.author)
-      setDisplayName(data.author);
-      setMajor(data.major);
-      setYear(data.year);
-      setInterests(data.interests);
-      setHometown(data.hometown);
+      setUserData(data)
+      console.log(data)
     }
     if (user) {
       wrapper(user.uid)
-      // setDisplayName(user.displayName);
-      setEmail(user.email);
-      setUID(user.uid);
     }
   }, [user]);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,10 +45,8 @@ export function Profile() {
   }, []);
 
   function filterByID(post){
-    console.log("user", user)
     if (post.uid && user && post){
       if (post.uid == user.uid){
-        console.log("FOUND A MATCH")
         return true
       }
       else {
@@ -81,9 +65,7 @@ export function Profile() {
 
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
-    //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year, interests, hometown);
-    //console.log(uid)
+    addUser(user.uid, userData.author, userData.major, userData.year, userData.interests, userData.hometown);
     setShowAlert(true);
     setShowAddInfo(false);
   };
@@ -91,26 +73,7 @@ export function Profile() {
   const closeAddInfoPopUp = () => {
     setShowAddInfo(false);
   }
-
-  //if (!user) {
-  //  return <SignIn />;
-  //}
-
-  console.log(posts)
-
-  //let user_posts = posts.filter(post => post.uid == user.uid)
-  // useEffect(()=>{
-  //   let user_posts = []
-  //   for (let key in posts){
-  //     const p = posts[key]
-  //     if (p.uid == user.uid){
-  //       user_posts.push(p)
-  //     }
-  //   }
-  //   setPosts(user_posts)
-  // }, []);
   
-
 return (
   <>
     {isLoading ? (
@@ -136,29 +99,29 @@ return (
               <Box sx={{ bgcolor: "background.paper", p: 2 }}>
                 <TextField
                   label="Major"
-                  value={major}
-                  onChange={(e) => setMajor(e.target.value)}
+                  value={userData.major}
+                  onChange={(e) => setUserData({ ...userData, major:e.target.value})}
                 />
               </Box>
               <Box sx={{ bgcolor: "background.paper", p: 2 }}>
                 <TextField
                   label="Year"
-                  value={year}
-                  onChange={(e) => setYear(e.target.value)}
+                  value={userData.year}
+                  onChange={(e) => setUserData({ ...userData, year:e.target.value})}
                 />
               </Box>
               <Box sx={{ bgcolor: "background.paper", p: 2 }}>
                 <TextField
                   label="Interests"
-                  value={interests}
-                  onChange={(e) => setInterests(e.target.value)}
+                  value={userData.interests}
+                  onChange={(e) => setUserData({ ...userData, interests:e.target.value})}
                 />
               </Box>
               <Box sx={{ bgcolor: "background.paper", p: 2 }}>
                 <TextField
                   label="Hometown"
-                  value={hometown}
-                  onChange={(e) => setHometown(e.target.value)}
+                  value={userData.hometown}
+                  onChange={(e) => setUserData({ ...userData, hometown:e.target.value})}
                 />
               </Box>
               <Box sx={{ p: 2 }}>
@@ -186,8 +149,15 @@ return (
 
   <div className="profile">
       <div className="user-info">
-        <h1>{user.displayName}</h1>
-        <h2>{user.major}</h2>
+        <div className="profile-pic">
+          <img src={userData.pic}></img>
+        </div>
+        <div className="rest">
+          <h1>{userData.author}</h1>
+          {userData.major && <h2 className="major">{userData.major} Major</h2>}
+          <h2>Hometown: {userData.hometown}</h2>
+          <h2>Interests: {userData.interests}</h2>
+        </div>
       </div>
     <div className = "postsfeed">
             {posts.map((post) => (
