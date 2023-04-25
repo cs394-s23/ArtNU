@@ -7,6 +7,7 @@ import { Alert } from "@mui/material";
 import { addUser } from "../firebase";
 import { posts_data } from "../firebase.js";
 import {Post} from "./post.js" ;
+import { getUserById } from "../firebase";
 
 
 
@@ -70,7 +71,7 @@ export function Profile() {
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
     //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year, interests, hometown);
+    addUser(uid, displayName, major, year);
     //console.log(uid)
     setShowAlert(true);
   };
