@@ -28,18 +28,16 @@ export function Profile() {
   useEffect(() => {
     //console.log(user);
     async function wrapper(id){
-      const data = await getUserById(id)
-      console.log(data.author)
-      setDisplayName(data.author)
-      setMajor(data.major)
-      setYear(data.year)
+      const data = await getUserById(id);
+      console.log(data.author);
+      setDisplayName(data.author);
+      setMajor(data.major);
+      setYear(data.year);
+      setInterests(data.interests);
+      setHometown(data.hometown);
     }
     if (user) {
-      wrapper(user.uid)
-      // setDisplayName(user.displayName);
-      setEmail(user.email);
-      setUID(user.uid);
-      setMajor()
+      wrapper(user.uid);
     }
   }, [user]);
 
@@ -82,7 +80,7 @@ export function Profile() {
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
     //console.log(displayName, email, uid, major, year);
-    addUser(uid, displayName, major, year);
+    addUser(uid, displayName, major, year, interests, hometown);
     //console.log(uid)
     setShowAlert(true);
     setShowAddInfo(false);
