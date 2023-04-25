@@ -3,8 +3,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { Link } from 'react-router-dom';
 import { user_list } from "../firebase.js"
-import ArtistProfile from "./ArtistProfile.js";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ArtistCard } from './artistCard.js';
 
 
 export function UserList(){
@@ -22,14 +21,22 @@ export function UserList(){
     return (
         <>
         <div>
-            <h1> User List</h1>
-            <ul>
+            <h1> Featured NU Artists</h1>
+            <div className = "artistfeed">
                 {userList.map(user => (
-                    <li key={user.id}>
-                        <Link to={`../ArtNU/${user.id}`}>{user.author}</Link>
-                    </li>
+                    <>
+                    <ArtistCard
+                        author = {user.author}
+                        hometown = {user.hometown}
+                        interests = {user.interests}
+                        major = {user.major}
+                        year = {user.year}
+                        uid = {user.id}
+                    />
+
+                    </>
                 ))}
-            </ul>
+            </div>
         </div>
         </>
     );

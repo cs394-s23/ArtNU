@@ -2,14 +2,34 @@ import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 import { getUserById } from "../firebase.js";
 import { Navbar } from "./navbar";
+import { Post } from "./post.js";
+import { useUser } from "../context/AuthContext.js";
+import { posts_data } from "../firebase.js";
+
 
 
 export function ArtistProfile() {
+    const {user} = useUser()
+    const [posts, setPosts] = useState([])
+
     const [userData, setUserData] = useState(null)
 
     const { id } = useParams();
 
     let userF = getUserById(id)
+
+    function filterByID(post){
+        console.log("user", user)
+        if (post.uid && user && post){
+          if (post.uid == id){
+            console.log("FOUND A MATCH")
+            return true
+          }
+          else {
+            return false
+          }
+        }
+      }
 
     console.log("id", id)
     console.log("user", userF)
@@ -21,6 +41,14 @@ export function ArtistProfile() {
         }
         fetchData();
     }, [id])
+
+    useEffect(() =>{ // initialize THIS ONLY ONCE
+        const dp = posts_data
+        .then(data => {
+            let user_posts = data.filter(filterByID)
+            setPosts(user_posts)
+        })}, [user]
+      )
 
    console.log(userData)
 
@@ -62,11 +90,43 @@ export function ArtistProfile() {
     }
 
     return (
-        <div>
-            <Navbar />
-            <h1>{userData.author}'s Profile</h1>
-            <p> Major: {userData.major}</p>
+        <>
+        <div className="artistProfile">
+            <div className="artist-info">
+                <h1>{userData.author}'s Profile</h1>
+                <p> Major: {userData.major}</p>
+                <p> Current Year: {userData.year}</p>
+            </div>
+            <div>
+                <p>Posts should be below</p>
+                <div className="home">
+                    <div className="postsfeed">
+                        {posts.map((post) => (
+
+                            <>
+                                <Post
+                                    key={post.ref}
+                                    img={post.img}
+                                    author={post.author}
+                                    likes={post.likes}
+                                    price={post.price}
+                                    caption={post.caption}
+                                    title={post.title}
+                                    // getUser = {getUser} 
+                                    // userRef = {post.user} 
+                                    uid={post.uid}
+                                />
+                            </>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <aside>
+            <Navbar/>
+        </aside>
+        </>
     );
 };
 

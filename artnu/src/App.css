@@ -18,6 +18,21 @@
   width : 40vw;
 }
 
+.artistProfile {
+  display: block;
+  text-align: center;
+}
+
+.artistProfile h1 {
+  font-weight: bolder;
+  font-size:xx-large;
+}
+
+.artistProfile .home .postsfeed .post {
+  width: 300px;
+  margin: 20px;
+
+}
 
 @font-face {
   font-family: mainfont;
@@ -289,9 +304,12 @@ align-self: center;
 }
 .post .info .author {
   font-weight: 700;
-  
 }
 
+.post a {
+  text-decoration: none;
+  color: #333;
+}
 
 
 .caption {
@@ -340,9 +358,6 @@ span.pagelink a{
   margin: 0 0.5em;
   background: #f6f6f6;
   color: #333;
-}
-h1 { 
-  
 }
 
 .popup-visible h1 {
@@ -978,4 +993,54 @@ header nav {
 
 .profile .user-info{
   width: 30%;
+}
+
+/* Artist Card stuff */
+
+.artistfeed {
+  display: flex;
+  flex-direction: row;
+}
+
+.artistcard {
+  width: 500px;
+  display: flex;
+  position: relative;
+  height: 90%;
+  background-color: rgb(246, 246, 246);
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 3px 0 rgba(80, 80, 80, 0.043), 0 3px 5px 0 rgba(63, 63, 63, 0.19);
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.card-header {
+  width: 100%;
+  text-align:center;
+  margin-top: -25px;
+}
+
+.card-header .card-author {
+  color:#333;
+  font-size: 25px;
+}
+
+.card-header .card-major {
+  color:#9956c9;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  margin-top: -10px;
+}
+
+.card-content {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.artistcard a {
+  text-decoration: none;
+  color: #333;
 }
