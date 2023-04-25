@@ -1,0 +1,181 @@
+[debug] [2023-04-24T00:12:16.652Z] ----------------------------------------------------------------------
+[debug] [2023-04-24T00:12:16.655Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:exec --import=./saved-data npm start
+[debug] [2023-04-24T00:12:16.656Z] CLI Version:   11.28.0
+[debug] [2023-04-24T00:12:16.656Z] Platform:      darwin
+[debug] [2023-04-24T00:12:16.656Z] Node Version:  v16.14.0
+[debug] [2023-04-24T00:12:16.657Z] Time:          Sun Apr 23 2023 19:12:16 GMT-0500 (Central Daylight Time)
+[debug] [2023-04-24T00:12:16.658Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-24T00:12:16.819Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-24T00:12:16.820Z] > authorizing via signed-in user (tatyanapetriv2023@u.northwestern.edu)
+[debug] [2023-04-24T00:12:16.992Z] java version "15.0.1" 2020-10-20
+Java(TM) SE Runtime Environment (build 15.0.1+9-18)
+
+[debug] [2023-04-24T00:12:16.994Z] Java HotSpot(TM) 64-Bit Server VM (build 15.0.1+9-18, mixed mode, sharing)
+
+[debug] [2023-04-24T00:12:17.000Z] Parsed Java major version: 15
+[info] i  emulators: Starting emulators: auth, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, database, hosting, storage"}}
+[debug] [2023-04-24T00:12:18.863Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.864Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.864Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.864Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.864Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.864Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] ⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5000, starting on 5002 instead."}}
+[debug] [2023-04-24T00:12:18.865Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-04-24T00:12:18.866Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-04-24T00:12:18.884Z] [hub] writing locator at /var/folders/gj/hqgyhnwn1fs35t7q5p0llyg80000gn/T/hub-nuart-part-2.json
+[info] i  firestore: Importing data from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/firestore_export/firestore_export.overall_export_metadata {"metadata":{"emulator":{"name":"firestore"},"message":"Importing data from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/firestore_export/firestore_export.overall_export_metadata"}}
+[warn] ⚠  firestore: Cloud Firestore Emulator does not support multiple databases yet. {"metadata":{"emulator":{"name":"firestore"},"message":"Cloud Firestore Emulator does not support multiple databases yet."}}
+[warn] ⚠  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] ⚠  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2023-04-24T00:12:18.944Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-24T00:12:18.944Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-04-24T00:12:18.944Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/lubomyrapetriv/.cache/firebase/emulators/cloud-firestore-emulator-v1.16.2.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","nuart-part-2","--seed_from_export","/Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/firestore_export/firestore_export.overall_export_metadata","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/lubomyrapetriv/.cache/firebase/emulators/cloud-firestore-emulator-v1.16.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"nuart-part-2\",\"--seed_from_export\",\"/Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/firestore_export/firestore_export.overall_export_metadata\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2023-04-24T00:12:21.256Z] Apr 23, 2023 7:12:21 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://127.0.0.1:9150
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:12:21 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
+[debug] [2023-04-24T00:12:21.303Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2023-04-24T00:12:21.304Z] 127.0.0.1:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"127.0.0.1:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nDev App Server is now running.\n\n"}}
+[info] ✔  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-04-24T00:12:21.355Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 [none]
+[debug] [2023-04-24T00:12:21.694Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 200
+[debug] [2023-04-24T00:12:21.694Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 {"projectId":"nuart-part-2","projectNumber":"772881649664","displayName":"NuArt part 2","name":"projects/nuart-part-2","resources":{"hostingSite":"nuart-part-2","realtimeDatabaseInstance":"nuart-part-2-default-rtdb","storageBucket":"nuart-part-2.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_ed0ccb72-7ab4-458e-96f3-11a331af0efd"}
+[debug] [2023-04-24T00:12:21.694Z] database rules config:  [{"instance":"nuart-part-2-default-rtdb","rules":"/Users/lubomyrapetriv/Documents/ArtNU/artnu/database.rules.json"}]
+[debug] [2023-04-24T00:12:21.700Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2023-04-24T00:12:21.700Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-04-24T00:12:21.700Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2023-04-24T00:12:21.700Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/lubomyrapetriv/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/lubomyrapetriv/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2023-04-24T00:12:23.018Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/lubomyrapetriv/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+ {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/lubomyrapetriv/.cache/firebase/emulators/firebase-database-emulator-v4.11.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\nWARNING: All illegal access operations will be denied in a future release\n"}}
+[debug] [2023-04-24T00:12:24.578Z] 19:12:24.576 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"19:12:24.576 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2023-04-24T00:12:24.972Z] 19:12:24.971 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"19:12:24.971 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
+[info] i  auth: Importing config from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/auth_export/config.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing config from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/auth_export/config.json"}}
+[info] i  auth: Importing accounts from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/auth_export/accounts.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing accounts from /Users/lubomyrapetriv/Documents/ArtNU/artnu/saved-data/auth_export/accounts.json"}}
+[debug] [2023-04-24T00:12:39.480Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-04-24T00:12:41.485Z] Temp file directory for storage emulator: /var/folders/gj/hqgyhnwn1fs35t7q5p0llyg80000gn/T/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: /var/folders/gj/hqgyhnwn1fs35t7q5p0llyg80000gn/T/firebase/storage/blobs"}}
+[debug] [2023-04-24T00:12:41.502Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/nuart-part-2/sites 
+[debug] [2023-04-24T00:12:42.130Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/nuart-part-2/sites 200
+[debug] [2023-04-24T00:12:42.130Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/nuart-part-2/sites {"sites":[{"name":"projects/nuart-part-2/sites/nuart-part-2","defaultUrl":"https://nuart-part-2.web.app","appId":"1:772881649664:web:0642ff92bfd0664f2708e5","type":"DEFAULT_SITE"}]}
+[debug] [2023-04-24T00:12:42.130Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2/webApps/1:772881649664:web:0642ff92bfd0664f2708e5/config [none]
+[debug] [2023-04-24T00:12:42.963Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2/webApps/1:772881649664:web:0642ff92bfd0664f2708e5/config 200
+[debug] [2023-04-24T00:12:42.963Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2/webApps/1:772881649664:web:0642ff92bfd0664f2708e5/config {"projectId":"nuart-part-2","appId":"1:772881649664:web:0642ff92bfd0664f2708e5","databaseURL":"https://nuart-part-2-default-rtdb.firebaseio.com","storageBucket":"nuart-part-2.appspot.com","locationId":"us-central","apiKey":"AIzaSyBA7OB8g1kKD2ipI-to-r0FcgTZL3HC4Fs","authDomain":"nuart-part-2.firebaseapp.com","messagingSenderId":"772881649664","measurementId":"G-2LVT1VMP6V"}
+[debug] [2023-04-24T00:12:42.986Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 [none]
+[debug] [2023-04-24T00:12:43.480Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 200
+[debug] [2023-04-24T00:12:43.480Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nuart-part-2 {"projectId":"nuart-part-2","projectNumber":"772881649664","displayName":"NuArt part 2","name":"projects/nuart-part-2","resources":{"hostingSite":"nuart-part-2","realtimeDatabaseInstance":"nuart-part-2-default-rtdb","storageBucket":"nuart-part-2.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_ed0ccb72-7ab4-458e-96f3-11a331af0efd"}
+[debug] [2023-04-24T00:12:43.481Z] Specified "public" directory "build" does not exist; Deploy to Hosting site "nuart-part-2" may fail or be empty.
+[info] i  hosting[nuart-part-2]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting[nuart-part-2]: Local server: http://127.0.0.1:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5002\u001b[22m\u001b[24m"}}
+[debug] [2023-04-24T00:12:43.635Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=nuart-part-2-default-rtdb
+[debug] [2023-04-24T00:12:43.635Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  \"rules\": {\n    \".read\": true,\n    \".write\": true\n  }\n}"
+[debug] [2023-04-24T00:12:44.289Z] 19:12:44.284 [NamespaceSystem-akka.actor.default-dispatcher-7] INFO com.firebase.core.namespace.NamespaceActor - nuart-part-2-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 356ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"19:12:44.284 [NamespaceSystem-akka.actor.default-dispatcher-7] INFO com.firebase.core.namespace.NamespaceActor - nuart-part-2-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 356ms, init: 0ms\n"}}
+[debug] [2023-04-24T00:12:44.399Z] 19:12:44.398 [NamespaceSystem-blocking-namespace-operation-dispatcher-8] INFO com.firebase.core.namespace.StateManager - Namespace nuart-part-2-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"19:12:44.398 [NamespaceSystem-blocking-namespace-operation-dispatcher-8] INFO com.firebase.core.namespace.StateManager - Namespace nuart-part-2-default-rtdb status Active to Active\n"}}
+[debug] [2023-04-24T00:12:44.491Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2023-04-24T00:12:44.492Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[info] i  Running script: npm start 
+[debug] [2023-04-24T00:12:44.504Z] Running npm start with environment {"TERM_PROGRAM":"vscode","NODE":"/usr/local/bin/node","INIT_CWD":"/Users/lubomyrapetriv/Documents/ArtNU/artnu","SHELL":"/bin/bash","TERM":"xterm-256color","npm_config_metrics_registry":"https://registry.npmjs.org/","TMPDIR":"/var/folders/gj/hqgyhnwn1fs35t7q5p0llyg80000gn/T/","npm_config_global_prefix":"/usr/local","CONDA_SHLVL":"1","CONDA_PROMPT_MODIFIER":"(base) ","TERM_PROGRAM_VERSION":"1.77.3","MallocNanoZone":"0","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","COLOR":"1","npm_config_noproxy":"","npm_config_local_prefix":"/Users/lubomyrapetriv/Documents/ArtNU/artnu","USER":"lubomyrapetriv","COMMAND_MODE":"unix2003","npm_config_globalconfig":"/usr/local/etc/npmrc","CONDA_EXE":"/Users/lubomyrapetriv/miniconda3/bin/conda","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.MeNoH29Hr2/Listeners","__CF_USER_TEXT_ENCODING":"0x1F5:0x0:0x0","npm_execpath":"/usr/local/lib/node_modules/npm/bin/npm-cli.js","_CE_CONDA":"","PATH":"/Users/lubomyrapetriv/Documents/ArtNU/artnu/node_modules/.bin:/Users/lubomyrapetriv/Documents/ArtNU/node_modules/.bin:/Users/lubomyrapetriv/Documents/node_modules/.bin:/Users/lubomyrapetriv/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/Users/lubomyrapetriv/google-cloud-sdk/bin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Library/PostgreSQL/9.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Python.framework/Versions/3.11/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/lubomyrapetriv/miniconda3/bin:/Users/lubomyrapetriv/miniconda3/condabin:/Library/PostgreSQL/9.5/bin:/Applications/microchip/xc32/bin:/Applications/microchip/xc32/bin","npm_package_json":"/Users/lubomyrapetriv/Documents/ArtNU/artnu/package.json","_":"/usr/local/bin/firebase","npm_config_userconfig":"/Users/lubomyrapetriv/.npmrc","npm_config_init_module":"/Users/lubomyrapetriv/.npm-init.js","__CFBundleIdentifier":"com.microsoft.VSCode","CONDA_PREFIX":"/Users/lubomyrapetriv/miniconda3","npm_command":"run-script","PWD":"/Users/lubomyrapetriv/Documents/ArtNU/artnu","npm_lifecycle_event":"em:exec","EDITOR":"vi","npm_package_name":"artnu","LANG":"en_US.UTF-8","XPC_FLAGS":"0x0","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","npm_config_node_gyp":"/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","npm_package_version":"0.1.0","XPC_SERVICE_NAME":"0","_CE_M":"","HOME":"/Users/lubomyrapetriv","SHLVL":"3","VSCODE_GIT_ASKPASS_MAIN":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js","npm_config_cache":"/Users/lubomyrapetriv/.npm","LOGNAME":"lubomyrapetriv","CONDA_PYTHON_EXE":"/Users/lubomyrapetriv/miniconda3/bin/python","npm_lifecycle_script":"firebase emulators:exec --import=./saved-data 'npm start'","VSCODE_GIT_IPC_HANDLE":"/var/folders/gj/hqgyhnwn1fs35t7q5p0llyg80000gn/T/vscode-git-208cab55fa.sock","CONDA_DEFAULT_ENV":"base","npm_config_user_agent":"npm/8.3.1 node/v16.14.0 darwin x64 workspaces/false","GIT_ASKPASS":"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh","VSCODE_GIT_ASKPASS_NODE":"/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)","npm_node_execpath":"/usr/local/bin/node","npm_config_prefix":"/usr/local","COLORTERM":"truecolor","IS_FIREBASE_CLI":"true","GCLOUD_PROJECT":"nuart-part-2","FIREBASE_CONFIG":"{\"projectId\":\"nuart-part-2\",\"storageBucket\":\"nuart-part-2.appspot.com\",\"databaseURL\":\"https://nuart-part-2.firebaseio.com\"}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIREBASE_AUTH_EMULATOR_HOST":"127.0.0.1:9099","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","FIREBASE_DATABASE_EMULATOR_HOST":"127.0.0.1:9000","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199"}
+[debug] [2023-04-24T00:12:59.124Z] Apr 23, 2023 7:12:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:12:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:12:59.329Z] Apr 23, 2023 7:12:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:12:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:02.708Z] Apr 23, 2023 7:13:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:02.711Z] Apr 23, 2023 7:13:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.250Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.360Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.455Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.503Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.551Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.560Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.603Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.766Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\nApr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.767Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.942Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:03.944Z] Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:04.031Z] Apr 23, 2023 7:13:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 23, 2023 7:13:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-04-24T00:13:30.396Z] Received signal SIGINT (Ctrl-C) 1
+[info]  
+[info] i  emulators: Received SIGINT (Ctrl-C) for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGINT (Ctrl-C) signal again to stop right now. 
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  database: Stopping Database Emulator {"metadata":{"emulator":{"name":"database"},"message":"Stopping Database Emulator"}}
+[warn] ⚠  Script exited with signal: SIGINT 
+[debug] [2023-04-24T00:13:30.439Z] 19:13:30.426 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+ {"metadata":{"emulator":{"name":"database"},"message":"19:13:30.426 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.\n"}}
+[debug] [2023-04-24T00:13:30.480Z] 19:13:30.479 [NamespaceSystem-akka.actor.default-dispatcher-7] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: nuart-part-2-default-rtdb
+ {"metadata":{"emulator":{"name":"database"},"message":"19:13:30.479 [NamespaceSystem-akka.actor.default-dispatcher-7] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: nuart-part-2-default-rtdb\n"}}
+[debug] [2023-04-24T00:13:30.498Z] 19:13:30.497 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for nuart-part-2-default-rtdb
+ {"metadata":{"emulator":{"name":"database"},"message":"19:13:30.497 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for nuart-part-2-default-rtdb\n"}}
+[debug] [2023-04-24T00:13:30.511Z] 19:13:30.510 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+ {"metadata":{"emulator":{"name":"database"},"message":"19:13:30.510 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.\n"}}
+[info] i  firestore: Stopping Firestore Emulator {"metadata":{"emulator":{"name":"firestore"},"message":"Stopping Firestore Emulator"}}
+[debug] [2023-04-24T00:13:30.889Z] *** shutting down gRPC server since JVM is shutting down
+ {"metadata":{"emulator":{"name":"firestore"},"message":"*** shutting down gRPC server since JVM is shutting down\n"}}
+[debug] [2023-04-24T00:13:30.914Z] *** server shut down
+230423 19:13:30.896:I 1 [main] [com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer.stop:80] Stopping WebSocket server...
+ {"metadata":{"emulator":{"name":"firestore"},"message":"*** server shut down\n230423 19:13:30.896:I 1 [main] [com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer.stop:80] Stopping WebSocket server...\n"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  firestore: Stopping Firestore Emulator {"metadata":{"emulator":{"name":"firestore"},"message":"Stopping Firestore Emulator"}}
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  auth: Stopping Authentication Emulator {"metadata":{"emulator":{"name":"auth"},"message":"Stopping Authentication Emulator"}}
+[info] i  storage: Stopping Storage Emulator {"metadata":{"emulator":{"name":"storage"},"message":"Stopping Storage Emulator"}}
+[info] i  storage: Stopping Storage Emulator {"metadata":{"emulator":{"name":"storage"},"message":"Stopping Storage Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}
+[debug] [2023-04-24T00:13:31.336Z] TypeError: Cannot read properties of undefined (reading 'exit')
+    at /usr/local/lib/node_modules/firebase-tools/lib/command.js:117:44
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[warn] ⚠  hub: Error stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Error stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}
