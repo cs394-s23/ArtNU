@@ -1052,7 +1052,22 @@ header nav {
 
 /* Artist Card stuff */
 
-.artistfeed {
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.profile-page nav {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: white;
+}
+ .artistfeed {
   display: flex;
   flex-direction: row;
 }
@@ -1098,4 +1113,4 @@ header nav {
 .artistcard a {
   text-decoration: none;
   color: #333;
-}
+} 

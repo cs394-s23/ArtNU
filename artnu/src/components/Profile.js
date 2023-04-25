@@ -65,7 +65,7 @@ export function Profile() {
 
   const handleSave = () => {
     // You can send the updated parameters to a backend server or update them in the local state.
-    addUser(user.uid, userData.author, userData.major, userData.year, userData.interests, userData.hometown);
+    addUser(user.uid, userData.author, userData.major, userData.year, userData.interests, userData.hometown, userData.pic);
     setShowAlert(true);
     setShowAddInfo(false);
   };

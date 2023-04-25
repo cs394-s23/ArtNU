@@ -248,7 +248,7 @@ export async function addMessage(id, message, receiverID, postdata) {
 }
 
 
-export  async function addUser(uid, displayName, major="null", year="null", interests="null", hometown="null") {
+export  async function addUser(uid, displayName, major="null", year="null", interests="null", hometown="null", pic="null") {
   const userRef = doc(db, "users", uid);
   const userSnapshot = await getDoc(userRef);
   const chatroomsRef = collection(userRef, "chatrooms");
@@ -263,7 +263,8 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
     major: major,
     year: year,
     interests: interests,
-    hometown: hometown
+    hometown: hometown,
+    pic: pic
   });
  
 

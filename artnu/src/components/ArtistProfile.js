@@ -94,58 +94,42 @@ export function ArtistProfile() {
 
     return (
         <>
-        <header>
-          <div className="logo">
-            <img src={paw}></img>
-            <span>NU Art</span>
-          </div>
-          <span className="page-title" data-cy="page-title">{userData.author}'s Profile</span>
-          <a href='../ArtNU/profile'>
-              <img src={user_img} class="user"></img>
-            </a>
-        </header>
-        <main>
-        
-        <div className="artistProfile">
-            <h1>Artist Info:</h1>
-            <div className="artist-info">
-                <p> Major: {userData.major}</p>
-                <p> Current Year: {userData.year}</p>
-                <p> Hometown: {userData.hometown}</p>
-                <p> Interests: {userData.interests}</p>
-
-            </div>
-            <div>
-                <h1>Artist Posts:</h1>
-                <p className="art-caption"> Browse artwork done by {userData.author} </p>
-                <div className="explore">
-                    <div className="postsfeed">
-                        {posts.map((post) => (
-
-                            <>
-                                <Post
-                                    key={post.ref}
-                                    img={post.img}
-                                    author={post.author}
-                                    likes={post.likes}
-                                    price={post.price}
-                                    caption={post.caption}
-                                    title={post.title}
-                                    // getUser = {getUser} 
-                                    // userRef = {post.user} 
-                                    uid={post.uid}
-                                />
-                            </>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
+        <div className = "profile-page">
+        <Navbar />        
+        <div className="profile">
+      <div className="user-info">
+        <div className="profile-pic">
+          {userData.pic!="null" && <img src={userData.pic}></img>}
         </div>
-        </main>
-        <aside>
-            <Navbar/>
-        </aside>
+        <div className="rest">
+          <h1>{userData.author}</h1>
+          {userData.major!="null" && <h2 className="major">{userData.major} Major</h2>}
+          {userData.hometown!="null" && <h3>Hometown: {userData.hometown}</h3> }
+          {userData.interests!="null" && <h3>Interests: {userData.interests}</h3> }
+        </div>
+      </div>
+    <div className = "postsfeed">
+        {posts.map((post) => (
+            <>
+            <Post
+                key = {post.ref}
+                img={post.img}
+                author={post.author}
+                likes={post.likes}
+                price={post.price}
+                caption={post.caption}
+                title = {post.title}
+                // getUser = {getUser} 
+                // userRef = {post.user} 
+                uid={post.uid}
+            />
+            </>
+        ))}
+        {posts.length==0 && 
+        <h2>This artist does not have items for sale yet!</h2>}
+        </div>
+        </div>
+        </div>
         </>
     );
 };
