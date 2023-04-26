@@ -1,8 +1,11 @@
-import { posts_data } from "../firebase.js";
 import {useState, useEffect} from "react";
 import {Post} from "./post.js" ;
 import {Filters} from "./filters.js";
 import {getDoc} from "firebase/firestore";
+import { db } from "../firebase.js";
+import { onSnapshot, query, collection, orderBy } from "firebase/firestore";
+
+
 
 export function Posts(){
 
@@ -10,32 +13,37 @@ export function Posts(){
     const [filter, setFilter] = useState("All Art");
     const [posts, setPosts] = useState([])
 
+    useEffect(() => {
+        const unsubscribe = onSnapshot(
+          query(collection(db, "posts"), orderBy("date", "desc")),
+          (snapshot) => {
+            const postsData = snapshot.docs.map((doc) => ({
+              ...doc.data(),
+              ref: doc.ref,
+              id: doc.id,
+            }));
+            setPosts(postsData);
+          }
+        );
+        return unsubscribe;
+      }, []);
 
-    useEffect(() =>{ // initialize THIS ONLY ONCE
-    const dp = posts_data
-    .then(data => {
-        setInitialData(data)
-        setPosts(data)
-    })}, []
-    )
+    // useEffect(() =>{ // initialize THIS ONLY ONCE
+    // const dp = posts_data
+    // .then(data => {
+    //     setInitialData(data)
+    //     setPosts(data)
+    // })}, []
+    // )
     
     function handleFilter(filterType) {
         setFilter(filterType)
     }
-
-    // async function getUser(userRef) {
-    //     const ref = await getDoc(userRef);
-    //     let user = ref.data();
-    //     user.id = ref.id;
-    //     // console.log(ref.data());
-    //     return user;
-    // }
-    
     
     useEffect(()=>{
         console.log(filter)
         if (filter === "All Art") {
-            setPosts(initialData)
+            setPosts([...posts])
             return
         }
         let filteredPosts = initialData.filter(post => post.medium == filter)

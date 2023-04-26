@@ -190,7 +190,7 @@ getRedirectResult(auth)
   // console.log(posts);
   return convos
 }
-export async function addMessage(id, message, receiverID, postdata, orderid) {
+export async function addMessage(id, message, receiverID, postdata, orderid="") {
   try {
     const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
     const docSnap = await getDoc(docRef);
