@@ -57,10 +57,7 @@ export default function Home() {
                   <img src={paw}></img>
                   <span>NU Art</span>
                 </div>
-                <span className="page-title">Home</span>
-                <a href='../ArtNU/profile'>
-                  <img src={myUser} class="user"></img>
-                </a>
+                <div className="page-title">Home</div>
               </header>
 
               <main className="home">

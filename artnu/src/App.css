@@ -75,13 +75,13 @@
   src: url(./fonts/slate-cufonfonts/SlateMedium.TTF);
 }
 header{
-  display: flex;
+  display: grid;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   width : 100vw;
   height : 10vh;
   margin : 20px;
+  padding-bottom: 25px;
 
 }
 
@@ -172,10 +172,11 @@ nav img {
   background: linear-gradient(to right, #c26bbc, #f78e92);
 -webkit-text-fill-color: transparent;
 background-clip: text;
-font-size: 30px;
+font-size: 35px;
 font-weight: 700;
 justify-self: center;
 align-self: center;
+margin: auto;
 }
 
 .filters button {
