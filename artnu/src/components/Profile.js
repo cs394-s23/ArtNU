@@ -19,16 +19,20 @@ export function Profile() {
 
   const [posts, setPosts] = useState([])
 
+  console.log(user)
+
   useEffect(() => {
     async function wrapper(id){
       const data = await getUserById(id)
       setUserData(data)
-      console.log(data)
+      console.log("inside", data)
     }
     if (user) {
       wrapper(user.uid)
     }
   }, [user]);
+
+  console.log("after data", userData)
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -73,7 +77,8 @@ export function Profile() {
   const closeAddInfoPopUp = () => {
     setShowAddInfo(false);
   }
-  
+
+if (userData){
 return (
   <>
     {isLoading ? (
@@ -146,7 +151,6 @@ return (
     )}
 
     {/* post generation below */}
-
   <div className="profile">
       <div className="user-info">
         <div className="profile-pic">
@@ -191,4 +195,5 @@ return (
   
 );
 
+}
 }
