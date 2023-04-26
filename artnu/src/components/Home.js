@@ -9,6 +9,7 @@ import SignIn from './SignIn.js';
 import { useUser } from '../context/AuthContext.js';
 import { Button } from '@mui/material';
 import { addUser } from '../firebase.js';
+import { UserList } from './UserList.js';
 
 export let togglePopUp;
 
@@ -63,6 +64,11 @@ export default function Home() {
               </header>
 
               <main className="home">
+                <div className="userlist">
+                  <UserList />
+                </div>
+                <hr></hr>
+
                 <Posts />
               </main>
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: "10%" }}>
