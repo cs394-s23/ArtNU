@@ -919,6 +919,7 @@ header nav {
   flex-direction: column;
 }
 .chatbox-message {
+  width: fit-content;
   max-width: 80%;
   padding: 10px;
   margin: 4px 0px;
@@ -929,21 +930,27 @@ header nav {
 }
 
 .sent {
+  display:flex;
+  flex-direction: column;
   align-self: flex-end;
-  background-color: #f1abbf;
+  align-items: flex-end;
 }
 
 .received {
+  display:flex;
+  flex-direction: column;
   align-self: flex-start;
+  align-items: flex-start;
+}
+
+.sent .chatbox-message {
+  margin: 0;
+  background-color: #f1abbf;
+}
+
+.received .chatbox-message {
+  margin: 0;
   background-color:#e6d7ff;
-}
-
-.chatbox-message.sent p {
-  margin: 0;
-}
-
-.chatbox-message.received p {
-  margin: 0;
 }
 .chatbox-form {
   align-self: center;

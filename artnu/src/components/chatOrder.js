@@ -14,7 +14,7 @@ export function ChatOrder(props) {
     if (user) {
       setMyID(user.uid);
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
