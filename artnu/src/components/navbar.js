@@ -19,9 +19,6 @@ export function Navbar(props) {
           <a  href="../ArtNU/home">
             <img src={home}></img>
           </a>
-          <a href="../ArtNU/explore" data-cy="explore-btn">
-            <img src = {explore}></img>
-          </a>
           <a href="../ArtNU/chatbox">
             <img src={message}></img>
           </a>
