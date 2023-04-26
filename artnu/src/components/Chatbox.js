@@ -41,12 +41,12 @@ export function ChatBox (props) {
 }, [user]);
 
     function selectConvo (id, convos) {
-        console.log(id)
+        // console.log(id)
         setSelected(id);
         //find the convo with the id
         let convo = convos.find(convo => convo.id === id)
-        console.log(selected)
-        console.log(Users)
+        // console.log(selected)
+        // console.log(Users)
     }
     
     
@@ -101,9 +101,7 @@ export function ChatBox (props) {
     }
 
     function getChatOrder(message) {
-        console.log("message: ", message)
         if (message.orderid) {
-            console.log("u got here")
             return (
                 <ChatOrder data = {message} />
             )

@@ -26,13 +26,18 @@ export function ChatOrder(props) {
 
   function handleClick() {
       // const docRef = getOrderById(props.data.orderid)
-      async function updateConfirm() {
-        const order_data = await getOrderById(props.data.orderid)
-        order_data.data[4] = !order_data.data[4];
-        updateOrder(order_data.data, props.data.orderid)
-        setOrder(order_data.data)
+      if (props.data.sender != myID) {
+        async function updateConfirm() {
+          const order_data = await getOrderById(props.data.orderid)
+          order_data.data[4] = !order_data.data[4];
+          updateOrder(order_data.data, props.data.orderid)
+          setOrder(order_data.data)
+        }
+        updateConfirm();
       }
-      updateConfirm();
+      else {
+        console.log("only the art creator can confirm the post!")
+      }
   }
 
 

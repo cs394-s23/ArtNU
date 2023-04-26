@@ -256,7 +256,6 @@ export async function addMessage(id, message, receiverID, postdata, orderid) {
         ],
       });
     }
-
     console.log("Message added successfully!");
   } catch (error) {
     console.error("Error adding message: ", error);
