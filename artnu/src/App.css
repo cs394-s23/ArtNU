@@ -74,10 +74,22 @@
   font-family: boldfont;
   src: url(./fonts/slate-cufonfonts/SlateMedium.TTF);
 }
-header{
+#home-header{
   display: grid;
   flex-direction: row;
   align-items: center;
+  width : 100vw;
+  height : 10vh;
+  margin : 20px;
+  padding-bottom: 25px;
+
+}
+
+#chatbox-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
   width : 100vw;
   height : 10vh;
   margin : 20px;
@@ -93,7 +105,7 @@ header .logo{
   margin-left : 20px;
 }
 
-header .user 
+#home-header .user 
 {
   display: flex;
   flex-direction: row;
@@ -119,7 +131,7 @@ aside nav{
   position:fixed;
   margin-left : auto;
   right : 0;
-  top : 0;
+  top : 10vh;
 
 }
 

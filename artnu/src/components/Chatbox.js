@@ -112,17 +112,17 @@ export function ChatBox (props) {
     return (
 
     <div className="chatpage">
-             <header>
+             <header id="chatbox-header">
             <div className="logo">
                 <img src={paw}></img>
                 <span>NU Art</span>
             </div>
 
             <Navbar/>
-                <a href='../ArtNU/profile'>
-                <img src={myUser} className="user"></img>
-                </a>
+
             </header>
+
+            
         
             <div className="chatbox">
            

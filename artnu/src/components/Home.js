@@ -52,12 +52,14 @@ export default function Home() {
         <>
           {user ? (
             <>
-              <header>
+              <header id="home-header">
                 <div className="logo">
                   <img src={paw}></img>
                   <span>NU Art</span>
                 </div>
                 <div className="page-title">Home</div>
+
+                
               </header>
 
               <aside>
