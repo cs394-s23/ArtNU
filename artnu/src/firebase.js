@@ -291,7 +291,7 @@ export async function addOrder(uid, recieverid, postdata, orderid) {
 export async function updateOrder(postdata, orderid) {
   const orderRef = doc(db, "orders", orderid);
   try {
-      setDoc(orderRef, { data: postdata });
+      setDoc(orderRef, { data: postdata }, { merge: true });
     } catch (e) {
       console.error("Error updating order: ", e);
   }

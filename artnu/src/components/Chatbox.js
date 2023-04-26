@@ -155,7 +155,7 @@ export function ChatBox (props) {
                             {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
                                 return (
                                     <div key={message.id} className="chatbox-message-box">
-                                        {getChatOrder(message)}
+                                        {message.orderid ? getChatOrder(message): null}
                                         <p className={`chatbox-message ${message.sender === user.uid ? 'sent' : 'received'}`}>
                                             {message.content}
                                         </p>

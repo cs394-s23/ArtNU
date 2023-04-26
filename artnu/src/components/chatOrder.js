@@ -16,39 +16,27 @@ export function ChatOrder(props) {
     }
   }, [user]);
 
-  function handleClick() {
-      // const docRef = getOrderById(props.data.orderid)
-      async function updateConfirm() {
-        const order_data = await getOrderById(props.data.orderid)
-        order_data.data[4] = !order_data.data[4];
-        console.log(props.data)
-        updateOrder(order_data.data, props.data.orderid)
-        // NOW WE JUST NEED TO UPDATE THE DOC
-      }
-      updateConfirm();
-      
-//       const data = 
-//       setDoc(docRef, data, { merge:true })
-//       .then(docRef => {
-//           console.log("Document Field has been updated successfully");
-//         })
-//       .catch(error => {
-//       console.log(error);
-// })
-  }
   useEffect(() => {
     async function fetchData() {
         const order_data = await getOrderById(props.data.orderid)
-        console.log("this work?", order_data.data)
         setOrder(order_data.data)
     }
     fetchData();
 }, [])
 
-  // console.log(order)
+  function handleClick() {
+      // const docRef = getOrderById(props.data.orderid)
+      async function updateConfirm() {
+        const order_data = await getOrderById(props.data.orderid)
+        order_data.data[4] = !order_data.data[4];
+        updateOrder(order_data.data, props.data.orderid)
+        setOrder(order_data.data)
+      }
+      updateConfirm();
+  }
+
+
   let [img, author, price, title, confirmed]  = order
-  setConfirm(confirmed)
-  
   return (
     <div className={`chatOrder ${props.sender === myID ? 'sent' : 'received'}`}>
       <div className="order-info">
@@ -61,8 +49,8 @@ export function ChatOrder(props) {
       <div className="img-container">
         <img src={img} />
       </div>
-      <button className={`confirmbtn ${confirm === true ? 'confirmed' : 'notconfirmed'}`} onClick={handleClick}>
-        {confirm === true ? 'Confirmed' : 'Confirm'}
+      <button className={`confirmbtn ${order[4] === true ? 'confirmed' : 'notconfirmed'}`} onClick={handleClick}>
+        {order[4] === true ? 'Confirmed' : 'Confirm'}
       </button>
     </div>
   );
