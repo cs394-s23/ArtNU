@@ -19,7 +19,7 @@ export function UserList(){
     useEffect(() => {
       const dp = user_list
       .then(data => {
-        let user = data.slice(0,4)
+        let user = data.slice(0,2)
         setUserList(user)
       })
     }, [])

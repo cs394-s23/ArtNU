@@ -160,7 +160,9 @@ return (
         </div>
         <div className="rest">
           <h1>{userData.author}</h1>
-            
+           <h2 className="major">{userData.major != "null" ? userData.major : ""}</h2>
+          <h3>Hometown: {userData.hometown != "null" ? userData.hometown : ""}</h3>
+          <h3>Interests: {userData.interests != "null" ? userData.interests : ""}</h3>
           
           <button className="edit-profile" onClick={() => setShowAddInfo(true)}> Edit Bio </button>
         </div>
