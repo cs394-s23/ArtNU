@@ -4,26 +4,42 @@ import { useUser } from "../context/AuthContext";
 import { db } from "../firebase";
 import { doc, get } from "firebase/firestore";
 import { addUser } from "../firebase";
+import { useNavigate } from "react-router-dom";
+
+
 
 function SignIn() {
   const { user, signIn, signOut } = useUser();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  //export user id to be used in other components
+  console.log("back here")
+  
+
+
 
   useEffect(() => {
     setLoading(true);
-    if (user) {
+    if (user) {  
       addUser(user.uid, user.displayName)
         .then(() => {
           console.log('added user', user.uid, user.displayName);
           setLoading(false);
+          
+         
+     
+
         })
         .catch((error) => {
           console.log(error);
           setLoading(false);
         });
+        navigate ("/ArtNU/Home");
+
     } else {
       setLoading(false);
     }
+
   }, [user]);
 
   if (loading) {
@@ -33,7 +49,7 @@ function SignIn() {
 
 if (!loading){
 
-  console.log(user);
+
   return (
     <div
       sx={{
@@ -44,14 +60,7 @@ if (!loading){
         height: "100vh",
       }}
     >
-      {user ? (
-        <>
-          <h2>You are logged in as {user.displayName}</h2>
-          <Button variant="contained" sx={{ mt: 2 }} onClick={signOut}>
-            Sign Out
-          </Button>
-        </>
-      ) : (
+
         <div
           style={{
             display: "flex",
@@ -90,7 +99,7 @@ if (!loading){
             </Button>
           </div>
         </div>
-      )}
+      
     </div>
   );
             }

@@ -775,15 +775,22 @@ header nav {
   border-bottom: 1px solid black;
   margin : 0;
   height : 10%;
+ 
   display : flex;
   flex-direction : row;
   align-items : center;
   justify-content : flex-start;
 }
+.chatbox-header-right h2{
+  padding : 10px;
+  
+}
+
 
 .chatbox-header-left{
   width: 100%;
   height : 10%;
+  
   display : flex;
   flex-direction : row;
   align-items : center;
@@ -976,12 +983,12 @@ header nav {
 }
 
 .sent .chatbox-message {
-  margin: 0;
+
   background-color: #f1abbf;
 }
 
 .received .chatbox-message {
-  margin: 0;
+
   background-color:#e6d7ff;
 }
 .chatbox-form {
@@ -1236,3 +1243,37 @@ header nav {
   text-decoration: none;
   color: #333;
 } 
+.edit-profile{
+  border : none;
+  background: transparent;
+  text-decoration: underline;
+
+}
+.signout{
+  width : 100%;
+  height : 100%;
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  flex-direction: column;
+  padding : 20px;
+}
+.signback {
+  background-color: #9956c9;
+  width : 100px;
+
+  text-decoration: none;
+  color : white;
+  text-align : center;
+  padding : 10px;
+  border-radius: 5px;
+
+}
+.username {
+  font-size : 20px;
+  font-weight : bold;
+  margin-bottom : 10px;
+  text-decoration: none;
+  color : #333;
+  padding : 10px;
+}

@@ -36,7 +36,7 @@ export function ChatBox (props) {
     useEffect(() => {
         if (user) {
             setMyID(user.uid)
-            console.log(user.uid)
+            console.log("this is user",user.uid)
         }
 }, [user]);
 
@@ -52,7 +52,6 @@ export function ChatBox (props) {
     
     useEffect(() => {
         if (user){
-        // console.log(myID)
         const q = query(collection(db, "users", user.uid, "chatrooms"));
         
         const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -148,6 +147,7 @@ export function ChatBox (props) {
                 </div>
                 <div className="chatbox-main">
                     <div className="chatbox-header-right" >
+                        <a className="username" href={`/ArtNU/${selected}`}> {selected.length == 0 ? "Chat" : Users.find(user => user.id === selected).author}</a>
                     </div>
                     <div className="chatbox-inner">
                         

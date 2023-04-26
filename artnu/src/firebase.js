@@ -52,7 +52,7 @@ if (process.env.NODE_ENV == 'production') {
 export const db = initializeFirestore(app, settings)
 // Initialize Cloud Firestore and get a reference to the service
 //export const db = getFirestore(app);
-const myID= "0mg9bB2gmzmOqwvqanBr";
+
 
 
 

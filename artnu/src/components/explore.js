@@ -6,6 +6,9 @@ import user from './icons/user.png'
 import { AddPost } from "./AddPost.js";
 import { UserList } from "./UserList.js";
 import paw from './icons/paw.png'
+import SignIn from './SignIn.js';
+import userid from "./SignIn";
+import { useUser } from '../context/AuthContext.js';
 
 
 export default function Explore() {
@@ -15,6 +18,8 @@ export default function Explore() {
     const togglePopUp = () => {
         setPopUpVisible(!popUpVisible);
     }
+    const { user } = useUser();
+    console.log(user.userid)
 
     return (
   

@@ -13,8 +13,12 @@ import { UserList } from './UserList.js';
 
 export let togglePopUp;
 
-export default function Home() {
-  const { user, signIn, signOut } = useUser();
+export default function Home(props) {
+  console.log("props", props)
+  const {user, signin , signOut} = useUser();
+
+ 
+
 
   //not sure why we are reseting the user upon Homepage, so i removed
   // useEffect(() => {
@@ -23,6 +27,7 @@ export default function Home() {
   //     console.log('added user', user.uid, user.displayName)
   //   }
   // }, [user])
+
 
   const [isLoading, setIsLoading] = useState(true);
   const [popUpVisible, setPopUpVisible] = useState(false);
@@ -90,7 +95,7 @@ export default function Home() {
               {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#8e44ad' }}>
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', borderRadius: '10px', backgroundColor: 'white' }}> */}
               {/* <h2 style={{ color: '#8e44ad' }}>Welcome to NU Art!</h2> */}
-              <SignIn></SignIn>
+              
               {/* </div>
 </div> */}
 

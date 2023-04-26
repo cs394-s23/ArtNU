@@ -12,7 +12,7 @@ import user_img from './icons/user.png';
 
 
 export function ArtistProfile() {
-    const {user} = useUser()
+    var {user} = useUser();
     const [posts, setPosts] = useState([])
 
     const [userData, setUserData] = useState(null)
@@ -91,6 +91,7 @@ export function ArtistProfile() {
     if(!userData) {
         return <div>Loading...</div>;
     }
+    console.log(user)
 
     return (
         <>

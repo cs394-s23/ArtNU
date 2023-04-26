@@ -14,7 +14,7 @@ import { getUserById } from "../firebase";
 export function Profile() {
   const { user, signIn, signOut } = useUser();
   const [showAlert, setShowAlert] = useState(false);
-  const [showAddInfo, setShowAddInfo] = useState(true)
+  const [showAddInfo, setShowAddInfo] = useState(false);
   const [userData, setUserData] = useState(null)
 
   const [posts, setPosts] = useState([])
@@ -89,6 +89,7 @@ return (
           <>
           <div className = "profile-page">
             <Navbar />
+            
             {showAddInfo && (
             <div className="add-info-popup-bg">
             <Box className="add-info-popup" sx={{ m: 2, display: "flex", justifyContent: "center", bgcolor:""}}>
@@ -147,6 +148,7 @@ return (
           </CardContent>
         </Card>
       </Box>
+
     </div>
     )}
 
@@ -158,10 +160,11 @@ return (
         </div>
         <div className="rest">
           <h1>{userData.author}</h1>
-          {userData.major && <h2 className="major">{userData.major} Major</h2>}
-          <h3>Hometown: {userData.hometown}</h3>
-          <h3>Interests: {userData.interests}</h3>
+            
+          
+          <button className="edit-profile" onClick={() => setShowAddInfo(true)}> Edit Bio </button>
         </div>
+       
       </div>
     <div className = "postsfeed">
             {posts.map((post) => (
