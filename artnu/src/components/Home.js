@@ -60,6 +60,10 @@ export default function Home() {
                 <div className="page-title">Home</div>
               </header>
 
+              <aside>
+                <Navbar />
+              </aside>
+
               <main className="home">
                 <div className="userlist">
                   <UserList />
@@ -73,9 +77,7 @@ export default function Home() {
                   Sign Out
                 </Button>
               </div>
-              <aside>
-                <Navbar />
-              </aside>
+
 
               <div className="newCommission">
                 <AddPost popUpVisible={popUpVisible} togglePopUp={togglePopUp} />
