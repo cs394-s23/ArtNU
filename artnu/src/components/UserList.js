@@ -13,7 +13,7 @@ export function UserList(){
     useEffect(() => {
         const dp = user_list
         .then(data => {
-            let user = data
+            let user = data.slice(0,4)
             setUserList(user)
         })
     }, [])
@@ -22,10 +22,12 @@ export function UserList(){
         <>
         <div>
             <h1> Featured NU Artists</h1>
+            <p> Check out some of our favorite Northwestern artists!</p>
             <div className = "artistfeed">
                 {userList.map(user => (
                     <>
                     <ArtistCard
+                        key={user.id}
                         author = {user.author}
                         hometown = {user.hometown}
                         interests = {user.interests}

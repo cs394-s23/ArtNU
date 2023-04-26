@@ -20,18 +20,44 @@
 
 .artistProfile {
   display: block;
-  text-align: center;
+  width:50%;
+  border: 1px black solid;
+  margin: 0 auto;
 }
 
-.artistProfile h1 {
-  font-weight: bolder;
-  font-size:xx-large;
-}
+
 
 .artistProfile .home .postsfeed .post {
   width: 300px;
   margin: 20px;
 
+}
+
+.art-caption {
+  text-align: left;
+  margin: -20px;
+  font-size: large;
+  margin-left: 45px;
+
+}
+
+.artistProfile h1 {
+  padding-top: 10px;
+  margin-left: 45px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.artist-info {
+  display: flex;
+  margin-left: 30px;
+}
+
+.artistProfile .artist-info p {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: left;
+  margin: 15px;
 }
 
 @font-face {
@@ -613,7 +639,8 @@ span.pagelink a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 25px;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .explore .feed {
@@ -624,7 +651,7 @@ span.pagelink a{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   overflow: scroll;
   gap: 0%;
@@ -680,7 +707,6 @@ span.pagelink a{
   width:0px;
   margin:0px;
 }
-
 
 .explore .friends-like .filters, .explore .curr-popups .filters {
   display: none;
@@ -944,19 +970,48 @@ header nav {
   background-color: white;
 }
 
-.profile-page .postsfeed {
+.profile {
+  width: 95%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+}
+
+.profile .user-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #434343;
+
+}
+
+.profile .profile-pic {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+.profile .profile-pic img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.profile .postsfeed {
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
   justify-content: flex-start;
   align-items:flex-start;
-  margin-left: 20px;
   padding: 10px;
-  width: 70%;
-  border: 1px black solid;
+  width: 95%;
 }
 
-.profile-page .post {
+.profile .post {
   /* border : 0.25px solid rgb(121, 121, 121); */
   border-radius: 5px;
   width: 200px;
@@ -964,7 +1019,7 @@ header nav {
   padding: 0px;
 }
 
-.profile-page .post .sub-image{
+.profile .post .sub-image{
   display: none;
 }
 
@@ -981,23 +1036,38 @@ header nav {
   z-index: 999;
 }
 
-.profile {
-  border: 1px solid black;
-  width: 95%;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+.profile .user-info h1{
+  color: #434343;
 }
 
-.profile .user-info{
-  width: 30%;
+.profile .user-info h2{
+  color: #9796F0;
 }
+
+.profile .user-info h3{
+  color: #ABABAB;
+}
+
+.user-info h1
 
 /* Artist Card stuff */
 
-.artistfeed {
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.profile-page nav {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: white;
+}
+ .artistfeed {
   display: flex;
   flex-direction: row;
 }
@@ -1019,7 +1089,7 @@ header nav {
 .card-header {
   width: 100%;
   text-align:center;
-  margin-top: -25px;
+  margin-top: -10px;
 }
 
 .card-header .card-author {
@@ -1043,4 +1113,4 @@ header nav {
 .artistcard a {
   text-decoration: none;
   color: #333;
-}
+} 

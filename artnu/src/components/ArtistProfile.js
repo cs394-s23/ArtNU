@@ -5,6 +5,9 @@ import { Navbar } from "./navbar";
 import { Post } from "./post.js";
 import { useUser } from "../context/AuthContext.js";
 import { posts_data } from "../firebase.js";
+import paw from './icons/paw.png';
+import user_img from './icons/user.png';
+
 
 
 
@@ -91,41 +94,42 @@ export function ArtistProfile() {
 
     return (
         <>
-        <div className="artistProfile">
-            <div className="artist-info">
-                <h1>{userData.author}'s Profile</h1>
-                <p> Major: {userData.major}</p>
-                <p> Current Year: {userData.year}</p>
-            </div>
-            <div>
-                <p>Posts should be below</p>
-                <div className="home">
-                    <div className="postsfeed">
-                        {posts.map((post) => (
-
-                            <>
-                                <Post
-                                    key={post.ref}
-                                    img={post.img}
-                                    author={post.author}
-                                    likes={post.likes}
-                                    price={post.price}
-                                    caption={post.caption}
-                                    title={post.title}
-                                    // getUser = {getUser} 
-                                    // userRef = {post.user} 
-                                    uid={post.uid}
-                                />
-                            </>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
+        <div className = "profile-page">
+        <Navbar />        
+        <div className="profile">
+      <div className="user-info">
+        <div className="profile-pic">
+          {userData.pic!="null" && <img src={userData.pic}></img>}
         </div>
-        <aside>
-            <Navbar/>
-        </aside>
+        <div className="rest">
+          <h1>{userData.author}</h1>
+          {userData.major!="null" && <h2 className="major">{userData.major} Major</h2>}
+          {userData.hometown!="null" && <h3>Hometown: {userData.hometown}</h3> }
+          {userData.interests!="null" && <h3>Interests: {userData.interests}</h3> }
+        </div>
+      </div>
+    <div className = "postsfeed">
+        {posts.map((post) => (
+            <>
+            <Post
+                key = {post.ref}
+                img={post.img}
+                author={post.author}
+                likes={post.likes}
+                price={post.price}
+                caption={post.caption}
+                title = {post.title}
+                // getUser = {getUser} 
+                // userRef = {post.user} 
+                uid={post.uid}
+            />
+            </>
+        ))}
+        {posts.length==0 && 
+        <h2>This artist does not have items for sale yet!</h2>}
+        </div>
+        </div>
+        </div>
         </>
     );
 };

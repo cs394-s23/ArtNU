@@ -3,9 +3,10 @@ import {Navbar} from './navbar.js'
 import {Filters} from './filters.js'
 import {useState} from 'react';
 import user from './icons/user.png'
-import paw from './icons/paw.png'
 import { AddPost } from "./AddPost.js";
 import { UserList } from "./UserList.js";
+import paw from './icons/paw.png'
+
 
 export default function Explore() {
     
