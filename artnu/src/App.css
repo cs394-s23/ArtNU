@@ -818,7 +818,7 @@ header nav {
   width:40%;
   height: 100%;
   border-right : 0.25px solid black;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
 
@@ -828,6 +828,7 @@ header nav {
   align-items: center;
   height: 90%;
   width: 100%;
+  overflow-y: scroll;
   padding: 10px;
 }
 
@@ -1270,10 +1271,11 @@ header nav {
 
 }
 .username {
-  font-size : 20px;
-  font-weight : bold;
-  margin-bottom : 10px;
+  font-size : 18px;
+  /* font-weight : bold; */
+  /* margin-bottom : 10px; */
   text-decoration: none;
   color : #333;
   padding : 10px;
+  margin: 0;
 }

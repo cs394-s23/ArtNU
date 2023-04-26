@@ -147,7 +147,7 @@ export function ChatBox (props) {
                 </div>
                 <div className="chatbox-main">
                     <div className="chatbox-header-right" >
-                        <a className="username" href={`/ArtNU/${selected}`}> {selected.length == 0 ? "Chat" : Users.find(user => user.id === selected).author}</a>
+                        <a className="username" href={`/ArtNU/${selected}`}> {`To: ${selected.length == 0 ? "" : Users.find(user => user.id === selected).author}`}</a>
                     </div>
                     <div className="chatbox-inner">
                         
