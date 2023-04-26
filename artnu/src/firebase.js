@@ -126,6 +126,18 @@ export async function getUserById(id) {
   }
 }
 
+export async function getOrderById(orderid) {
+  const orderRef = doc(db, "orders", orderid);
+  const orderSnap = await getDoc(orderRef);
+  if (!orderSnap.data()) {
+    return null
+  }
+  else {
+    const order = orderSnap.data();
+    return order
+  }
+}
+
 //get all userList
 export async function getUserList(){
   var userList = []
@@ -178,7 +190,7 @@ getRedirectResult(auth)
   // console.log(posts);
   return convos
 }
-export async function addMessage(id, message, receiverID, postdata) {
+export async function addMessage(id, message, receiverID, postdata, orderid) {
   try {
     const docRef = doc(db, "users/" + id + "/chatrooms/" + receiverID);
     const docSnap = await getDoc(docRef);
@@ -193,6 +205,7 @@ export async function addMessage(id, message, receiverID, postdata) {
           sender: id,
           content: message,
           postdata: postdata,
+          orderid: orderid,
         }),
       });
     } else {
@@ -203,6 +216,7 @@ export async function addMessage(id, message, receiverID, postdata) {
             sender: id,
             content: message,
             postdata: postdata,
+            orderid: orderid,
           },
         ],
       });
@@ -222,6 +236,7 @@ export async function addMessage(id, message, receiverID, postdata) {
           sender: id,
           content: message,
           postdata: postdata,
+          orderid: orderid,
         }),
       }).catch((error) => {
         console.error("Error adding message: ", error);
@@ -236,6 +251,7 @@ export async function addMessage(id, message, receiverID, postdata) {
             sender: id,
             content: message,
             postdata: postdata,
+            orderid: orderid,
           },
         ],
       });
@@ -252,12 +268,7 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
   const userRef = doc(db, "users", uid);
   const userSnapshot = await getDoc(userRef);
   const chatroomsRef = collection(userRef, "chatrooms");
-
-
-
-
 // if user has never existed
-
   await setDoc(userRef, {
     author: displayName,
     major: major,
@@ -266,15 +277,28 @@ export  async function addUser(uid, displayName, major="null", year="null", inte
     hometown: hometown,
     pic: pic
   });
- 
-
-
-
 }
  
+export async function addOrder(uid, recieverid, postdata, orderid) {
+  try {
+      const docRef = await setDoc(doc(db, "orders", orderid), {
+        senderid: uid,
+        reciever: recieverid,
+        data: postdata
+      });
+    } catch (e) {
+      console.error("Error adding order: ", e);
+  }
+}
 
-
-
+export async function updateOrder(postdata, orderid) {
+  const orderRef = doc(db, "orders", orderid);
+  try {
+      setDoc(orderRef, { data: postdata }, { merge: true });
+    } catch (e) {
+      console.error("Error updating order: ", e);
+  }
+}
 
 
 
