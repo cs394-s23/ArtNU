@@ -775,6 +775,15 @@ header nav {
   padding : 10px;
   
 }
+
+.chatbox-header-left p{
+  align-self: center;
+  margin: auto;
+  font-style: italic;
+  font-size: 150%;
+  color: rgba(51, 51, 51, 0.705);
+  
+}
 .chatbox-side{
   display: flex;
   flex-direction: column;
@@ -793,6 +802,7 @@ header nav {
   align-items: center;
   height: 90%;
   width: 100%;
+  padding: 10px;
 }
 
 .chatbox-item {
@@ -801,6 +811,9 @@ header nav {
   flex-direction: row;
   align-items: center;
   border-bottom : 0.25px solid black;
+}
+.chatbox-item.select {
+  background-color: rgb(207, 177, 231);
 }
 
 .chatbox-item img, .chatbox-item h2{

@@ -128,13 +128,16 @@ export function ChatBox (props) {
            
                 <div className="chatbox-side">
                     <div className="chatbox-header-left">
+                        <p>{selected.length == 0 ? "Select a chat from the user list below" : ""}</p>
                     </div>
                     <div className="chatbox-list">
                         {/*  convo list */}
                         {Users.map(user => {
                             return (
-                                <div className="chatbox-item" onClick={() => selectConvo(user.id, Convos)}>
-                                    <img className="profile-pic" src={user.profilepic}></img>
+                                <div className={`chatbox-item ${user.id === selected ? 'select' : ''}`} onClick={() => selectConvo(user.id, Convos)}>
+                                    
+                                    {/* <img className="profile-pic" src={user.profilepic}></img> */}
+                                    <img className="profile-pic" src={"https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"}></img>
                                     <h2>
                                         {user.author}
                                     </h2>
@@ -145,10 +148,9 @@ export function ChatBox (props) {
                 </div>
                 <div className="chatbox-main">
                     <div className="chatbox-header-right" >
-                        {/*  convo user name */}
                     </div>
                     <div className="chatbox-inner">
-                        {/*  convo messages */}
+                        
                         <div className = "chat-messages">
                             {Convos.find(convo => convo.id === selected) ? Convos.find(convo => convo.id === selected).convo.map(message => {        
                                 return (
