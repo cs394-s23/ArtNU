@@ -5,9 +5,6 @@ import { Navbar } from "./navbar";
 import { Post } from "./post.js";
 import { useUser } from "../context/AuthContext.js";
 import { posts_data } from "../firebase.js";
-import paw from './icons/paw.png';
-import user_img from './icons/user.png';
-
 
 
 
