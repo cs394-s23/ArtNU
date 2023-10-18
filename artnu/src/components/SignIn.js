@@ -40,7 +40,7 @@ function SignIn() {
       setLoading(false);
     }
 
-  }, [user]);
+  }, [navigate, user]);
 
   if (loading) {
     console.log("loading")

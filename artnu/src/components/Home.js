@@ -1,33 +1,25 @@
 import { Posts } from './posts.js';
 import { Navbar } from './navbar.js'
-import { Filters } from './filters.js'
 import { useState, useEffect } from 'react';
-import myUser from './icons/user.png'
 import paw from './icons/paw.png'
 import { AddPost } from "./AddPost.js";
-import SignIn from './SignIn.js';
 import { useUser } from '../context/AuthContext.js';
 import { Button } from '@mui/material';
-import { addUser } from '../firebase.js';
 import { UserList } from './UserList.js';
+import { useNavigate } from "react-router-dom"; // Import the hook
 
 export let togglePopUp;
 
 export default function Home(props) {
   console.log("props", props)
-  const {user, signin , signOut} = useUser();
+  const {user} = useUser();
 
- 
+  
 
+  const navigate = useNavigate(); // Initialize navigate
 
-  //not sure why we are reseting the user upon Homepage, so i removed
-  // useEffect(() => {
-  //   if (user) {
-  //     addUser(user.uid, user.displayName)
-  //     console.log('added user', user.uid, user.displayName)
-  //   }
-  // }, [user])
-
+  // Check if the user is authenticated, and if not, navigate to the sign-in route
+  
 
   const [isLoading, setIsLoading] = useState(true);
   const [popUpVisible, setPopUpVisible] = useState(false);
@@ -44,6 +36,11 @@ export default function Home(props) {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  if (!user) {
+    navigate("/ArtNU/signin"); // Redirect to the sign-in route
+    return null; // Prevent rendering the Home component if not authenticated
+  };
 
   togglePopUp = () => {
     setPopUpVisible(!popUpVisible);
@@ -63,7 +60,7 @@ export default function Home(props) {
                   <span>NU Art</span>
                 </div>
                 <div className="page-title">Home</div>
-
+                
                 
               </header>
 
@@ -79,11 +76,11 @@ export default function Home(props) {
 
                 <Posts />
               </main>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: "10%" }}>
+              {/* <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: "10%" }}>
                 <Button variant="contained" sx={{ mt: 2 }} onClick={signOut}>
                   Sign Out
                 </Button>
-              </div>
+              </div> */}
 
 
               <div className="newCommission">
